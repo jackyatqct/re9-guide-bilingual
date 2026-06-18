@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="All Boss Guides &amp; Weaknesses | RE9 Guide" data-zh="生化危机9安魂曲BOSS攻略大全 | RE9全BOSS弱点打法">All Boss Guides &amp; Weaknesses | RE9 Guide</title>
+<meta name="description" data-en="Complete boss guide for Resident Evil Requiem RE9. All boss weak points, strategies, and drop rewards for Normal and Insanity difficulty." data-zh="生化危机9安魂曲所有BOSS攻略。包含Chunk、Mr.X、超级暴君等弱点、分阶段打法、掉落奖励。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--blood:#8B0000;--blood-dim:#5a0000;--rust:#C0392B;--amber:#E8A000;--bone:#D4C9B0;--ash:#9A9590;--ink:#0D0C0B;--ink-mid:#1A1917;--ink-light:#252320;--ink-border:#2E2C29;--text:#C8C2B8;--text-dim:#7A746E}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7}
+  body.lang-zh{font-family:'Noto Sans SC',sans-serif}
+  body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.05) 2px,rgba(0,0,0,0.05) 4px);pointer-events:none;z-index:1000}
+  nav{position:sticky;top:0;z-index:200;background:rgba(13,12,11,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.12em;color:var(--bone);text-decoration:none;flex-shrink:0}
+  body.lang-zh .nav-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .nav-logo span{color:var(--blood)}
+  .nav-links{display:flex;gap:4px;list-style:none;flex:1;justify-content:center}
+  .nav-links a{color:var(--ash);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.06em;transition:color 0.2s;padding:6px 10px;white-space:nowrap}
+  .nav-links a:hover{color:var(--bone)}
+  .nav-links a.active{color:var(--amber)}
+  .lang-switcher{display:flex;align-items:center;border:1px solid var(--ink-border);flex-shrink:0;overflow:hidden}
+  .lang-btn{background:transparent;border:none;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:6px 12px;transition:all 0.2s;color:var(--text-dim);font-family:inherit}
+  .lang-btn:hover{color:var(--bone);background:var(--ink-light)}
+  .lang-btn.active{background:var(--blood);color:var(--bone)}
+  .lang-btn:first-child{border-right:1px solid var(--ink-border)}
+  .page-header{padding:52px 48px 44px;background:linear-gradient(180deg,var(--ink-mid) 0%,var(--ink) 100%);border-bottom:1px solid var(--ink-border);position:relative;overflow:hidden}
+  .page-header::before{content:'BOSSES';position:absolute;right:48px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',monospace;font-size:120px;color:rgba(255,255,255,0.02);pointer-events:none;line-height:1}
+  body.lang-zh .page-header::before{content:'BOSS'}
+  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:0.1em;margin-bottom:14px}
+  .breadcrumb a{color:var(--blood);text-decoration:none}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:0.03em;color:var(--bone);line-height:1;margin-bottom:10px}
+  body.lang-zh .page-title{font-family:'Noto Sans SC',sans-serif;font-size:42px;font-weight:700;letter-spacing:0.02em}
+  .page-title span{color:var(--blood)}
+  .page-desc{font-size:14px;color:var(--text-dim);max-width:560px;line-height:1.8}
+  .jump-nav{background:var(--ink-mid);border-bottom:1px solid var(--ink-border);padding:12px 48px;display:flex;gap:6px;flex-wrap:wrap}
+  .jump-link{font-size:12px;color:var(--text-dim);text-decoration:none;padding:5px 12px;border:1px solid var(--ink-border);transition:all 0.2s;white-space:nowrap}
+  .jump-link:hover{color:var(--bone);border-color:var(--blood-dim);background:var(--ink-light)}
+  .content{max-width:960px;margin:0 auto;padding:56px 48px}
+  .boss-card{background:var(--ink-mid);border:1px solid var(--ink-border);margin-bottom:20px;position:relative;overflow:hidden}
+  .boss-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blood)}
+  .boss-card.optional::before{background:#4a5a7a}
+  .boss-top{padding:24px 24px 20px 32px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;border-bottom:1px solid var(--ink-border)}
+  .boss-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blood);margin-bottom:8px}
+  .boss-card.optional .boss-eyebrow{color:#6a7a9a}
+  .boss-name{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:0.03em;color:var(--bone);line-height:1.1;margin-bottom:6px}
+  body.lang-zh .boss-name{font-family:'Noto Sans SC',sans-serif;font-size:28px;font-weight:700;letter-spacing:0.02em}
+  .boss-subtitle{font-size:13px;color:var(--text-dim);margin-bottom:10px}
+  .boss-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .boss-tag{font-size:11px;padding:2px 8px;border:1px solid var(--ink-border);color:var(--text-dim)}
+  .boss-tag.char-leon{border-color:#2a4a7a;color:#6a8ab5}
+  .boss-tag.char-grace{border-color:var(--blood-dim);color:#aa4040}
+  .boss-meta{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+  .meta-pill{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 9px;letter-spacing:0.08em;white-space:nowrap}
+  .meta-diff-normal{border:1px solid #2d5a2d;color:#4CAF50}
+  .meta-diff-hard{border:1px solid #5a3a20;color:#E8A000}
+  .meta-diff-boss{border:1px solid #5a2020;color:var(--rust)}
+  .boss-body{padding:20px 24px 20px 32px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .boss-section-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .boss-section-label::after{content:'';flex:1;height:1px;background:var(--ink-border)}
+  body.lang-zh .boss-section-label{text-transform:none;letter-spacing:0.05em}
+  .weakness-list{display:flex;flex-direction:column;gap:5px}
+  .weakness-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;padding:7px 9px;background:rgba(139,0,0,0.06);border:1px solid rgba(139,0,0,0.15)}
+  .weakness-icon{font-size:13px;flex-shrink:0}
+  .weakness-text{color:var(--text)}
+  .weakness-text strong{color:var(--bone)}
+  .drop-list{display:flex;flex-direction:column;gap:5px}
+  .drop-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+  .drop-item::before{content:'▸';color:var(--amber);font-size:10px}
+  .strategy-block{grid-column:1/-1}
+  .strategy-text{font-size:13px;color:var(--text-dim);line-height:1.75}
+  .strategy-text p{margin-bottom:10px}
+  .strategy-text strong{color:var(--bone)}
+  .strategy-text .phase{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;color:var(--blood);border:1px solid var(--blood-dim);padding:1px 6px;margin-right:6px}
+  .tip-box{background:rgba(0,60,0,0.1);border:1px solid #2a4a2a;padding:10px 14px;margin-top:10px;display:flex;gap:8px}
+  .tip-text{font-size:12px;color:var(--text-dim);line-height:1.6}
+  .tip-text strong{color:#4CAF50}
+  .warning-box{background:rgba(139,0,0,0.1);border:1px solid var(--blood-dim);padding:10px 14px;margin-bottom:16px;display:flex;gap:8px}
+  .warning-text{font-size:13px;color:var(--bone);line-height:1.6}
+  .warning-text strong{color:var(--rust)}
+  .section-divider{height:1px;background:linear-gradient(90deg,var(--blood-dim),transparent);margin:40px 0}
+  .section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .section-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blood);border:1px solid var(--blood-dim);padding:3px 8px}
+  .section-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.04em;color:var(--bone)}
+  body.lang-zh .section-title{font-family:'Noto Sans SC',sans-serif;font-size:24px;font-weight:700;letter-spacing:0.02em}
+  .optional-section .section-tag{color:#6a7a9a;border-color:#3a4a5a}
+  footer{background:var(--ink-mid);border-top:1px solid var(--ink-border);padding:24px 48px;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;color:var(--ash);text-decoration:none}
+  body.lang-zh .footer-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .footer-logo span{color:var(--blood-dim)}
+  .footer-note{font-size:11px;color:var(--text-dim)}
+  @media(max-width:768px){.page-header,.content{padding-left:24px;padding-right:24px}.jump-nav{padding:10px 24px}.boss-body{grid-template-columns:1fr}.boss-top{grid-template-columns:1fr}.boss-meta{flex-direction:row}footer{flex-direction:column;gap:10px}nav{padding:0 16px}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">RE<span>9</span>GUIDE</a>
+  <ul class="nav-links">
+    <li><a href="walkthrough.html" data-en="Walkthrough" data-zh="全流程">Walkthrough</a></li>
+    <li><a href="puzzles.html" data-en="Puzzles &amp; Codes" data-zh="谜题密码">Puzzles &amp; Codes</a></li>
+    <li><a href="bosses.html" class="active" data-en="Bosses" data-zh="BOSS攻略">Bosses</a></li>
+    <li><a href="collectibles.html" data-en="Collectibles" data-zh="收集品">Collectibles</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="RE9Lang.setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="zh" onclick="RE9Lang.setLang('zh')">中文</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html" data-en="RE9 Guide" data-zh="生化危机9攻略">RE9 Guide</a> › <span data-en="Boss Guide" data-zh="BOSS攻略"></span></div>
+  <h1 class="page-title"><span data-en="Boss Guide &amp;" data-zh="BOSS攻略">Boss Guide &amp;</span><br><span data-en="Weaknesses" data-zh="弱点打法大全">Weaknesses</span></h1>
+  <p class="page-desc" data-en="Every boss in Resident Evil Requiem — weak points, kill strategies, and drop rewards. Covers both Leon and Grace campaigns." data-zh="生化危机9安魂曲全BOSS弱点位置、分阶段打法、弹药效率策略和掉落奖励。里昂和格蕾丝线全覆盖。">Every boss in Resident Evil Requiem — weak points, kill strategies, and drop rewards. Covers both Leon and Grace campaigns.</p>
+</div>
+
+<nav class="jump-nav">
+  <a href="#chunk" class="jump-link">Chunk</a>
+  <a href="#mr-x" class="jump-link">Mr. X</a>
+  <a href="#super-tyrant" class="jump-link" data-en="Super Tyrant" data-zh="超级暴君">Super Tyrant</a>
+  <a href="#emily" class="jump-link" data-en="Mutated Emily" data-zh="突变艾米莉">Mutated Emily</a>
+  <a href="#keeper" class="jump-link" data-en="The Keeper" data-zh="守卫者">The Keeper</a>
+  <a href="#optional" class="jump-link" data-en="Optional Bosses" data-zh="支线BOSS">Optional Bosses</a>
+</nav>
+
+<div class="content">
+  <div class="warning-box"><span>⚠️</span><div class="warning-text" data-en="&lt;strong&gt;Ammo economy matters.&lt;/strong&gt; RE9 punishes ammo dumps in wrong phases. Each entry notes exactly when the boss is vulnerable." data-zh="&lt;strong&gt;弹药经济很重要。&lt;/strong&gt;RE9会惩罚在错误阶段乱打的行为。下方每个词条都明确标注了真正的破绽窗口。"><strong>Ammo economy matters.</strong> RE9 punishes ammo dumps in wrong phases. Each entry notes exactly when the boss is vulnerable.</div></div>
+
+  <div class="section-header"><span class="section-tag" data-en="MAIN STORY" data-zh="主线">MAIN STORY</span><h2 class="section-title" data-en="Story Bosses" data-zh="主线BOSS">Story Bosses</h2></div>
+
+  <!-- CHUNK -->
+  <div class="boss-card" id="chunk">
+    <div class="boss-top">
+      <div>
+        <div class="boss-eyebrow" data-en="Boss #1 · Wrenwood Hotel" data-zh="BOSS #1 · 伦伍德酒店">Boss #1 · Wrenwood Hotel</div>
+        <div class="boss-name" data-en="CHUNK" data-zh="CHUNK（残骸者）">CHUNK</div>
+        <div class="boss-subtitle" data-en="Heavily mutated former security guard. First major boss." data-zh="高度变异的前保安人员，游戏第一个主要BOSS。">Heavily mutated former security guard. First major boss.</div>
+        <div class="boss-tags">
+          <span class="boss-tag char-leon" data-en="Leon" data-zh="里昂">Leon</span>
+          <span class="boss-tag char-grace" data-en="Grace (alternate)" data-zh="格蕾丝（另一种方式）">Grace (alternate)</span>
+          <span class="boss-tag" data-en="2 Phases" data-zh="2阶段">2 Phases</span>
+        </div>
+      </div>
+      <div class="boss-meta">
+        <span class="meta-pill meta-diff-normal" data-en="Moderate" data-zh="中等难度">Moderate</span>
+        <span class="meta-pill meta-diff-boss" data-en="Use: Shotgun" data-zh="推荐：霰弹枪">Use: Shotgun</span>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div>
+        <div class="boss-section-label" data-en="Weak Points" data-zh="弱点位置">Weak Points</div>
+        <div class="weakness-list">
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Phase 1:&lt;/strong&gt; Exposed chest cavity — shoot during his charge wind-up animation." data-zh="&lt;strong&gt;第1阶段：&lt;/strong&gt;胸口裸露的空腔——在他蓄力冲锋的后摆动作时射击。"><strong>Phase 1:</strong> Exposed chest cavity — shoot during his charge wind-up animation.</div></div>
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Phase 2:&lt;/strong&gt; Glowing mutation on back — use Flash Grenades or shoot legs to force a 180." data-zh="&lt;strong&gt;第2阶段：&lt;/strong&gt;背后的发光突变体——用闪光弹或打腿让他转身，再输出。"><strong>Phase 2:</strong> Glowing mutation on back — use Flash Grenades or shoot legs to force a 180.</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="boss-section-label" data-en="Drops &amp; Rewards" data-zh="掉落奖励">Drops &amp; Rewards</div>
+        <div class="drop-list">
+          <div class="drop-item" data-en="Hatchet: Mortal Edge (Leon)" data-zh="斧头：死亡之刃（里昂专属）">Hatchet: Mortal Edge (Leon)</div>
+          <div class="drop-item" data-en="Chunk's Keycard — exit the Hotel basement" data-zh="Chunk通行证——离开地下室必须">Chunk's Keycard — exit the Hotel basement</div>
+          <div class="drop-item" data-en="Shotgun Shells ×3 (scattered around arena)" data-zh="霰弹枪子弹×3（场地散落）">Shotgun Shells ×3 (scattered around arena)</div>
+        </div>
+      </div>
+      <div class="strategy-block">
+        <div class="boss-section-label" data-en="Strategy" data-zh="打法思路">Strategy</div>
+        <div class="strategy-text">
+          <p><span class="phase" data-en="Phase 1" data-zh="第1阶段">Phase 1</span><span data-en="Stay mobile. Shoot the chest during the pull-back animation. Two shotgun blasts end Phase 1." data-zh="保持移动，在他蓄力冲锋的后撤动作期间射击胸口，两发霰弹枪可结束第1阶段。">Stay mobile. Shoot the chest during the pull-back animation. Two shotgun blasts end Phase 1.</span></p>
+          <p><span class="phase" data-en="Phase 2" data-zh="第2阶段">Phase 2</span><span data-en="Throw Flash Grenade to stagger, sprint around to his back, dump shotgun rounds into the glowing mass." data-zh="扔闪光弹让他定格，立刻绕后对发光体输出3~4发霰弹枪。">Throw Flash Grenade to stagger, sprint around to his back, dump shotgun rounds into the glowing mass.</span></p>
+        </div>
+        <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Grace players:&lt;/strong&gt; Craft 3 Hemolytic Injectors and inject them when the back mutation is exposed — instantly ends Phase 2 without using any gun ammo." data-zh="&lt;strong&gt;格蕾丝玩家专属：&lt;/strong&gt;战前合成3瓶血液注射液，背部突变体暴露时全部注射，直接秒杀第2阶段，省下全部弹药。"><strong>Grace players:</strong> Craft 3 Hemolytic Injectors and inject them when the back mutation is exposed — instantly ends Phase 2 without using any gun ammo.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MR X -->
+  <div class="boss-card" id="mr-x">
+    <div class="boss-top">
+      <div>
+        <div class="boss-eyebrow" data-en="Boss #2 · Raccoon City — RPD Chase + Arena" data-zh="BOSS #2 · 浣熊市——RPD追逐 + 竞技场决战">Boss #2 · Raccoon City — RPD Chase + Arena</div>
+        <div class="boss-name">MR. X</div>
+        <div class="boss-subtitle" data-en="Tyrant-series B.O.W. Relentlessly pursues Leon through the RPD." data-zh="T系列B.O.W.，持续追踪里昂穿越整个RPD大楼。">Tyrant-series B.O.W. Relentlessly pursues Leon through the RPD.</div>
+        <div class="boss-tags">
+          <span class="boss-tag char-leon" data-en="Leon only" data-zh="仅里昂">Leon only</span>
+          <span class="boss-tag" data-en="Chase Phase" data-zh="追逐阶段">Chase Phase</span>
+          <span class="boss-tag" data-en="Arena Phase" data-zh="竞技场阶段">Arena Phase</span>
+        </div>
+      </div>
+      <div class="boss-meta">
+        <span class="meta-pill meta-diff-hard" data-en="High Difficulty" data-zh="高难度">High Difficulty</span>
+        <span class="meta-pill meta-diff-boss" data-en="Save: Explosive Rounds" data-zh="保留：爆炸弹药">Save: Explosive Rounds</span>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div>
+        <div class="boss-section-label" data-en="Weak Points" data-zh="弱点位置">Weak Points</div>
+        <div class="weakness-list">
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Chase Phase:&lt;/strong&gt; No weak point — do NOT waste ammo. He cannot be stopped." data-zh="&lt;strong&gt;追逐阶段：&lt;/strong&gt;无有效弱点——&lt;strong&gt;绝对不要&lt;/strong&gt;在追逐阶段浪费弹药，他无法被击倒。"><strong>Chase Phase:</strong> No weak point — do NOT waste ammo. He cannot be stopped.</div></div>
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Arena Phase:&lt;/strong&gt; Mouth during punish windows. Back cyst while downed (highest damage window)." data-zh="&lt;strong&gt;竞技场阶段：&lt;/strong&gt;进行惩罚动作时张口——射击口腔。倒地时背部囊肿为最高伤害窗口。"><strong>Arena Phase:</strong> Mouth during punish windows. Back cyst while downed (highest damage window).</div></div>
+          <div class="weakness-item"><span class="weakness-icon">💥</span><div class="weakness-text" data-en="&lt;strong&gt;Environmental:&lt;/strong&gt; Explosive canisters around the arena deal ~3× normal gun damage." data-zh="&lt;strong&gt;环境利用：&lt;/strong&gt;场地角落的爆炸罐——伤害约为普通枪伤的3倍。"><strong>Environmental:</strong> Explosive canisters around the arena deal ~3× normal gun damage.</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="boss-section-label" data-en="Drops" data-zh="掉落奖励">Drops</div>
+        <div class="drop-list">
+          <div class="drop-item" data-en="RPD Parking Garage Key" data-zh="RPD停车场钥匙">RPD Parking Garage Key</div>
+          <div class="drop-item" data-en="Requiem Rounds ×4" data-zh="安魂弹×4">Requiem Rounds ×4</div>
+          <div class="drop-item" data-en="Unlocks East Raccoon City" data-zh="解锁浣熊市东区">Unlocks East Raccoon City</div>
+        </div>
+      </div>
+      <div class="strategy-block">
+        <div class="boss-section-label" data-en="Strategy" data-zh="打法思路">Strategy</div>
+        <div class="strategy-text">
+          <p><span class="phase" data-en="Chase" data-zh="追逐阶段">Chase</span><span data-en="Do not waste ammo. Run to the upper arena. Use ladders and stairs to create distance while collecting ammo from side rooms." data-zh="不要浪费弹药，跑向上层竞技场。利用楼梯和梯子拉开距离，同时从侧室收集弹药。">Do not waste ammo. Run to the upper arena. Use ladders and stairs to create distance while collecting ammo from side rooms.</span></p>
+          <p><span class="phase" data-en="Arena" data-zh="竞技场阶段">Arena</span><span data-en="Use ladders to force movement angles for mouth shots. Kite near explosive canisters at half health. Dump ammo into back cyst when he's downed — ~3 second window." data-zh="利用梯子控制他的移动路线，创造射击口腔的角度。半血时将他引到爆炸罐旁边。他跪下时立即绕后大量输出背部囊肿，约3秒后起身。">Use ladders to force movement angles for mouth shots. Kite near explosive canisters at half health. Dump ammo into back cyst when he's downed — ~3 second window.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPER TYRANT -->
+  <div class="boss-card" id="super-tyrant">
+    <div class="boss-top">
+      <div>
+        <div class="boss-eyebrow" data-en="Boss #3 · Outside RPD — Final Tyrant Form" data-zh="BOSS #3 · RPD外部——最终暴君形态">Boss #3 · Outside RPD — Final Tyrant Form</div>
+        <div class="boss-name" data-en="SUPER TYRANT" data-zh="超级暴君">SUPER TYRANT</div>
+        <div class="boss-subtitle" data-en="Mutated final form of Mr. X. Open-area fight outside the RPD." data-zh="Mr.X的终极突变体。在RPD楼外的开阔场地战斗。">Mutated final form of Mr. X. Open-area fight outside the RPD.</div>
+        <div class="boss-tags">
+          <span class="boss-tag char-leon" data-en="Leon" data-zh="里昂">Leon</span>
+          <span class="boss-tag" data-en="3 Phases" data-zh="3阶段">3 Phases</span>
+          <span class="boss-tag" data-en="Time-Sensitive" data-zh="限时要素">Time-Sensitive</span>
+        </div>
+      </div>
+      <div class="boss-meta">
+        <span class="meta-pill meta-diff-boss" data-en="High Difficulty" data-zh="高难度">High Difficulty</span>
+        <span class="meta-pill meta-diff-boss" data-en="Use: Magnum + Rockets" data-zh="使用：马格南 + 火箭筒">Use: Magnum + Rockets</span>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div>
+        <div class="boss-section-label" data-en="Weak Points" data-zh="弱点位置">Weak Points</div>
+        <div class="weakness-list">
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Ph. 1–2:&lt;/strong&gt; Exposed heart on chest. Aim straight on." data-zh="&lt;strong&gt;第1-2阶段：&lt;/strong&gt;胸口裸露的心脏，正面直射。"><strong>Ph. 1–2:</strong> Exposed heart on chest. Aim straight on.</div></div>
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Ph. 3:&lt;/strong&gt; Shoot arm blade (~12 handgun rounds) to break it — heart re-exposed." data-zh="&lt;strong&gt;第3阶段：&lt;/strong&gt;射爆手臂刀刃（约12发手枪弹）后心脏再次暴露。"><strong>Ph. 3:</strong> Shoot arm blade (~12 handgun rounds) to break it — heart re-exposed.</div></div>
+          <div class="weakness-item"><span class="weakness-icon">🚁</span><div class="weakness-text" data-en="&lt;strong&gt;At 25% HP:&lt;/strong&gt; Helicopter drops Rocket Launcher ×1 — pick it up immediately (despawns in 30s)." data-zh="&lt;strong&gt;HP降到25%时：&lt;/strong&gt;直升机空投火箭筒×1——立刻捡起来，30秒后消失。"><strong>At 25% HP:</strong> Helicopter drops Rocket Launcher ×1 — pick it up immediately (despawns in 30s).</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="boss-section-label" data-en="Drops" data-zh="掉落奖励">Drops</div>
+        <div class="drop-list">
+          <div class="drop-item" data-en="Raccoon City Survivor Badge" data-zh="浣熊市幸存者徽章">Raccoon City Survivor Badge</div>
+          <div class="drop-item" data-en="ARK Access Code" data-zh="方舟通行码">ARK Access Code</div>
+          <div class="drop-item" data-en='Achievement: "Terminator"' data-zh='成就：「终结者」'>Achievement: "Terminator"</div>
+        </div>
+      </div>
+      <div class="strategy-block">
+        <div class="boss-section-label" data-en="Strategy" data-zh="打法思路">Strategy</div>
+        <div class="strategy-text">
+          <p><span class="phase" data-en="Ph. 1–2" data-zh="第1-2阶段">Ph. 1–2</span><span data-en="Dump all 5 Magnum rounds into his chest heart. Keep moving — his grab is instant-kill on Insanity." data-zh="用5发马格南集中打胸口心脏。始终保持横向移动——他的抓取在疯狂难度是即死。">Dump all 5 Magnum rounds into his chest heart. Keep moving — his grab is instant-kill on Insanity.</span></p>
+          <p><span class="phase" data-en="Ph. 3" data-zh="第3阶段">Ph. 3</span><span data-en="Shoot the arm blade to shatter it, then switch back to Magnum for the exposed heart." data-zh="射爆手臂刀刃后继续用马格南打心脏。">Shoot the arm blade to shatter it, then switch back to Magnum for the exposed heart.</span></p>
+          <p><span class="phase" data-en="Rocket" data-zh="火箭筒">Rocket</span><span data-en="At 25% HP pick up the Rocket Launcher immediately — one shot to the chest ends the fight." data-zh="HP降到25%时直升机空投火箭筒——立刻跑过去捡，一发打胸口结束战斗。">At 25% HP pick up the Rocket Launcher immediately — one shot to the chest ends the fight.</span></p>
+        </div>
+        <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Insanity:&lt;/strong&gt; Prioritize dodging grabs over dealing damage. Getting grabbed is an instant death." data-zh="&lt;strong&gt;疯狂难度：&lt;/strong&gt;优先躲抓取，而不是强行输出。被抓就直接死。"><strong>Insanity:</strong> Prioritize dodging grabs over dealing damage. Getting grabbed is an instant death.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUTATED EMILY -->
+  <div class="boss-card" id="emily">
+    <div class="boss-top">
+      <div>
+        <div class="boss-eyebrow" data-en="Boss #4 · ARK — Scripted Encounter" data-zh="BOSS #4 · 方舟基地——剧情演出">Boss #4 · ARK — Scripted Encounter</div>
+        <div class="boss-name" data-en="MUTATED EMILY" data-zh="突变艾米莉">MUTATED EMILY</div>
+        <div class="boss-subtitle" data-en="Mandatory scripted encounter. Affects ending branch." data-zh="强制剧情演出，影响结局走向的关键节点。">Mandatory scripted encounter. Affects ending branch.</div>
+        <div class="boss-tags">
+          <span class="boss-tag char-leon" data-en="Leon" data-zh="里昂">Leon</span>
+          <span class="boss-tag" data-en="Scripted" data-zh="剧情演出">Scripted</span>
+          <span class="boss-tag" data-en="Ending Branch" data-zh="影响结局">Ending Branch</span>
+        </div>
+      </div>
+      <div class="boss-meta">
+        <span class="meta-pill meta-diff-normal" data-en="Low Difficulty" data-zh="低难度">Low Difficulty</span>
+        <span class="meta-pill meta-diff-boss" data-en="⚠ Affects Ending" data-zh="⚠ 影响结局">⚠ Affects Ending</span>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div class="strategy-block">
+        <div class="boss-section-label" data-en="Strategy &amp; Story Note" data-zh="打法说明 &amp; 剧情备注">Strategy &amp; Story Note</div>
+        <div class="strategy-text">
+          <p data-en="Scripted encounter — no gameplay punishment. When prompted, shoot mutated Emily to proceed. Do NOT reload a save here." data-zh="这是一段全程演出，没有实际战斗惩罚。出现提示时射击突变的艾米莉即可推进剧情，不要犹豫，也不要重新读档。">Scripted encounter — no gameplay punishment. When prompted, shoot mutated Emily to proceed. Do NOT reload a save here.</p>
+          <p data-en="On the Release Elpis true ending path, Leon clarifies he did not hit vitals and Emily survives. Shooting her does &lt;strong&gt;NOT&lt;/strong&gt; cause the bad ending — it is required for the good one." data-zh="在「释放厄尔庇斯」真结局路线中，里昂明确表示没有打中要害，结局显示艾米莉存活并获救。射击艾米莉&lt;strong&gt;不会&lt;/strong&gt;导致坏结局——这是达成真结局的必要操作。">On the Release Elpis true ending path, Leon clarifies he did not hit vitals and Emily survives. Shooting her does <strong>NOT</strong> cause the bad ending — it is required for the good one.</p>
+        </div>
+        <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;Common mistake:&lt;/strong&gt; Do NOT reload a save here. The ending is determined by the Final Puzzle, not this encounter." data-zh="&lt;strong&gt;常见误解：&lt;/strong&gt;很多玩家以为射击艾米莉会触发坏结局而重读档。结局完全由最终谜题的输入决定，与这里的选择无关。"><strong>Common mistake:</strong> Do NOT reload a save here. The ending is determined by the Final Puzzle, not this encounter.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE KEEPER -->
+  <div class="boss-card" id="keeper">
+    <div class="boss-top">
+      <div>
+        <div class="boss-eyebrow" data-en="Boss #5 · Rhodes Hill — Grace Campaign" data-zh="BOSS #5 · 罗兹山——格蕾丝线">Boss #5 · Rhodes Hill — Grace Campaign</div>
+        <div class="boss-name" data-en="THE KEEPER" data-zh="守卫者">THE KEEPER</div>
+        <div class="boss-subtitle" data-en="Close-quarters duel. Parry-centric fight. 2 phases." data-zh="近身格斗对决，以格挡反击为核心的战斗系统。">Close-quarters duel. Parry-centric fight. 2 phases.</div>
+        <div class="boss-tags">
+          <span class="boss-tag char-grace" data-en="Grace only" data-zh="仅格蕾丝">Grace only</span>
+          <span class="boss-tag" data-en="Parry Mechanic" data-zh="格挡机制">Parry Mechanic</span>
+          <span class="boss-tag" data-en="2 Phases" data-zh="2阶段">2 Phases</span>
+        </div>
+      </div>
+      <div class="boss-meta">
+        <span class="meta-pill meta-diff-hard" data-en="Hard" data-zh="较难">Hard</span>
+        <span class="meta-pill meta-diff-boss" data-en="Required: Hatchet" data-zh="必须：斧头">Required: Hatchet</span>
+      </div>
+    </div>
+    <div class="boss-body">
+      <div>
+        <div class="boss-section-label" data-en="Weak Points" data-zh="弱点位置">Weak Points</div>
+        <div class="weakness-list">
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Phase 1:&lt;/strong&gt; After successful parry — 1-second hatchet window. Sharpen hatchet during every pause." data-zh="&lt;strong&gt;第1阶段：&lt;/strong&gt;成功格挡后的1秒斧头窗口，每次停顿时磨快斧头。"><strong>Phase 1:</strong> After successful parry — 1-second hatchet window. Sharpen hatchet during every pause.</div></div>
+          <div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="&lt;strong&gt;Phase 2:&lt;/strong&gt; Left side exposed during 3-hit combo finishers." data-zh="&lt;strong&gt;第2阶段：&lt;/strong&gt;三连击收招时，他的左侧暴露，那时侧进攻击。"><strong>Phase 2:</strong> Left side exposed during 3-hit combo finishers.</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="boss-section-label" data-en="Drops" data-zh="掉落奖励">Drops</div>
+        <div class="drop-list">
+          <div class="drop-item" data-en="Keeper's Key — unlocks Sub-Basement" data-zh="守卫者钥匙——解锁地下室">Keeper's Key — unlocks Sub-Basement</div>
+          <div class="drop-item" data-en="Blood Vial ×6" data-zh="血液瓶×6">Blood Vial ×6</div>
+          <div class="drop-item" data-en="File: The Keeper's Journal" data-zh="文件：守卫者日记">File: The Keeper's Journal</div>
+        </div>
+      </div>
+      <div class="strategy-block">
+        <div class="boss-section-label" data-en="Strategy" data-zh="打法思路">Strategy</div>
+        <div class="strategy-text">
+          <p><span class="phase" data-en="Phase 1" data-zh="第1阶段">Phase 1</span><span data-en="This is a duel, not an arena fight. Parry window is 0.3s before impact. Immediately answer with hatchet. Sharpen every time he repositions. Hatchet deals far more damage than guns." data-zh="这是一场决斗，格挡是核心。格挡窗口仅0.3秒，成功后立刻用斧头反击。他每次重新定位时磨快斧头——斧头伤害远高于枪械。">This is a duel, not an arena fight. Parry window is 0.3s before impact. Immediately answer with hatchet. Sharpen every time he repositions.</span></p>
+          <p><span class="phase" data-en="Phase 2" data-zh="第2阶段">Phase 2</span><span data-en="He adds unparryable grabs telegraphed by a left shoulder dip. On shoulder dip — dodge right, then punish his left side during the 3-hit combo finisher." data-zh="他开始混入无法格挡的抓取攻击，起跳前会有左肩下压的预兆动作。看到肩膀下压立刻向右闪避，趁三连击收招时攻击他暴露的左侧。">He adds unparryable grabs telegraphed by a left shoulder dip. On shoulder dip — dodge right, then punish his left side during the 3-hit combo finisher.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- OPTIONAL -->
+  <div class="optional-section">
+    <div class="section-header">
+      <span class="section-tag" data-en="OPTIONAL" data-zh="支线">OPTIONAL</span>
+      <h2 class="section-title" data-en="Optional Bosses" data-zh="可选支线BOSS">Optional Bosses</h2>
+    </div>
+    <div class="boss-card optional" id="optional">
+      <div class="boss-top">
+        <div>
+          <div class="boss-eyebrow" data-en="Optional · Wrenwood Hotel Basement" data-zh="可选 · 伦伍德酒店地下室">Optional · Wrenwood Hotel Basement</div>
+          <div class="boss-name" data-en="THE AMALGAM" data-zh="融合体">THE AMALGAM</div>
+          <div class="boss-subtitle" data-en="Fused mass of multiple infected bodies. High value drop." data-zh="多具感染尸体融合而成的怪物，高价值道具掉落。">Fused mass of multiple infected bodies. High value drop.</div>
+          <div class="boss-tags">
+            <span class="boss-tag" data-en="Optional" data-zh="可选">Optional</span>
+            <span class="boss-tag char-leon" data-en="Leon / Grace" data-zh="里昂 / 格蕾丝">Leon / Grace</span>
+            <span class="boss-tag" data-en="High Reward" data-zh="高价值掉落">High Reward</span>
+          </div>
+        </div>
+        <div class="boss-meta"><span class="meta-pill meta-diff-hard" data-en="Medium-Hard" data-zh="中等偏难">Medium-Hard</span></div>
+      </div>
+      <div class="boss-body">
+        <div>
+          <div class="boss-section-label" data-en="Weak Point" data-zh="弱点位置">Weak Point</div>
+          <div class="weakness-list"><div class="weakness-item"><span class="weakness-icon">🎯</span><div class="weakness-text" data-en="Exposed vertebrae on the back when it rears up — 2-second window." data-zh="它后仰时暴露的背部脊椎——约2秒窗口，精准输出。">Exposed vertebrae on the back when it rears up — 2-second window.</div></div></div>
+        </div>
+        <div>
+          <div class="boss-section-label" data-en="Drops" data-zh="掉落奖励">Drops</div>
+          <div class="drop-list">
+            <div class="drop-item" data-en="Crimson Skull Gem (12,000 CP or upgrade trade)" data-zh="猩红骷髅宝石（价值12,000 CP或换取升级）">Crimson Skull Gem (12,000 CP or upgrade trade)</div>
+            <div class="drop-item" data-en="Infected Blood ×8 (Grace crafting resource)" data-zh="感染血液×8（格蕾丝合成材料）">Infected Blood ×8 (Grace crafting resource)</div>
+          </div>
+        </div>
+        <div class="strategy-block">
+          <div class="boss-section-label" data-en="Worth Fighting?" data-zh="值得打吗？">Worth Fighting?</div>
+          <div class="strategy-text"><p data-en="Crimson Skull Gem = ~3 weapon upgrades worth of CP. Recommended on first playthrough." data-zh="猩红骷髅宝石相当于约3次武器升级的CP价值。首周目推荐挑战，性价比很高。">Crimson Skull Gem = ~3 weapon upgrades worth of CP. Recommended on first playthrough.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">RE<span>9</span>GUIDE</a>
+  <div class="footer-note" data-en="Fan-made guide · Not affiliated with Capcom · Resident Evil Requiem © 2026 Capcom Co., Ltd." data-zh="非官方玩家攻略站 · 与 Capcom 无关联 · 生化危机安魂曲 © 2026 Capcom Co., Ltd.">Fan-made guide · Not affiliated with Capcom · Resident Evil Requiem © 2026 Capcom Co., Ltd.</div>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>

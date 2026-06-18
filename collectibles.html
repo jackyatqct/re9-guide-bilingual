@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="All Collectibles — Mr. Raccoon &amp; Antique Coins | RE9 Guide" data-zh="生化危机9收集品全攻略 | 浣熊先生位置 古董金币位置">All Collectibles — Mr. Raccoon &amp; Antique Coins | RE9 Guide</title>
+<meta name="description" data-en="All 25 Mr. Raccoon locations and all Antique Coin locations in RE9. Interactive checklist with missable warnings." data-zh="生化危机9安魂曲全25个浣熊先生位置、全17枚古董金币位置，附可错过道具提醒和交互式进度记录表。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--blood:#8B0000;--blood-dim:#5a0000;--rust:#C0392B;--amber:#E8A000;--bone:#D4C9B0;--ash:#9A9590;--ink:#0D0C0B;--ink-mid:#1A1917;--ink-light:#252320;--ink-border:#2E2C29;--text:#C8C2B8;--text-dim:#7A746E;--green-bright:#4CAF50}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7}
+  body.lang-zh{font-family:'Noto Sans SC',sans-serif}
+  body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.05) 2px,rgba(0,0,0,0.05) 4px);pointer-events:none;z-index:1000}
+  nav{position:sticky;top:0;z-index:200;background:rgba(13,12,11,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.12em;color:var(--bone);text-decoration:none;flex-shrink:0}
+  body.lang-zh .nav-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .nav-logo span{color:var(--blood)}
+  .nav-links{display:flex;gap:4px;list-style:none;flex:1;justify-content:center}
+  .nav-links a{color:var(--ash);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.06em;transition:color 0.2s;padding:6px 10px;white-space:nowrap}
+  .nav-links a:hover{color:var(--bone)}
+  .nav-links a.active{color:var(--amber)}
+  .lang-switcher{display:flex;align-items:center;border:1px solid var(--ink-border);flex-shrink:0;overflow:hidden}
+  .lang-btn{background:transparent;border:none;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:6px 12px;transition:all 0.2s;color:var(--text-dim);font-family:inherit}
+  .lang-btn:hover{color:var(--bone);background:var(--ink-light)}
+  .lang-btn.active{background:var(--blood);color:var(--bone)}
+  .lang-btn:first-child{border-right:1px solid var(--ink-border)}
+  .page-header{padding:52px 48px 44px;background:linear-gradient(180deg,var(--ink-mid) 0%,var(--ink) 100%);border-bottom:1px solid var(--ink-border);position:relative;overflow:hidden}
+  .page-header::before{content:'🦝';position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:140px;opacity:0.04;pointer-events:none;line-height:1}
+  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:0.1em;margin-bottom:14px}
+  .breadcrumb a{color:var(--blood);text-decoration:none}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:0.03em;color:var(--bone);line-height:1;margin-bottom:10px}
+  body.lang-zh .page-title{font-family:'Noto Sans SC',sans-serif;font-size:42px;font-weight:700;letter-spacing:0.02em}
+  .page-title span{color:var(--blood)}
+  .page-desc{font-size:14px;color:var(--text-dim);max-width:560px;line-height:1.8}
+  .reward-bar{display:flex;gap:16px;margin-top:20px;flex-wrap:wrap}
+  .reward-item{background:var(--ink-light);border:1px solid var(--ink-border);padding:10px 16px}
+  .reward-label{font-size:10px;color:var(--text-dim);margin-bottom:3px;letter-spacing:0.05em}
+  .reward-value{font-size:13px;color:var(--amber);font-weight:500}
+  .jump-nav{background:var(--ink-mid);border-bottom:1px solid var(--ink-border);padding:12px 48px;display:flex;gap:6px;flex-wrap:wrap}
+  .jump-link{font-size:12px;color:var(--text-dim);text-decoration:none;padding:5px 12px;border:1px solid var(--ink-border);transition:all 0.2s;white-space:nowrap}
+  .jump-link:hover{color:var(--bone);border-color:var(--blood-dim);background:var(--ink-light)}
+  .content{max-width:960px;margin:0 auto;padding:56px 48px}
+  .section-header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .section-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blood);border:1px solid var(--blood-dim);padding:3px 8px}
+  .section-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.04em;color:var(--bone)}
+  body.lang-zh .section-title{font-family:'Noto Sans SC',sans-serif;font-size:26px;font-weight:700;letter-spacing:0.02em}
+  .section-subtitle{font-size:13px;color:var(--text-dim);margin-bottom:24px}
+  .tracker-bar{background:var(--ink-mid);border:1px solid var(--ink-border);padding:14px 18px;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+  .tracker-label{font-size:12px;color:var(--text-dim)}
+  .tracker-count{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:600;color:var(--amber)}
+  .tracker-total{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-dim)}
+  .tracker-progress{flex:1;height:4px;background:var(--ink-border)}
+  .tracker-fill{height:100%;background:linear-gradient(90deg,var(--blood),var(--amber));width:0%;transition:width 0.5s}
+  .collectible-table{width:100%;border-collapse:collapse;margin-bottom:48px}
+  .collectible-table thead tr{border-bottom:2px solid var(--blood-dim)}
+  .collectible-table th{padding:10px 12px;text-align:left;font-size:11px;color:var(--text-dim);font-weight:500;letter-spacing:0.05em}
+  .collectible-table tbody tr{border-bottom:1px solid var(--ink-border);transition:background 0.15s}
+  .collectible-table tbody tr:hover{background:var(--ink-light)}
+  .collectible-table td{padding:11px 12px;font-size:13px;vertical-align:top}
+  .num-cell{font-family:'JetBrains Mono',monospace;color:var(--blood);font-size:12px;width:44px}
+  .area-cell{color:var(--text-dim);font-size:12px;white-space:nowrap}
+  .loc-cell{color:var(--text)}
+  .loc-cell .subloc{color:var(--text-dim);font-size:12px;display:block;margin-top:2px}
+  .miss-badge{font-size:10px;padding:2px 7px;white-space:nowrap}
+  .miss-yes{border:1px solid var(--blood-dim);color:var(--rust)}
+  .miss-no{border:1px solid #2a3a2a;color:#4CAF50}
+  .check-cell{width:36px}
+  .check-box{width:16px;height:16px;border:1px solid var(--ink-border);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all 0.15s}
+  .check-box:hover{border-color:var(--blood)}
+  .check-box.checked{background:var(--blood);color:white;border-color:var(--blood)}
+  .coin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:40px}
+  .coin-card{background:var(--ink-mid);border:1px solid var(--ink-border);padding:14px 16px}
+  .coin-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blood);margin-bottom:5px}
+  .coin-area{font-size:11px;color:var(--text-dim);margin-bottom:3px}
+  .coin-loc{font-size:13px;color:var(--text)}
+  .coin-note{font-size:11px;color:var(--text-dim);margin-top:4px;font-style:italic}
+  .exchange-table{width:100%;border-collapse:collapse;margin-bottom:40px;background:var(--ink-mid);border:1px solid var(--ink-border)}
+  .exchange-table th{padding:11px 14px;text-align:left;font-size:11px;color:var(--text-dim);background:var(--ink-light);border-bottom:1px solid var(--ink-border)}
+  .exchange-table td{padding:11px 14px;font-size:13px;border-bottom:1px solid var(--ink-border)}
+  .exchange-table tr:last-child td{border-bottom:none}
+  .upgrade-name{color:var(--bone);font-weight:600}
+  .coin-cost{font-family:'JetBrains Mono',monospace;color:var(--amber)}
+  .upgrade-desc{color:var(--text-dim);font-size:12px}
+  .upgrade-rec{font-size:11px;padding:2px 7px;border:1px solid}
+  .rec-high{border-color:var(--blood-dim);color:var(--rust)}
+  .rec-med{border-color:#5a4a20;color:var(--amber)}
+  .warning-box{background:rgba(139,0,0,0.1);border:1px solid var(--blood-dim);padding:12px 16px;margin-bottom:24px;display:flex;gap:8px}
+  .warning-text{font-size:13px;color:var(--bone);line-height:1.6}
+  .warning-text strong{color:var(--rust)}
+  .tip-box{background:rgba(0,60,0,0.1);border:1px solid #2a4a2a;padding:12px 16px;margin-bottom:24px;display:flex;gap:8px}
+  .tip-text{font-size:13px;color:var(--text-dim);line-height:1.6}
+  .tip-text strong{color:var(--green-bright)}
+  .section-divider{height:1px;background:linear-gradient(90deg,var(--blood-dim),transparent);margin:52px 0}
+  footer{background:var(--ink-mid);border-top:1px solid var(--ink-border);padding:24px 48px;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;color:var(--ash);text-decoration:none}
+  body.lang-zh .footer-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .footer-logo span{color:var(--blood-dim)}
+  .footer-note{font-size:11px;color:var(--text-dim)}
+  @media(max-width:768px){.page-header,.content{padding-left:24px;padding-right:24px}.jump-nav{padding:10px 24px}.coin-grid{grid-template-columns:1fr 1fr}footer{flex-direction:column;gap:10px}nav{padding:0 16px}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">RE<span>9</span>GUIDE</a>
+  <ul class="nav-links">
+    <li><a href="walkthrough.html" data-en="Walkthrough" data-zh="全流程">Walkthrough</a></li>
+    <li><a href="puzzles.html" data-en="Puzzles &amp; Codes" data-zh="谜题密码">Puzzles &amp; Codes</a></li>
+    <li><a href="bosses.html" data-en="Bosses" data-zh="BOSS攻略">Bosses</a></li>
+    <li><a href="collectibles.html" class="active" data-en="Collectibles" data-zh="收集品">Collectibles</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="RE9Lang.setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="zh" onclick="RE9Lang.setLang('zh')">中文</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html" data-en="RE9 Guide" data-zh="生化危机9攻略">RE9 Guide</a> › <span data-en="All Collectibles" data-zh="收集品全位置"></span></div>
+  <h1 class="page-title"><span data-en="All" data-zh="">All </span><span data-en="Collectibles" data-zh="收集品">Collectibles</span><br><span data-en="— Complete Guide" data-zh="全位置"></span></h1>
+  <p class="page-desc" data-en="Every Mr. Raccoon statue and Antique Coin location for 100% completion. Interactive checklist saves your progress automatically." data-zh="生化危机9安魂曲全25个浣熊先生位置、全17枚古董金币位置，100%通关完整指南。含可错过道具提醒，支持进度打钩记录。">Every Mr. Raccoon statue and Antique Coin location for 100% completion. Interactive checklist saves your progress automatically.</p>
+  <div class="reward-bar">
+    <div class="reward-item">
+      <div class="reward-label" data-en="All 25 Mr. Raccoons" data-zh="全25个浣熊先生">All 25 Mr. Raccoons</div>
+      <div class="reward-value" data-en="Unlocks: Advanced Tuning + &quot;You Little Rascal!&quot;" data-zh="解锁：高级调整 + 「你这个小坏蛋！」成就">Unlocks: Advanced Tuning + "You Little Rascal!"</div>
+    </div>
+    <div class="reward-item">
+      <div class="reward-label" data-en="Antique Coins" data-zh="古董金币">Antique Coins</div>
+      <div class="reward-value" data-en="Exchange for: Hip Pouch, Stabilizer, Steroids, Override Manual" data-zh="兑换：腰包、稳定器、类固醇、覆盖手册">Exchange for: Hip Pouch, Stabilizer, Steroids, Override Manual</div>
+    </div>
+  </div>
+</div>
+
+<nav class="jump-nav">
+  <a href="#mr-raccoon" class="jump-link" data-en="Mr. Raccoon (25)" data-zh="浣熊先生（25个）">Mr. Raccoon (25)</a>
+  <a href="#coins" class="jump-link" data-en="Antique Coins" data-zh="古董金币">Antique Coins</a>
+  <a href="#coin-exchange" class="jump-link" data-en="Coin Exchange" data-zh="金币兑换">Coin Exchange</a>
+</nav>
+
+<div class="content">
+  <div id="mr-raccoon">
+    <div class="section-header">
+      <span class="section-tag" data-en="COLLECTIBLE" data-zh="收集品">COLLECTIBLE</span>
+      <h2 class="section-title" data-en="Mr. Raccoon Statues" data-zh="浣熊先生雕像">Mr. Raccoon Statues</h2>
+    </div>
+    <p class="section-subtitle" data-en="Destroy all 25 to unlock Advanced Tuning + &quot;You Little Rascal!&quot; trophy/achievement." data-zh="摧毁全25个浣熊先生雕像，解锁高级调整（更多武器升级选项）+ 「你这个小坏蛋！」奖杯/成就。">Destroy all 25 to unlock Advanced Tuning + "You Little Rascal!" trophy/achievement.</p>
+    <div class="warning-box"><span>⚠️</span><div class="warning-text" data-en="&lt;strong&gt;None are missable on Normal&lt;/strong&gt; — all areas revisitable. On Insanity, statues #18–22 in the ARK must be collected before the final boss trigger." data-zh="&lt;strong&gt;普通难度下没有可错过的。&lt;/strong&gt;所有区域均可重新进入。疯狂难度下，方舟基地的18~22号必须在最终BOSS触发前收集完毕。"><strong>None are missable on Normal</strong> — all areas revisitable. On Insanity, statues #18–22 in the ARK must be collected before the final boss trigger.</div></div>
+
+    <div class="tracker-bar">
+      <span class="tracker-label" data-en="Progress" data-zh="收集进度">Progress</span>
+      <span class="tracker-count" id="raccoon-count">0</span>
+      <span class="tracker-total"> / 25</span>
+      <div class="tracker-progress"><div class="tracker-fill" id="raccoon-bar"></div></div>
+    </div>
+
+    <table class="collectible-table">
+      <thead>
+        <tr>
+          <th data-en="#" data-zh="#">#</th>
+          <th data-en="Area" data-zh="区域">Area</th>
+          <th data-en="Location" data-zh="位置描述">Location</th>
+          <th data-en="Missable" data-zh="可错过">Missable</th>
+          <th>✓</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num-cell">01</td><td class="area-cell" data-en="Wrenwood" data-zh="伦伍德">Wrenwood</td><td class="loc-cell"><span data-en="Hotel Lobby — front desk shelf, behind check-in monitor" data-zh="大堂前台——签到显示器后方的货架上">Hotel Lobby — front desk shelf, behind check-in monitor</span><span class="subloc" data-en="Shoot from the entrance" data-zh="从入口处即可射击">Shoot from the entrance</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,1)"></div></td></tr>
+        <tr><td class="num-cell">02</td><td class="area-cell" data-en="Wrenwood" data-zh="伦伍德">Wrenwood</td><td class="loc-cell"><span data-en="Dining Room — top shelf of wine rack, far left corner" data-zh="餐厅——酒架最顶层左侧角落">Dining Room — top shelf of wine rack, far left corner</span><span class="subloc" data-en="Requires looking up" data-zh="需要仰头查看">Requires looking up</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,2)"></div></td></tr>
+        <tr><td class="num-cell">03</td><td class="area-cell" data-en="Wrenwood" data-zh="伦伍德">Wrenwood</td><td class="loc-cell"><span data-en="Hotel Basement — Generator Room, pipe junction near east wall" data-zh="地下室发电机室——靠近东墙的管道接头处">Hotel Basement — Generator Room, pipe junction near east wall</span><span class="subloc" data-en="Behind the large pipe" data-zh="在大型管道后面，容易忽略">Behind the large pipe</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,3)"></div></td></tr>
+        <tr><td class="num-cell">04</td><td class="area-cell" data-en="Wrenwood" data-zh="伦伍德">Wrenwood</td><td class="loc-cell"><span data-en="Parlor — on the Roulette table, right side" data-zh="休息室——轮盘台右侧">Parlor — on the Roulette table, right side</span><span class="subloc" data-en="Visible immediately on entering Parlor" data-zh="进入休息室立刻可见">Visible immediately on entering Parlor</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,4)"></div></td></tr>
+        <tr><td class="num-cell">05</td><td class="area-cell" data-en="Wrenwood" data-zh="伦伍德">Wrenwood</td><td class="loc-cell"><span data-en="Hotel Roof — northeast corner, near water tower base" data-zh="酒店屋顶——东北角水塔底座旁">Hotel Roof — northeast corner, near water tower base</span><span class="subloc" data-en="Via fire escape on 4F" data-zh="从四楼消防梯上去">Via fire escape on 4F</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,5)"></div></td></tr>
+        <tr><td class="num-cell">06</td><td class="area-cell" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</td><td class="loc-cell"><span data-en="Care Center Reception — windowsill, facing outside" data-zh="疗养院接待处——窗台上，面朝外侧">Care Center Reception — windowsill, facing outside</span><span class="subloc" data-en="Ground floor, left window when entering" data-zh="一楼，进门时左边的窗户">Ground floor, left window when entering</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,6)"></div></td></tr>
+        <tr><td class="num-cell">07</td><td class="area-cell" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</td><td class="loc-cell"><span data-en="East Wing 2F — inside medical supply cart" data-zh="二楼东翼走廊——医疗推车内">East Wing 2F — inside medical supply cart</span><span class="subloc" data-en="Requires East Wing Keycard from Quartz Door puzzle" data-zh="需要石英门谜题解锁的东翼通行证">Requires East Wing Keycard from Quartz Door puzzle</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,7)"></div></td></tr>
+        <tr><td class="num-cell">08</td><td class="area-cell" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</td><td class="loc-cell"><span data-en="Director's Office — bookshelf, 3rd shelf from top, right side" data-zh="院长办公室——书架从上往下第3层右侧">Director's Office — bookshelf, 3rd shelf from top, right side</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,8)"></div></td></tr>
+        <tr><td class="num-cell">09</td><td class="area-cell" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</td><td class="loc-cell"><span data-en="Sterilization Chamber — trolley in far corner, near enemy" data-zh="消毒室——远角的推车上，敌人旁边">Sterilization Chamber — trolley in far corner, near enemy</span><span class="subloc" data-en="Sneak past or kill enemy first" data-zh="潜行绕过或先击杀敌人">Sneak past or kill enemy first</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,9)"></div></td></tr>
+        <tr><td class="num-cell">10</td><td class="area-cell" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</td><td class="loc-cell"><span data-en="Sub-Basement — flooded walkway, north wall" data-zh="地下室——洪水区域走道北墙，水面略上方">Sub-Basement — flooded walkway, north wall</span><span class="subloc" data-en="Unlocked after The Keeper boss fight" data-zh="击败守卫者BOSS后解锁">Unlocked after The Keeper boss fight</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,10)"></div></td></tr>
+        <tr><td class="num-cell">11</td><td class="area-cell" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</td><td class="loc-cell"><span data-en="Morgue B2 — inside open drawer, third row from bottom, left side" data-zh="B2停尸间——左侧从下往上第3排抽屉内">Morgue B2 — inside open drawer, third row from bottom, left side</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,11)"></div></td></tr>
+        <tr><td class="num-cell">12</td><td class="area-cell" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</td><td class="loc-cell"><span data-en="City Streets — fire escape platform 2F, NW building cluster" data-zh="城市街道——西北建筑群二层消防楼梯平台">City Streets — fire escape platform 2F, NW building cluster</span><span class="subloc" data-en="Shoot from across the street" data-zh="从对面街道射击">Shoot from across the street</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,12)"></div></td></tr>
+        <tr><td class="num-cell">13</td><td class="area-cell" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</td><td class="loc-cell"><span data-en="RPD Entrance Hall — on top of the RPD crest mosaic" data-zh="RPD大堂入口——地面浣熊市徽章马赛克图案正中">RPD Entrance Hall — on top of the RPD crest mosaic</span><span class="subloc" data-en="Look down from main entrance" data-zh="从正门入口俯视地面">Look down from main entrance</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,13)"></div></td></tr>
+        <tr><td class="num-cell">14</td><td class="area-cell" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</td><td class="loc-cell"><span data-en="RPD Evidence Room — inside evidence box #7" data-zh="RPD证物室——7号证物箱内">RPD Evidence Room — inside evidence box #7</span><span class="subloc" data-en="Interact with the box, not the shelf" data-zh="与箱子本体互动，不是架子">Interact with the box, not the shelf</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,14)"></div></td></tr>
+        <tr><td class="num-cell">15</td><td class="area-cell" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</td><td class="loc-cell"><span data-en="Sewers — ledge above the first water valve puzzle" data-zh="下水道——第一个水阀谜题上方的壁架">Sewers — ledge above the first water valve puzzle</span><span class="subloc" data-en="Jump up using the crates to the east" data-zh="用东侧板条箱叠起来跳上去">Jump up using the crates to the east</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,15)"></div></td></tr>
+        <tr><td class="num-cell">16</td><td class="area-cell" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</td><td class="loc-cell"><span data-en="NF Building Rooftop — NW corner near A/C unit" data-zh="NF大楼屋顶——西北角空调机组旁">NF Building Rooftop — NW corner near A/C unit</span><span class="subloc" data-en="During Leon's chase — shoot while running" data-zh="里昂追逐战期间——边跑边射击，限时目标">During Leon's chase — shoot while running</span></td><td><span class="miss-badge miss-yes" data-en="⚠ Timed" data-zh="⚠ 限时">⚠ Timed</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,16)"></div></td></tr>
+        <tr><td class="num-cell">17</td><td class="area-cell" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</td><td class="loc-cell"><span data-en="Central Square — war memorial statue base" data-zh="中央广场——战争纪念碑雕像底座">Central Square — war memorial statue base</span><span class="subloc" data-en="After Super Tyrant, before ARK entrance" data-zh="超级暴君战后、进入方舟前">After Super Tyrant, before ARK entrance</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,17)"></div></td></tr>
+        <tr><td class="num-cell">18</td><td class="area-cell" data-en="The ARK" data-zh="方舟">The ARK</td><td class="loc-cell"><span data-en="ARK Hangar — top of cargo container, east entrance" data-zh="方舟机库——货运集装箱顶部，东入口附近">ARK Hangar — top of cargo container, east entrance</span><span class="subloc" data-en="Climb smaller containers to reach it" data-zh="爬上小集装箱才能到达">Climb smaller containers to reach it</span></td><td><span class="miss-badge miss-yes" data-en="⚠ Insanity" data-zh="⚠ 疯狂">⚠ Insanity</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,18)"></div></td></tr>
+        <tr><td class="num-cell">19</td><td class="area-cell" data-en="The ARK" data-zh="方舟">The ARK</td><td class="loc-cell"><span data-en="Research Lab A — specimen containment unit" data-zh="A研究室——样本保存箱内">Research Lab A — specimen containment unit</span><span class="subloc" data-en="Lab Keycard found in same room" data-zh="同室内可找到实验室通行证">Lab Keycard found in same room</span></td><td><span class="miss-badge miss-yes" data-en="⚠ Insanity" data-zh="⚠ 疯狂">⚠ Insanity</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,19)"></div></td></tr>
+        <tr><td class="num-cell">20</td><td class="area-cell" data-en="The ARK" data-zh="方舟">The ARK</td><td class="loc-cell"><span data-en="Research Lab B — on the typewriter desk" data-zh="B研究室——打字机桌上，存档点旁边">Research Lab B — on the typewriter desk</span><span class="subloc" data-en="Right at the save point" data-zh="就在存档点旁，很难错过">Right at the save point</span></td><td><span class="miss-badge miss-yes" data-en="⚠ Insanity" data-zh="⚠ 疯狂">⚠ Insanity</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,20)"></div></td></tr>
+        <tr><td class="num-cell">21</td><td class="area-cell" data-en="The ARK" data-zh="方舟">The ARK</td><td class="loc-cell"><span data-en="Control Tower Level 3 — behind the main console" data-zh="控制塔3层——主控台后面">Control Tower Level 3 — behind the main console</span><span class="subloc" data-en="Crouch to see it behind the desk" data-zh="蹲下才能看到桌子后面">Crouch to see it behind the desk</span></td><td><span class="miss-badge miss-yes" data-en="⚠ Insanity" data-zh="⚠ 疯狂">⚠ Insanity</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,21)"></div></td></tr>
+        <tr><td class="num-cell">22</td><td class="area-cell" data-en="The ARK" data-zh="方舟">The ARK</td><td class="loc-cell"><span data-en="ARK Core Corridor — pipe junction 20m before Point of No Return" data-zh="方舟核心走廊——不可返回门前方20米的管道接头">ARK Core Corridor — pipe junction 20m before Point of No Return</span><span class="subloc" data-en="LAST CHANCE — collect before the final door" data-zh="最后机会——进入终章门前务必收集">LAST CHANCE — collect before the final door</span></td><td><span class="miss-badge miss-yes" data-en="⚠ MISSABLE" data-zh="⚠ 可错过">⚠ MISSABLE</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,22)"></div></td></tr>
+        <tr><td class="num-cell">23</td><td class="area-cell" data-en="ARK Core" data-zh="方舟核心">ARK Core</td><td class="loc-cell"><span data-en="Core Chamber Access — left wall just past Point of No Return door" data-zh="核心通道入口——进不可返回门后立刻在左侧墙上">Core Chamber Access — left wall just past Point of No Return door</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,23)"></div></td></tr>
+        <tr><td class="num-cell">24</td><td class="area-cell" data-en="ARK Core" data-zh="方舟核心">ARK Core</td><td class="loc-cell"><span data-en="Core Chamber — second console tier, facing Grace's terminal" data-zh="核心舱——第二层控制台，面向格蕾丝终端">Core Chamber — second console tier, facing Grace's terminal</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,24)"></div></td></tr>
+        <tr><td class="num-cell">25</td><td class="area-cell" data-en="ARK Core" data-zh="方舟核心">ARK Core</td><td class="loc-cell"><span data-en="Core Chamber — hidden inside broken monitor on west wall" data-zh="核心舱——藏在西墙破损显示器内">Core Chamber — hidden inside broken monitor on west wall</span><span class="subloc" data-en="Shoot the screen to reveal it, then shoot the statue" data-zh="射击屏幕使其露出，再射击雕像">Shoot the screen to reveal it, then shoot the statue</span></td><td><span class="miss-badge miss-no" data-en="No" data-zh="否">No</span></td><td class="check-cell"><div class="check-box" onclick="toggleCheck(this,25)"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- COINS -->
+  <div id="coins">
+    <div class="section-header">
+      <span class="section-tag" data-en="COLLECTIBLE" data-zh="收集品">COLLECTIBLE</span>
+      <h2 class="section-title" data-en="Antique Coins" data-zh="古董金币">Antique Coins</h2>
+    </div>
+    <p class="section-subtitle" data-en="Exchange at Parlor lockers for upgrades. Need 17 total for all four items." data-zh="在休息室衣柜处兑换升级道具，共需17枚解锁全部4件奖励。">Exchange at Parlor lockers for upgrades. Need 17 total for all four items.</p>
+    <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Priority order:&lt;/strong&gt; Hip Pouch → Stabilizer → Steroids → Override Manual. Hip Pouch first — more inventory = more resources carried." data-zh="&lt;strong&gt;兑换优先级：&lt;/strong&gt;腰包（最先）→ 稳定器 → 类固醇 → 覆盖手册。腰包扩展道具格，性价比最高。"><strong>Priority order:</strong> Hip Pouch → Stabilizer → Steroids → Override Manual.</div></div>
+    <div class="coin-grid">
+      <div class="coin-card"><div class="coin-num">COIN #01</div><div class="coin-area" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div><div class="coin-loc" data-en="Hotel Lobby — small potted plant, left of reception" data-zh="酒店大堂——接待台左侧小盆栽内">Hotel Lobby — small potted plant, left of reception</div><div class="coin-note" data-en="Examine the plant" data-zh="检视盆栽触发拾取">Examine the plant</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #02</div><div class="coin-area" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div><div class="coin-loc" data-en="Dining Room — behind overturned soup tureen" data-zh="餐厅——翻倒的汤锅后面">Dining Room — behind overturned soup tureen</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #03</div><div class="coin-area" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div><div class="coin-loc" data-en="Basement Storage — cardboard box near south shelving" data-zh="地下室仓库——南侧货架旁纸箱内">Basement Storage — cardboard box near south shelving</div><div class="coin-note" data-en="Destroy the box" data-zh="摧毁纸箱">Destroy the box</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #04</div><div class="coin-area" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div><div class="coin-loc" data-en="Parlor — on Roulette table after solving the puzzle" data-zh="休息室——解开轮盘谜题后出现在轮盘台上">Parlor — on Roulette table after solving the puzzle</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #05</div><div class="coin-area" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div><div class="coin-loc" data-en="Parlor — on the bar counter" data-zh="休息室——吧台台面上">Parlor — on the bar counter</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #06</div><div class="coin-area" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div><div class="coin-loc" data-en="Parlor — behind bar counter, destroy porcelain container" data-zh="休息室——吧台后方，摧毁瓷器容器">Parlor — behind bar counter, destroy porcelain container</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #07</div><div class="coin-area" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</div><div class="coin-loc" data-en="Reception — waiting room, under right-side chair" data-zh="接待处等候区——右侧椅子下方">Reception — waiting room, under right-side chair</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #08</div><div class="coin-area" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</div><div class="coin-loc" data-en="2F East Wing — nurses' station counter, right side" data-zh="二楼东翼——护士台台面右侧">2F East Wing — nurses' station counter, right side</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #09</div><div class="coin-area" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</div><div class="coin-loc" data-en="Chairman's Office — bookcase near window after solving safe puzzle" data-zh="院长室——解开保险箱谜题后，窗边书柜内">Chairman's Office — bookcase near window after solving safe puzzle</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #10</div><div class="coin-area" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</div><div class="coin-loc" data-en="Morgue B2 — medical container on central examination table" data-zh="B2停尸间——中央检查台医疗容器内">Morgue B2 — medical container on central examination table</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #11</div><div class="coin-area" data-en="Rhodes Hill" data-zh="罗兹山">Rhodes Hill</div><div class="coin-loc" data-en="Sub-Basement — shelf in flooded storage room (requires Keeper key)" data-zh="地下室洪水储藏室货架（需守卫者钥匙）">Sub-Basement — shelf in flooded storage room (requires Keeper key)</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #12</div><div class="coin-area" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</div><div class="coin-loc" data-en="City Streets — newspaper box near first barricade (shoot to open)" data-zh="街道——第一道路障旁报纸箱内（射击打开）">City Streets — newspaper box near first barricade (shoot to open)</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #13</div><div class="coin-area" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</div><div class="coin-loc" data-en="RPD Entrance — inside the first aid kit on the lobby wall" data-zh="RPD入口——大堂墙上急救箱内">RPD Entrance — inside the first aid kit on the lobby wall</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #14</div><div class="coin-area" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</div><div class="coin-loc" data-en="RPD Armory — gear locker (requires Armory Key from Officer corpse)" data-zh="RPD军械库——需要军械库钥匙（警官尸体处获取）">RPD Armory — gear locker (requires Armory Key from Officer corpse)</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #15</div><div class="coin-area" data-en="Raccoon City" data-zh="浣熊市">Raccoon City</div><div class="coin-loc" data-en="Sewers Control Room — desk next to the control panel" data-zh="下水道控制室——控制台旁的桌上">Sewers Control Room — desk next to the control panel</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #16</div><div class="coin-area" data-en="The ARK" data-zh="方舟基地">The ARK</div><div class="coin-loc" data-en="ARK Hangar — near entrance, red equipment cart" data-zh="方舟机库——入口附近红色设备推车上">ARK Hangar — near entrance, red equipment cart</div></div>
+      <div class="coin-card"><div class="coin-num">COIN #17</div><div class="coin-area" data-en="The ARK" data-zh="方舟基地">The ARK</div><div class="coin-loc" data-en="Research Lab A — sample freezer, second compartment" data-zh="A研究室——样本冷冻箱第二格">Research Lab A — sample freezer, second compartment</div></div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- EXCHANGE -->
+  <div id="coin-exchange">
+    <div class="section-header">
+      <span class="section-tag" data-en="UPGRADES" data-zh="升级">UPGRADES</span>
+      <h2 class="section-title" data-en="Coin Exchange — Parlor Lockers" data-zh="金币兑换——休息室衣柜">Coin Exchange — Parlor Lockers</h2>
+    </div>
+    <p class="section-subtitle" data-en="4 lockers cost 17 total coins. Unlock in priority order below." data-zh="4个衣柜共需17枚金币，按优先级顺序解锁效益最大。">4 lockers cost 17 total coins. Unlock in priority order below.</p>
+    <table class="exchange-table">
+      <thead>
+        <tr>
+          <th data-en="Upgrade" data-zh="升级道具">Upgrade</th>
+          <th data-en="Cost" data-zh="所需金币">Cost</th>
+          <th data-en="Effect" data-zh="效果">Effect</th>
+          <th data-en="Priority" data-zh="优先级">Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="upgrade-name" data-en="Hip Pouch" data-zh="腰包">Hip Pouch</td>
+          <td class="coin-cost">3</td>
+          <td class="upgrade-desc" data-en="Adds 2 inventory slots. Stackable up to 3 times total." data-zh="扩展2个道具格，可叠加最多3次。">Adds 2 inventory slots. Stackable up to 3 times total.</td>
+          <td><span class="upgrade-rec rec-high" data-en="Get First" data-zh="最优先">Get First</span></td>
+        </tr>
+        <tr>
+          <td class="upgrade-name" data-en="Stabilizer" data-zh="稳定器">Stabilizer</td>
+          <td class="coin-cost">4</td>
+          <td class="upgrade-desc" data-en="Permanently reduces weapon recoil. Improves accuracy at range." data-zh="永久降低武器后坐力，提升远程精度。">Permanently reduces weapon recoil. Improves accuracy at range.</td>
+          <td><span class="upgrade-rec rec-high" data-en="Get Second" data-zh="第二优先">Get Second</span></td>
+        </tr>
+        <tr>
+          <td class="upgrade-name" data-en="Steroids" data-zh="类固醇">Steroids</td>
+          <td class="coin-cost">4</td>
+          <td class="upgrade-desc" data-en="Permanently increases Grace's max health." data-zh="永久提升格蕾丝的最大生命值。">Permanently increases Grace's max health.</td>
+          <td><span class="upgrade-rec rec-med" data-en="Get Third" data-zh="第三优先">Get Third</span></td>
+        </tr>
+        <tr>
+          <td class="upgrade-name" data-en="Override Manual" data-zh="覆盖手册">Override Manual</td>
+          <td class="coin-cost">6</td>
+          <td class="upgrade-desc" data-en="Unlocks weapon modification override — equip incompatible parts." data-zh="解锁武器改装覆盖，允许安装不兼容配件。">Unlocks weapon modification override — equip incompatible parts.</td>
+          <td><span class="upgrade-rec rec-med" data-en="Get Fourth" data-zh="第四优先">Get Fourth</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">RE<span>9</span>GUIDE</a>
+  <div class="footer-note" data-en="Fan-made guide · Not affiliated with Capcom · Resident Evil Requiem © 2026 Capcom Co., Ltd." data-zh="非官方玩家攻略站 · 与 Capcom 无关联 · 生化危机安魂曲 © 2026 Capcom Co., Ltd.">Fan-made guide · Not affiliated with Capcom · Resident Evil Requiem © 2026 Capcom Co., Ltd.</div>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  const s = JSON.parse(localStorage.getItem('re9b_raccoons') || '{}');
+  function updateCount(){const c=Object.values(s).filter(Boolean).length;document.getElementById('raccoon-count').textContent=c;document.getElementById('raccoon-bar').style.width=(c/25*100)+'%';}
+  function toggleCheck(el,num){el.classList.toggle('checked');if(el.classList.contains('checked')){el.textContent='✓';s[num]=true;}else{el.textContent='';s[num]=false;}localStorage.setItem('re9b_raccoons',JSON.stringify(s));updateCount();}
+  document.querySelectorAll('.check-box').forEach(b=>{const m=b.getAttribute('onclick').match(/,(\d+)\)/);if(m&&s[+m[1]]){b.classList.add('checked');b.textContent='✓';}});
+  updateCount();
+</script>
+</body>
+</html>

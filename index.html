@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Resident Evil Requiem Guide | RE9 Walkthrough, Puzzles, Bosses" data-zh="生化危机9安魂曲攻略 | RE9全流程攻略、谜题密码、BOSS打法">Resident Evil Requiem Guide | RE9 Walkthrough, Puzzles, Bosses</title>
+<meta name="description" data-en="Complete RE9 guide. Puzzles, safe codes, boss strategies, collectibles for Grace and Leon." data-zh="生化危机9安魂曲完整中文攻略。全流程、保险箱密码、BOSS弱点、收集品位置全覆盖。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blood:#8B0000;--blood-dim:#5a0000;--rust:#C0392B;--amber:#E8A000;
+    --bone:#D4C9B0;--ash:#9A9590;--ink:#0D0C0B;--ink-mid:#1A1917;
+    --ink-light:#252320;--ink-border:#2E2C29;--text:#C8C2B8;--text-dim:#7A746E;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--text);font-size:15px;line-height:1.65;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);pointer-events:none;z-index:1000}
+
+  /* ── FONT SWITCHING ── */
+  body{font-family:'Inter',sans-serif}
+  body.lang-zh{font-family:'Noto Sans SC',sans-serif}
+
+  /* ── NAV ── */
+  nav{position:sticky;top:0;z-index:200;background:rgba(13,12,11,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.12em;color:var(--bone);text-decoration:none;flex-shrink:0}
+  .nav-logo span{color:var(--blood)}
+  .nav-links{display:flex;gap:4px;list-style:none;flex:1;justify-content:center}
+  .nav-links a{color:var(--ash);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.06em;transition:color 0.2s;padding:6px 10px;white-space:nowrap}
+  .nav-links a:hover{color:var(--bone)}
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher{display:flex;align-items:center;gap:0;border:1px solid var(--ink-border);flex-shrink:0;overflow:hidden}
+  .lang-btn{background:transparent;border:none;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:6px 12px;transition:all 0.2s;color:var(--text-dim);font-family:inherit}
+  .lang-btn:hover{color:var(--bone);background:var(--ink-light)}
+  .lang-btn.active{background:var(--blood);color:var(--bone)}
+  .lang-btn:first-child{border-right:1px solid var(--ink-border)}
+
+  /* ── HERO ── */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:0 52px 72px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(139,0,0,0.18) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(90,0,0,0.22) 0%,transparent 60%),linear-gradient(160deg,#111010 0%,#0D0C0B 50%,#0f0a0a 100%)}
+  .hero-symbol{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:400px;height:400px;opacity:0.04}
+  .biohazard{width:100%;height:100%;animation:slowspin 60s linear infinite}
+  @keyframes slowspin{to{transform:rotate(360deg)}}
+  .hero-content{position:relative;z-index:2;max-width:680px}
+  .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--blood);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--blood)}
+  .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,8.5vw,108px);line-height:0.92;letter-spacing:0.02em;color:var(--bone);margin-bottom:8px}
+  body.lang-zh .hero-title{font-family:'Noto Sans SC',sans-serif;font-size:clamp(44px,6vw,80px);line-height:1.05;letter-spacing:0.02em;font-weight:700}
+  .hero-title .accent{color:var(--blood)}
+  .hero-subtitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.5vw,38px);letter-spacing:0.08em;color:var(--ash);margin-bottom:24px}
+  body.lang-zh .hero-subtitle{font-family:'Noto Sans SC',sans-serif;font-weight:300;letter-spacing:0.05em}
+  .hero-desc{font-size:14px;color:var(--text-dim);max-width:480px;line-height:1.75;margin-bottom:36px}
+  .hero-stats{display:flex;gap:36px;margin-bottom:40px;flex-wrap:wrap}
+  .stat-num{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:600;color:var(--amber);display:block;line-height:1}
+  .stat-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+  body.lang-zh .stat-label{text-transform:none;letter-spacing:0.05em}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-primary{background:var(--blood);color:var(--bone);border:none;padding:13px 28px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background 0.2s,transform 0.15s;display:inline-block}
+  body.lang-zh .btn-primary{text-transform:none;letter-spacing:0.05em;font-size:13px}
+  .btn-primary:hover{background:var(--rust);transform:translateY(-1px)}
+  .btn-secondary{background:transparent;color:var(--ash);border:1px solid var(--ink-border);padding:13px 28px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-decoration:none;cursor:pointer;transition:border-color 0.2s,color 0.2s;display:inline-block}
+  body.lang-zh .btn-secondary{text-transform:none;letter-spacing:0.05em;font-size:13px}
+  .btn-secondary:hover{border-color:var(--ash);color:var(--bone)}
+  .hero-drip{position:absolute;left:0;bottom:0;width:100%;height:3px;background:linear-gradient(90deg,var(--blood) 0%,var(--blood-dim) 40%,transparent 100%)}
+
+  /* ── SECTIONS ── */
+  section{padding:76px 52px}
+  .section-header{margin-bottom:44px;display:flex;align-items:baseline;gap:16px}
+  .section-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blood);border:1px solid var(--blood-dim);padding:3px 8px;flex-shrink:0}
+  .section-title{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:0.04em;color:var(--bone)}
+  body.lang-zh .section-title{font-family:'Noto Sans SC',sans-serif;font-size:30px;font-weight:700;letter-spacing:0.02em}
+
+  /* ── AREA MAP ── */
+  .area-map{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px}
+  .area-card{background:var(--ink-mid);border:1px solid var(--ink-border);padding:24px;position:relative;overflow:hidden;text-decoration:none;transition:border-color 0.2s,background 0.2s;display:block}
+  .area-card:hover{border-color:var(--blood-dim);background:var(--ink-light)}
+  .area-card::before{content:attr(data-num);position:absolute;right:14px;bottom:10px;font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:600;color:rgba(255,255,255,0.03);line-height:1}
+  .area-num-badge{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blood);letter-spacing:0.15em;margin-bottom:8px;display:block}
+  .area-card-title{font-size:15px;font-weight:600;color:var(--bone);margin-bottom:6px;line-height:1.3}
+  body.lang-zh .area-card-title{font-size:16px}
+  .area-card-sub{font-size:12px;color:var(--text-dim);line-height:1.6}
+  .area-card-chars{display:flex;gap:4px;margin-top:10px}
+  .char-dot{font-size:10px;padding:2px 7px;border:1px solid}
+  .char-dot-leon{border-color:#2a4a7a;color:#6a8ab5}
+  .char-dot-grace{border-color:var(--blood-dim);color:var(--rust)}
+
+  /* ── PRIORITY CARDS ── */
+  .priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .priority-card{background:var(--ink-mid);border:1px solid var(--ink-border);padding:28px;text-decoration:none;display:block;position:relative;overflow:hidden;transition:border-color 0.25s,background 0.25s}
+  .priority-card::before{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--blood);transition:height 0.3s ease}
+  .priority-card:hover{border-color:var(--blood-dim);background:var(--ink-light)}
+  .priority-card:hover::before{height:100%}
+  .card-badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blood);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .card-badge .dot{width:5px;height:5px;background:var(--blood);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+  .card-title{font-size:22px;font-weight:700;color:var(--bone);margin-bottom:10px;line-height:1.2}
+  body.lang-zh .card-title{font-size:20px}
+  .card-desc{font-size:13px;color:var(--text-dim);line-height:1.7;margin-bottom:18px}
+  .card-items{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:18px}
+  .card-items li{font-size:12px;color:var(--ash);display:flex;align-items:center;gap:8px}
+  .card-items li::before{content:'—';color:var(--blood-dim);font-size:10px}
+  .card-link{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap 0.2s}
+  body.lang-zh .card-link{text-transform:none;letter-spacing:0.05em;font-family:'Noto Sans SC',sans-serif;font-size:12px}
+  .priority-card:hover .card-link{gap:14px}
+  .card-link::after{content:'→'}
+
+  /* ── GUIDES GRID ── */
+  .guides-bg{background:var(--ink-mid)}
+  .guides-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+  .guide-row{background:var(--ink);border:1px solid var(--ink-border);padding:20px 24px;display:flex;align-items:center;gap:18px;text-decoration:none;transition:background 0.2s,border-color 0.2s}
+  .guide-row:hover{background:var(--ink-light);border-color:var(--blood-dim)}
+  .guide-icon{width:42px;height:42px;border:1px solid var(--ink-border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .guide-info{flex:1}
+  .guide-name{font-size:14px;font-weight:600;color:var(--bone);display:block}
+  .guide-meta{font-size:11px;color:var(--text-dim);margin-top:2px}
+  .guide-arrow{color:var(--blood-dim);font-size:18px;transition:color 0.2s,transform 0.2s}
+  .guide-row:hover .guide-arrow{color:var(--rust);transform:translateX(4px)}
+
+  /* ── PROTAGONISTS ── */
+  .protagonists{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .protag-card{background:var(--ink-mid);border:1px solid var(--ink-border);padding:36px;position:relative;overflow:hidden}
+  .protag-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+  .protag-leon::after{background:linear-gradient(90deg,#1a4a8a,transparent)}
+  .protag-grace::after{background:linear-gradient(90deg,var(--blood),transparent)}
+  .protag-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px}
+  .protag-leon .protag-label{color:#4a7ab5}
+  .protag-grace .protag-label{color:var(--blood)}
+  .protag-name{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:0.03em;color:var(--bone);line-height:1;margin-bottom:4px}
+  .protag-role{font-size:12px;color:var(--text-dim);margin-bottom:16px}
+  .protag-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .tag{font-size:11px;color:var(--text-dim);border:1px solid var(--ink-border);padding:3px 8px}
+  .protag-desc{font-size:13px;color:var(--text-dim);line-height:1.7;margin-bottom:20px}
+  .protag-guides{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .protag-guides a{color:var(--ash);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:10px;transition:color 0.2s;padding:6px 0;border-bottom:1px solid var(--ink-border)}
+  .protag-guides a:hover{color:var(--bone)}
+  .protag-guides a span{color:var(--blood-dim);font-size:11px}
+
+  /* ── CODES SECTION ── */
+  .codes-section{background:var(--ink)}
+  .codes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px}
+  .code-card{background:var(--ink-mid);border:1px solid var(--ink-border);padding:18px 20px}
+  .code-location{font-size:11px;color:var(--text-dim);margin-bottom:5px}
+  .code-name{font-size:13px;color:var(--ash);margin-bottom:8px}
+  .code-value{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--amber);letter-spacing:0.1em}
+  .code-diff{font-size:10px;color:var(--text-dim);margin-top:4px;font-family:'JetBrains Mono',monospace}
+  .codes-cta{text-align:center;padding:24px;border:1px dashed var(--ink-border)}
+  .codes-cta p{color:var(--text-dim);font-size:13px;margin-bottom:12px}
+
+  .divider{height:1px;background:linear-gradient(90deg,var(--blood-dim),transparent);margin:0 52px}
+
+  footer{background:var(--ink-mid);border-top:1px solid var(--ink-border);padding:32px 52px;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;color:var(--ash);text-decoration:none}
+  body.lang-zh .footer-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .footer-logo span{color:var(--blood-dim)}
+  .footer-note{font-size:11px;color:var(--text-dim);text-align:right;line-height:1.7}
+
+  /* ── LANG TRANSITION ── */
+  .t{transition:opacity 0.15s}
+
+  @media(max-width:960px){
+    section{padding:52px 24px}
+    .hero{padding:0 24px 60px;min-height:80vh}
+    nav{padding:0 16px}
+    .nav-links{display:none}
+    .priority-grid{grid-template-columns:1fr}
+    .guides-grid{grid-template-columns:1fr}
+    .protagonists{grid-template-columns:1fr}
+    .codes-grid{grid-template-columns:1fr 1fr}
+    .area-map{grid-template-columns:1fr 1fr}
+    footer{flex-direction:column;gap:14px;text-align:center}
+    .footer-note{text-align:center}
+    .hero-symbol{display:none}
+    .divider{margin:0 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">RE<span>9</span>GUIDE</a>
+  <ul class="nav-links">
+    <li><a href="walkthrough.html" data-en="Walkthrough" data-zh="全流程">Walkthrough</a></li>
+    <li><a href="puzzles.html" data-en="Puzzles &amp; Codes" data-zh="谜题密码">Puzzles &amp; Codes</a></li>
+    <li><a href="bosses.html" data-en="Bosses" data-zh="BOSS攻略">Bosses</a></li>
+    <li><a href="collectibles.html" data-en="Collectibles" data-zh="收集品">Collectibles</a></li>
+  </ul>
+  <!-- LANGUAGE SWITCHER -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-symbol">
+    <svg class="biohazard" viewBox="0 0 200 200" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="12"/>
+      <path d="M100 88 C100 60 80 42 55 48 C42 51 32 60 27 73 C38 66 52 66 62 75 C52 63 54 46 70 40 C86 34 100 48 100 88Z"/>
+      <path d="M100 88 C100 60 120 42 145 48 C158 51 168 60 173 73 C162 66 148 66 138 75 C148 63 146 46 130 40 C114 34 100 48 100 88Z" transform="rotate(120 100 100)"/>
+      <path d="M100 88 C100 60 80 42 55 48 C42 51 32 60 27 73 C38 66 52 66 62 75 C52 63 54 46 70 40 C86 34 100 48 100 88Z" transform="rotate(240 100 100)"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="white" stroke-width="3"/>
+      <circle cx="100" cy="100" r="75" fill="none" stroke="white" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-en="Complete Guide — RE9 / 2026" data-zh="中英双语完整攻略 — 2026">Complete Guide — RE9 / 2026</div>
+    <h1 class="hero-title">
+      <span data-en="RESIDENT<br><span class='accent'>EVIL</span><br>REQUIEM" data-zh="生化危机9<br><span class='accent'>安魂曲</span>">RESIDENT<br><span class="accent">EVIL</span><br>REQUIEM</span>
+    </h1>
+    <p class="hero-subtitle" data-en="Survival Guide" data-zh="全流程中文攻略站">Survival Guide</p>
+    <p class="hero-desc" data-en="Every puzzle solution, safe code, boss weakness, and collectible location for Resident Evil Requiem. Covers both Grace Ashcroft and Leon S. Kennedy campaigns — from Wrenwood to the ARK." data-zh="涵盖全流程、所有保险箱密码、BOSS弱点打法、25个浣熊先生位置、古董金币全收集。Leon和Grace双线剧情完整攻略，普通与疯狂难度双版本。">Every puzzle solution, safe code, boss weakness, and collectible location for Resident Evil Requiem. Covers both Grace Ashcroft and Leon S. Kennedy campaigns — from Wrenwood to the ARK.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">4</span><div class="stat-label" data-en="Major Areas" data-zh="大区域">Major Areas</div></div>
+      <div class="stat-item"><span class="stat-num">25</span><div class="stat-label" data-en="Mr. Raccoons" data-zh="浣熊先生">Mr. Raccoons</div></div>
+      <div class="stat-item"><span class="stat-num">12+</span><div class="stat-label" data-en="Boss Fights" data-zh="BOSS战">Boss Fights</div></div>
+      <div class="stat-item"><span class="stat-num">2</span><div class="stat-label" data-en="Characters" data-zh="可操作角色">Characters</div></div>
+    </div>
+    <div class="hero-cta">
+      <a href="walkthrough.html" class="btn-primary" data-en="Full Walkthrough" data-zh="开始全流程攻略">Full Walkthrough</a>
+      <a href="puzzles.html" class="btn-secondary" data-en="Puzzle Codes →" data-zh="谜题密码速查 →">Puzzle Codes →</a>
+    </div>
+  </div>
+  <div class="hero-drip"></div>
+</section>
+
+<!-- AREA MAP -->
+<section>
+  <div class="section-header">
+    <span class="section-tag">AREAS</span>
+    <h2 class="section-title" data-en="Four Areas" data-zh="四大区域">Four Areas</h2>
+  </div>
+  <div class="area-map">
+    <a href="walkthrough.html#wrenwood" class="area-card" data-num="01">
+      <span class="area-num-badge">AREA 01</span>
+      <div class="area-card-title" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div>
+      <div class="area-card-sub" data-en="Opening area. Core mechanics, first boss Chunk." data-zh="游戏开篇，介绍核心机制，首BOSS Chunk。">Opening area. Core mechanics, first boss Chunk.</div>
+      <div class="area-card-chars">
+        <span class="char-dot char-dot-leon" data-en="Leon" data-zh="里昂主导">Leon</span>
+      </div>
+    </a>
+    <a href="walkthrough.html#rhodes-hill" class="area-card" data-num="02">
+      <span class="area-num-badge">AREA 02</span>
+      <div class="area-card-title" data-en="Rhodes Hill Care Center" data-zh="罗兹山疗养院">Rhodes Hill Care Center</div>
+      <div class="area-card-sub" data-en="Survival horror tone. Blood crafting. Keeper boss." data-zh="生存恐怖风格，血液合成系统，守卫者BOSS。">Survival horror tone. Blood crafting. Keeper boss.</div>
+      <div class="area-card-chars">
+        <span class="char-dot char-dot-grace" data-en="Grace" data-zh="格蕾丝主导">Grace</span>
+      </div>
+    </a>
+    <a href="walkthrough.html#raccoon-city" class="area-card" data-num="03">
+      <span class="area-num-badge">AREA 03</span>
+      <div class="area-card-title" data-en="Raccoon City Ruins" data-zh="浣熊市废墟">Raccoon City Ruins</div>
+      <div class="area-card-sub" data-en="RPD, Mr. X chase, Super Tyrant showdown." data-zh="RPD警察局，Mr.X追逐战，超级暴君决战。">RPD, Mr. X chase, Super Tyrant showdown.</div>
+      <div class="area-card-chars">
+        <span class="char-dot char-dot-leon" data-en="Leon" data-zh="里昂主导">Leon</span>
+      </div>
+    </a>
+    <a href="walkthrough.html#ark" class="area-card" data-num="04">
+      <span class="area-num-badge">AREA 04</span>
+      <div class="area-card-title" data-en="The ARK" data-zh="方舟基地">The ARK</div>
+      <div class="area-card-sub" data-en="Final chapter. Point of no return. Ending puzzle." data-zh="终章，不可返回点，最终谜题决定结局走向。">Final chapter. Point of no return. Ending puzzle.</div>
+      <div class="area-card-chars">
+        <span class="char-dot char-dot-leon" data-en="Leon" data-zh="里昂">Leon</span>
+        <span class="char-dot char-dot-grace" data-en="Grace" data-zh="格蕾丝">Grace</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRIORITY GUIDES -->
+<section>
+  <div class="section-header">
+    <span class="section-tag">HOT</span>
+    <h2 class="section-title" data-en="Most-Searched Guides" data-zh="最多人搜索的攻略">Most-Searched Guides</h2>
+  </div>
+  <div class="priority-grid">
+
+    <a href="puzzles.html" class="priority-card">
+      <div class="card-badge"><span class="dot"></span><span data-en="Fastest Answers" data-zh="速查最快">Fastest Answers</span></div>
+      <h3 class="card-title" data-en="Puzzles &amp; Safe Codes" data-zh="谜题答案 &amp; 保险箱密码">Puzzles &amp; Safe Codes</h3>
+      <p class="card-desc" data-en="Stuck on a combination? All safe codes and puzzle solutions sorted by location — 30 seconds to your answer." data-zh="卡关了？所有保险箱密码、谜题解法一页全收录，按区域整理，30秒找到答案。">Stuck on a combination? All safe codes and puzzle solutions sorted by location — 30 seconds to your answer.</p>
+      <ul class="card-items">
+        <li data-en="All safe codes (Normal + Insanity)" data-zh="全部保险箱密码（普通+疯狂两难度）">All safe codes (Normal + Insanity)</li>
+        <li data-en="Roulette Wheel solution" data-zh="轮盘谜题解法">Roulette Wheel solution</li>
+        <li data-en="Quartz Door — Moon/Sun/Star" data-zh="石英门 — 月·日·星序列">Quartz Door — Moon/Sun/Star</li>
+        <li data-en="Final puzzle solution + ending guide" data-zh="最终谜题答案（含结局分支说明）">Final puzzle solution + ending guide</li>
+      </ul>
+      <span class="card-link" data-en="View All Codes" data-zh="查看全部密码">View All Codes</span>
+    </a>
+
+    <a href="collectibles.html" class="priority-card">
+      <div class="card-badge"><span class="dot"></span><span data-en="100% Completion" data-zh="全收集">100% Completion</span></div>
+      <h3 class="card-title" data-en="All Collectibles" data-zh="收集品全位置">All Collectibles</h3>
+      <p class="card-desc" data-en="Every Mr. Raccoon and Antique Coin location with interactive checklist. Missable warnings included." data-zh="25个浣熊先生、17枚古董金币全位置，附可错过提醒，支持进度打钩记录。">Every Mr. Raccoon and Antique Coin location with interactive checklist. Missable warnings included.</p>
+      <ul class="card-items">
+        <li data-en="All 25 Mr. Raccoon locations" data-zh="浣熊先生全25个位置">All 25 Mr. Raccoon locations</li>
+        <li data-en="All 17 Antique Coin locations" data-zh="古董金币全17枚位置">All 17 Antique Coin locations</li>
+        <li data-en="Coin exchange priority guide" data-zh="金币兑换优先级推荐">Coin exchange priority guide</li>
+        <li data-en="Interactive progress tracker" data-zh="可点击进度追踪表格">Interactive progress tracker</li>
+      </ul>
+      <span class="card-link" data-en="View All Locations" data-zh="查看全部位置">View All Locations</span>
+    </a>
+
+    <a href="bosses.html" class="priority-card">
+      <div class="card-badge"><span class="dot"></span><span data-en="Boss Database" data-zh="BOSS数据库">Boss Database</span></div>
+      <h3 class="card-title" data-en="Boss Strategies" data-zh="BOSS打法攻略">Boss Strategies</h3>
+      <p class="card-desc" data-en="Weak points, attack patterns, ammo-efficient strategies, and drop rewards. Stop wasting bullets on fake openings." data-zh="每个BOSS的弱点、分阶段打法、节省弹药策略和掉落奖励。不踩假破绽，不浪费子弹。">Weak points, attack patterns, ammo-efficient strategies, and drop rewards.</p>
+      <ul class="card-items">
+        <li data-en="All main story bosses" data-zh="全部主线BOSS（Leon + Grace线）">All main story bosses</li>
+        <li data-en="Weak points &amp; phase breakdowns" data-zh="弱点及阶段分解">Weak points &amp; phase breakdowns</li>
+        <li data-en="Drop rewards &amp; key items" data-zh="掉落奖励 &amp; 关键道具">Drop rewards &amp; key items</li>
+        <li data-en="Insanity difficulty tips" data-zh="疯狂难度专项技巧">Insanity difficulty tips</li>
+      </ul>
+      <span class="card-link" data-en="View Boss Database" data-zh="查看BOSS数据库">View Boss Database</span>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ALL GUIDES -->
+<section class="guides-bg">
+  <div class="section-header">
+    <span class="section-tag">INDEX</span>
+    <h2 class="section-title" data-en="Full Guide Index" data-zh="全部攻略索引">Full Guide Index</h2>
+  </div>
+  <div class="guides-grid">
+    <a href="walkthrough.html" class="guide-row">
+      <div class="guide-icon">🗺</div>
+      <div class="guide-info">
+        <span class="guide-name" data-en="Full Walkthrough" data-zh="全流程图文攻略">Full Walkthrough</span>
+        <div class="guide-meta" data-en="Wrenwood · Rhodes Hill · Raccoon City · ARK — both characters" data-zh="伦伍德酒店 · 罗兹山 · 浣熊市 · 方舟基地，双主角全覆盖">Wrenwood · Rhodes Hill · Raccoon City · ARK — both characters</div>
+      </div>
+      <span class="guide-arrow">›</span>
+    </a>
+    <a href="puzzles.html" class="guide-row">
+      <div class="guide-icon">🔐</div>
+      <div class="guide-info">
+        <span class="guide-name" data-en="All Puzzles &amp; Safe Codes" data-zh="谜题答案 &amp; 保险箱密码大全">All Puzzles &amp; Safe Codes</span>
+        <div class="guide-meta" data-en="Normal and Insanity difficulty — all combinations" data-zh="普通和疯狂两种难度全部密码">Normal and Insanity difficulty — all combinations</div>
+      </div>
+      <span class="guide-arrow">›</span>
+    </a>
+    <a href="bosses.html" class="guide-row">
+      <div class="guide-icon">💀</div>
+      <div class="guide-info">
+        <span class="guide-name" data-en="Boss Guide &amp; Weaknesses" data-zh="BOSS攻略 &amp; 弱点打法大全">Boss Guide &amp; Weaknesses</span>
+        <div class="guide-meta" data-en="Chunk, Mr. X, Super Tyrant, Emily, Keeper and more" data-zh="Chunk、Mr.X、超级暴君、守卫者等全部BOSS">Chunk, Mr. X, Super Tyrant, Emily, Keeper and more</div>
+      </div>
+      <span class="guide-arrow">›</span>
+    </a>
+    <a href="collectibles.html" class="guide-row">
+      <div class="guide-icon">🦝</div>
+      <div class="guide-info">
+        <span class="guide-name" data-en="Mr. Raccoon Locations (All 25)" data-zh="浣熊先生位置（全25个）">Mr. Raccoon Locations (All 25)</span>
+        <div class="guide-meta" data-en="Destroy all 25 to unlock Advanced Tuning + achievement" data-zh="全部摧毁解锁「高级调整」+ 成就">Destroy all 25 to unlock Advanced Tuning + achievement</div>
+      </div>
+      <span class="guide-arrow">›</span>
+    </a>
+    <a href="collectibles.html#coins" class="guide-row">
+      <div class="guide-icon">🪙</div>
+      <div class="guide-info">
+        <span class="guide-name" data-en="All Antique Coin Locations" data-zh="古董金币全位置">All Antique Coin Locations</span>
+        <div class="guide-meta" data-en="Hip Pouch, Stabilizer, Steroids &amp; Override Manual" data-zh="兑换腰包、稳定器、类固醇、覆盖手册">Hip Pouch, Stabilizer, Steroids &amp; Override Manual</div>
+      </div>
+      <span class="guide-arrow">›</span>
+    </a>
+    <a href="postgame.html" class="guide-row">
+      <div class="guide-icon">⚡</div>
+      <div class="guide-info">
+        <span class="guide-name" data-en="Infinite Ammo &amp; Post-Game" data-zh="通关后内容 &amp; 无限弹药">Infinite Ammo &amp; Post-Game</span>
+        <div class="guide-meta" data-en="Unlock infinite ammo, CP farming, New Game+" data-zh="无限弹药解锁方法、CP刷取、疯狂难度攻略">Unlock infinite ammo, CP farming, New Game+</div>
+      </div>
+      <span class="guide-arrow">›</span>
+    </a>
+  </div>
+</section>
+
+<!-- PROTAGONIST SECTION -->
+<section id="characters">
+  <div class="section-header">
+    <span class="section-tag">CAST</span>
+    <h2 class="section-title" data-en="Two Campaigns" data-zh="双主角 · 双线剧情">Two Campaigns</h2>
+  </div>
+  <div class="protagonists">
+    <div class="protag-card protag-leon">
+      <div class="protag-label" data-en="Protagonist A" data-zh="主角 A">Protagonist A</div>
+      <div class="protag-name">LEON</div>
+      <div class="protag-role" data-en="Leon S. Kennedy — FBI Special Agent" data-zh="里昂 · S · 肯尼迪 — FBI特工">Leon S. Kennedy — FBI Special Agent</div>
+      <div class="protag-tags">
+        <span class="tag" data-en="Combat-Focused" data-zh="战斗为主">Combat-Focused</span>
+        <span class="tag" data-en="Hatchet Finishers" data-zh="斧头终结技">Hatchet Finishers</span>
+        <span class="tag" data-en="Heavy Arsenal" data-zh="重型武器">Heavy Arsenal</span>
+        <span class="tag" data-en="Parry System" data-zh="格挡反击">Parry System</span>
+      </div>
+      <p class="protag-desc" data-en="Leon's sections are aggressive and weapon-heavy. His unlimited-use hatchet enables flashy finishers that conserve ammo. Wrenwood Hotel and Raccoon City are his main stages." data-zh="里昂的剧情以高强度战斗为主。无限耐久的斧头可对硬直敌人施放终结动作，大幅节省弹药消耗。伦伍德酒店和浣熊市废墟是他的主场。">Leon's sections are aggressive and weapon-heavy. His unlimited-use hatchet enables flashy finishers that conserve ammo.</p>
+      <ul class="protag-guides">
+        <li><a href="walkthrough.html#wrenwood"><span>→</span><span data-en="Leon Walkthrough" data-zh="里昂路线全流程">Leon Walkthrough</span></a></li>
+        <li><a href="bosses.html"><span>→</span><span data-en="Leon Boss Fights" data-zh="里昂线BOSS攻略">Leon Boss Fights</span></a></li>
+      </ul>
+    </div>
+    <div class="protag-card protag-grace">
+      <div class="protag-label" data-en="Protagonist B" data-zh="主角 B">Protagonist B</div>
+      <div class="protag-name">GRACE</div>
+      <div class="protag-role" data-en="Grace Ashcroft — FBI Technical Analyst" data-zh="格蕾丝 · 阿什克罗夫特 — FBI技术分析员">Grace Ashcroft — FBI Technical Analyst</div>
+      <div class="protag-tags">
+        <span class="tag" data-en="Survival Horror" data-zh="生存恐怖">Survival Horror</span>
+        <span class="tag" data-en="Blood Crafting" data-zh="血液合成">Blood Crafting</span>
+        <span class="tag" data-en="Stealth-Preferred" data-zh="潜行优先">Stealth-Preferred</span>
+        <span class="tag" data-en="Ink Ribbon Saves" data-zh="墨水带存档">Ink Ribbon Saves</span>
+      </div>
+      <p class="protag-desc" data-en="Grace's sections are tense and resource-scarce. Her blood-crafting system requires kills for survival items. In Classic mode, ink ribbons are needed to save — plan carefully." data-zh="格蕾丝的剧情节奏紧张，资源匮乏。独特的血液合成系统需要击杀敌人获取感染血液用于制作道具。经典难度下需要墨水带才能存档——提前规划好。">Grace's sections are tense and resource-scarce. Her blood-crafting system requires kills for survival items.</p>
+      <ul class="protag-guides">
+        <li><a href="walkthrough.html#rhodes-hill"><span>→</span><span data-en="Grace Walkthrough" data-zh="格蕾丝路线全流程">Grace Walkthrough</span></a></li>
+        <li><a href="bosses.html#keeper"><span>→</span><span data-en="Grace Boss Fights" data-zh="格蕾丝线BOSS攻略">Grace Boss Fights</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CODES TEASER -->
+<section class="codes-section">
+  <div class="section-header">
+    <span class="section-tag">QUICK REF</span>
+    <h2 class="section-title" data-en="Safe Codes — Preview" data-zh="保险箱密码速查预览">Safe Codes — Preview</h2>
+  </div>
+  <div class="codes-grid">
+    <div class="code-card">
+      <div class="code-location" data-en="Rhodes Hill · Sterilization Chamber" data-zh="罗兹山 · 消毒室">Rhodes Hill · Sterilization Chamber</div>
+      <div class="code-name" data-en="Safe #4" data-zh="4号保险箱">Safe #4</div>
+      <div class="code-value">R10 · L90 · R20</div>
+      <div class="code-diff" data-en="Normal / Casual" data-zh="普通 / 休闲难度">Normal / Casual</div>
+    </div>
+    <div class="code-card">
+      <div class="code-location" data-en="Rhodes Hill · Sterilization Chamber" data-zh="罗兹山 · 消毒室">Rhodes Hill · Sterilization Chamber</div>
+      <div class="code-name" data-en="Safe #4" data-zh="4号保险箱">Safe #4</div>
+      <div class="code-value">L80 · R50 · L00</div>
+      <div class="code-diff" data-en="Insanity difficulty" data-zh="疯狂难度">Insanity difficulty</div>
+    </div>
+    <div class="code-card">
+      <div class="code-location" data-en="Central Hall · Quartz Door" data-zh="中央大厅 · 石英门">Central Hall · Quartz Door</div>
+      <div class="code-name" data-en="Quartz Puzzle" data-zh="石英门谜题">Quartz Puzzle</div>
+      <div class="code-value">☽ ☀ ★ ☽</div>
+      <div class="code-diff" data-en="Moon – Sun – Star – Moon" data-zh="月亮 — 太阳 — 星星 — 月亮">Moon – Sun – Star – Moon</div>
+    </div>
+  </div>
+  <div class="codes-cta">
+    <p data-en="All safe codes, puzzle solutions, and door combinations — sorted by area." data-zh="所有保险箱密码、谜题解法、门锁密码一页收录，按区域分类整理。">All safe codes, puzzle solutions, and door combinations — sorted by area.</p>
+    <a href="puzzles.html" class="btn-primary" data-en="View All Codes &amp; Puzzles" data-zh="查看全部密码与谜题">View All Codes &amp; Puzzles</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">RE<span>9</span>GUIDE</a>
+  <div class="footer-note">
+    <span data-en="Resident Evil Requiem is a trademark of Capcom Co., Ltd.<br>Fan-made guide — not affiliated with Capcom." data-zh="生化危机安魂曲版权归 Capcom 所有<br>本站为非官方玩家攻略站，与 Capcom 无关联">Resident Evil Requiem is a trademark of Capcom Co., Ltd.<br>Fan-made guide — not affiliated with Capcom.</span>
+  </div>
+</footer>
+
+<script>
+// ── LANGUAGE ENGINE ──────────────────────────────────────────
+
+const LANG_KEY = 're9_lang';
+
+function setLang(lang) {
+  // 1. Save preference
+  localStorage.setItem(LANG_KEY, lang);
+
+  // 2. Toggle body class for font switching
+  document.body.classList.toggle('lang-zh', lang === 'zh');
+
+  // 3. Update html lang attribute
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  // 4. Update all translatable elements
+  document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (!text) return;
+
+    // Handle elements that contain HTML (like the hero title with <span>)
+    if (text.includes('<')) {
+      el.innerHTML = text;
+    } else {
+      el.textContent = text;
+    }
+  });
+
+  // 5. Update page title & meta description
+  const titleEl = document.querySelector('title');
+  if (titleEl) {
+    const t = titleEl.getAttribute('data-' + lang);
+    if (t) document.title = t;
+  }
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    const d = metaDesc.getAttribute('data-' + lang);
+    if (d) metaDesc.setAttribute('content', d);
+  }
+
+  // 6. Update nav logo text
+  const logo = document.querySelector('.nav-logo');
+  if (logo) {
+    if (lang === 'zh') {
+      logo.innerHTML = '生化危机9<span>攻略</span>';
+    } else {
+      logo.innerHTML = 'RE<span>9</span>GUIDE';
+    }
+  }
+
+  // 7. Highlight active button
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+}
+
+// ── INIT ON PAGE LOAD ─────────────────────────────────────────
+(function() {
+  // Check saved preference, then browser language, then default to EN
+  const saved = localStorage.getItem(LANG_KEY);
+  const browserLang = navigator.language || navigator.userLanguage || '';
+  const defaultLang = saved
+    ? saved
+    : browserLang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  setLang(defaultLang);
+})();
+</script>
+
+</body>
+</html>
