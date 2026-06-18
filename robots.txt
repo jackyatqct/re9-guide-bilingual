@@ -1,0 +1,12 @@
+# RE9 Guide — robots.txt
+# https://re9guide.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://re9guide.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1

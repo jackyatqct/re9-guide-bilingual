@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Resident Evil Requiem Walkthrough | RE9 Complete Guide All Areas" data-zh="生化危机9安魂曲全流程攻略 | RE9图文攻略全区域详解">Resident Evil Requiem Walkthrough | RE9 Complete Guide All Areas</title>
+<meta name="description" data-en="Complete RE9 walkthrough for all areas: Wrenwood Hotel, Rhodes Hill, Raccoon City, and the ARK. Covers both Leon and Grace campaigns with all key items, puzzles, and boss strategies." data-zh="生化危机9安魂曲完整图文流程攻略。伦伍德酒店、罗兹山、浣熊市、方舟基地四大区域全覆盖，里昂和格蕾丝双线详解。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--blood:#8B0000;--blood-dim:#5a0000;--rust:#C0392B;--amber:#E8A000;--bone:#D4C9B0;--ash:#9A9590;--ink:#0D0C0B;--ink-mid:#1A1917;--ink-light:#252320;--ink-border:#2E2C29;--text:#C8C2B8;--text-dim:#7A746E;--green-bright:#4CAF50;--blue:#4a7ab5;--blue-dim:#2a4a7a}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.75}
+  body.lang-zh{font-family:'Noto Sans SC',sans-serif}
+  body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.05) 2px,rgba(0,0,0,0.05) 4px);pointer-events:none;z-index:1000}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:200;background:rgba(13,12,11,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.12em;color:var(--bone);text-decoration:none;flex-shrink:0}
+  body.lang-zh .nav-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .nav-logo span{color:var(--blood)}
+  .nav-links{display:flex;gap:4px;list-style:none;flex:1;justify-content:center}
+  .nav-links a{color:var(--ash);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.06em;transition:color 0.2s;padding:6px 10px;white-space:nowrap}
+  .nav-links a:hover{color:var(--bone)}
+  .nav-links a.active{color:var(--amber)}
+  .lang-switcher{display:flex;align-items:center;border:1px solid var(--ink-border);flex-shrink:0;overflow:hidden}
+  .lang-btn{background:transparent;border:none;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:6px 12px;transition:all 0.2s;color:var(--text-dim);font-family:inherit}
+  .lang-btn:hover{color:var(--bone);background:var(--ink-light)}
+  .lang-btn.active{background:var(--blood);color:var(--bone)}
+  .lang-btn:first-child{border-right:1px solid var(--ink-border)}
+
+  /* PAGE HEADER */
+  .page-header{padding:52px 48px 44px;background:linear-gradient(180deg,var(--ink-mid) 0%,var(--ink) 100%);border-bottom:1px solid var(--ink-border);position:relative;overflow:hidden}
+  .page-header::before{content:'WALKTHROUGH';position:absolute;right:40px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(255,255,255,0.02);pointer-events:none;line-height:1;white-space:nowrap}
+  body.lang-zh .page-header::before{content:'全流程'}
+  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:0.1em;margin-bottom:14px}
+  .breadcrumb a{color:var(--blood);text-decoration:none}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:0.03em;color:var(--bone);line-height:1.1;margin-bottom:10px}
+  body.lang-zh .page-title{font-family:'Noto Sans SC',sans-serif;font-size:42px;font-weight:700;letter-spacing:0.02em}
+  .page-title span{color:var(--blood)}
+  .page-desc{font-size:14px;color:var(--text-dim);max-width:600px;line-height:1.8}
+  .page-meta{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+  .meta-pill{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);border:1px solid var(--ink-border);padding:3px 9px;letter-spacing:0.08em}
+  .meta-pill strong{color:var(--amber)}
+
+  /* AREA TABS */
+  .area-nav{background:var(--ink-mid);border-bottom:1px solid var(--ink-border);padding:0 48px;display:flex;gap:0;overflow-x:auto}
+  .area-tab{font-size:12px;font-weight:500;color:var(--text-dim);text-decoration:none;padding:14px 18px;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;flex-shrink:0}
+  .area-tab:hover{color:var(--bone);border-bottom-color:var(--ink-border)}
+  .area-tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+
+  /* LAYOUT */
+  .walkthrough-layout{display:grid;grid-template-columns:230px 1fr;max-width:1200px;margin:0 auto}
+
+  /* SIDEBAR */
+  .sidebar{border-right:1px solid var(--ink-border);padding:28px 18px;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto}
+  .sidebar-section{margin-bottom:22px}
+  .sidebar-label{font-size:11px;font-weight:700;color:var(--blood);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .sidebar-label::after{content:'';flex:1;height:1px;background:var(--blood-dim)}
+  .sidebar-links{list-style:none;display:flex;flex-direction:column;gap:1px}
+  .sidebar-links a{color:var(--text-dim);text-decoration:none;font-size:12px;padding:5px 9px;display:block;transition:all 0.2s;border-left:2px solid transparent}
+  .sidebar-links a:hover{color:var(--bone);background:var(--ink-light);border-left-color:var(--blood-dim)}
+  .sidebar-links a.current{color:var(--amber);border-left-color:var(--amber);background:rgba(232,160,0,0.05)}
+
+  /* MAIN */
+  .main-content{padding:44px 44px 80px}
+
+  /* AREA BLOCK */
+  .area-block{margin-bottom:80px}
+  .area-block-header{display:flex;align-items:flex-start;gap:18px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--ink-border)}
+  .area-number{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blood);border:1px solid var(--blood-dim);padding:3px 9px;flex-shrink:0;margin-top:6px}
+  .area-block-title{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:0.03em;color:var(--bone);line-height:1.1}
+  body.lang-zh .area-block-title{font-family:'Noto Sans SC',sans-serif;font-size:28px;font-weight:700;letter-spacing:0.02em}
+  .area-subtitle{font-size:13px;color:var(--text-dim);margin-top:4px}
+  .area-chars{display:flex;gap:8px;margin-top:10px}
+  .char-badge{font-size:11px;padding:3px 10px;border:1px solid}
+  .char-badge-leon{border-color:var(--blue-dim);color:var(--blue)}
+  .char-badge-grace{border-color:var(--blood-dim);color:var(--rust)}
+
+  /* OVERVIEW */
+  .overview-card{background:var(--ink-mid);border:1px solid var(--ink-border);padding:20px;margin-bottom:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .overview-stat-num{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:600;color:var(--amber);display:block;line-height:1}
+  .overview-stat-label{font-size:11px;color:var(--text-dim);margin-top:4px}
+  .overview-desc{grid-column:1/-1;font-size:13px;color:var(--text-dim);line-height:1.75;padding-top:14px;border-top:1px solid var(--ink-border)}
+
+  /* QUICK LINKS */
+  .quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px}
+  .quick-link{background:var(--ink-mid);border:1px solid var(--ink-border);padding:12px 14px;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all 0.2s}
+  .quick-link:hover{background:var(--ink-light);border-color:var(--blood-dim)}
+  .quick-link-icon{font-size:16px;flex-shrink:0}
+  .quick-link-text{font-size:12px;color:var(--ash)}
+  .quick-link-text strong{display:block;color:var(--bone);font-size:13px;margin-bottom:1px}
+
+  /* CHAPTERS */
+  .chapter-list{display:flex;flex-direction:column;gap:3px;margin-bottom:20px}
+  .chapter-card{background:var(--ink-mid);border:1px solid var(--ink-border);overflow:hidden}
+  .chapter-header{padding:15px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background 0.2s;user-select:none}
+  .chapter-header:hover{background:var(--ink-light)}
+  .chapter-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blood);flex-shrink:0;width:26px}
+  .chapter-title{font-size:14px;font-weight:600;color:var(--bone);flex:1}
+  .chapter-meta{font-size:11px;color:var(--text-dim);flex-shrink:0}
+  .chapter-toggle{color:var(--text-dim);font-size:11px;flex-shrink:0;transition:transform 0.2s}
+  .chapter-card.open .chapter-toggle{transform:rotate(180deg)}
+  .chapter-body{display:none;padding:0 18px 16px;border-top:1px solid var(--ink-border)}
+  .chapter-card.open .chapter-body{display:block}
+
+  /* STEPS */
+  .step-list{list-style:none;display:flex;flex-direction:column;margin-top:12px}
+  .step-item{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+  .step-item:last-child{border-bottom:none}
+  .step-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blood-dim);flex-shrink:0;min-width:26px;padding-top:2px}
+  .step-text{font-size:13px;color:var(--text-dim);line-height:1.7}
+  .step-text strong{color:var(--bone)}
+  .step-text .item{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(232,160,0,0.08);padding:1px 5px;border:1px solid rgba(232,160,0,0.2)}
+
+  /* BOXES */
+  .tip-box{background:rgba(0,60,0,0.1);border:1px solid #2a4a2a;padding:10px 13px;margin:10px 0;display:flex;gap:8px}
+  .tip-text{font-size:12px;color:var(--text-dim);line-height:1.65}
+  .tip-text strong{color:var(--green-bright)}
+  .warning-box{background:rgba(139,0,0,0.1);border:1px solid var(--blood-dim);padding:10px 13px;margin:10px 0;display:flex;gap:8px}
+  .warning-text{font-size:12px;color:var(--bone);line-height:1.65}
+  .warning-text strong{color:var(--rust)}
+  .loot-box{background:rgba(232,160,0,0.05);border:1px solid rgba(232,160,0,0.2);padding:10px 13px;margin:10px 0}
+  .loot-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+  .loot-items{display:flex;flex-wrap:wrap;gap:5px}
+  .loot-item{font-size:11px;color:var(--text-dim);background:rgba(232,160,0,0.06);border:1px solid rgba(232,160,0,0.15);padding:2px 7px}
+
+  .area-divider{height:1px;background:linear-gradient(90deg,var(--blood-dim),transparent);margin:0 0 80px}
+
+  footer{background:var(--ink-mid);border-top:1px solid var(--ink-border);padding:24px 48px;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;color:var(--ash);text-decoration:none}
+  body.lang-zh .footer-logo{font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.05em}
+  .footer-logo span{color:var(--blood-dim)}
+  .footer-note{font-size:11px;color:var(--text-dim)}
+
+  @media(max-width:900px){
+    .walkthrough-layout{grid-template-columns:1fr}
+    .sidebar{display:none}
+    .main-content{padding:28px 24px 60px}
+    .page-header{padding:36px 24px 28px}
+    .area-nav{padding:0 16px}
+    .overview-card{grid-template-columns:1fr 1fr}
+    .quick-links{grid-template-columns:1fr}
+    nav{padding:0 16px}
+    .nav-links{display:none}
+    footer{flex-direction:column;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">RE<span>9</span>GUIDE</a>
+  <ul class="nav-links">
+    <li><a href="walkthrough.html" class="active" data-en="Walkthrough" data-zh="全流程">Walkthrough</a></li>
+    <li><a href="puzzles.html" data-en="Puzzles &amp; Codes" data-zh="谜题密码">Puzzles &amp; Codes</a></li>
+    <li><a href="bosses.html" data-en="Bosses" data-zh="BOSS攻略">Bosses</a></li>
+    <li><a href="collectibles.html" data-en="Collectibles" data-zh="收集品">Collectibles</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en" onclick="RE9Lang.setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="zh" onclick="RE9Lang.setLang('zh')">中文</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html" data-en="RE9 Guide" data-zh="生化危机9攻略">RE9 Guide</a> › <span data-en="Walkthrough" data-zh="全流程攻略">Walkthrough</span></div>
+  <h1 class="page-title"><span data-en="Complete" data-zh="完整">Complete</span> <span data-en="Walkthrough" data-zh="全流程图文攻略">Walkthrough</span></h1>
+  <p class="page-desc" data-en="Step-by-step guide for all four areas of Resident Evil Requiem. Covers both Leon and Grace campaigns with all key items, puzzles, and boss strategies." data-zh="生化危机9安魂曲四大区域全流程分步攻略，覆盖里昂和格蕾丝双主角剧情，含所有关键道具、谜题解法和BOSS策略。">Step-by-step guide for all four areas of Resident Evil Requiem. Covers both Leon and Grace campaigns with all key items, puzzles, and boss strategies.</p>
+  <div class="page-meta">
+    <span class="meta-pill" data-en="Areas: &lt;strong&gt;4&lt;/strong&gt;" data-zh="区域数：&lt;strong&gt;4个&lt;/strong&gt;">Areas: <strong>4</strong></span>
+    <span class="meta-pill" data-en="Playtime: &lt;strong&gt;~12–16 hrs&lt;/strong&gt;" data-zh="游戏时长：&lt;strong&gt;约12–16小时&lt;/strong&gt;">Playtime: <strong>~12–16 hrs</strong></span>
+    <span class="meta-pill" data-en="Difficulty: &lt;strong&gt;Normal (Modern)&lt;/strong&gt;" data-zh="难度参考：&lt;strong&gt;普通（现代模式）&lt;/strong&gt;">Difficulty: <strong>Normal (Modern)</strong></span>
+    <span class="meta-pill" data-en="Characters: &lt;strong&gt;Leon &amp; Grace&lt;/strong&gt;" data-zh="可操作角色：&lt;strong&gt;里昂 &amp; 格蕾丝&lt;/strong&gt;">Characters: <strong>Leon &amp; Grace</strong></span>
+  </div>
+</div>
+
+<div class="area-nav">
+  <a href="#wrenwood" class="area-tab active" data-en="01 — Wrenwood Hotel" data-zh="01 — 伦伍德酒店">01 — Wrenwood Hotel</a>
+  <a href="#rhodes-hill" class="area-tab" data-en="02 — Rhodes Hill" data-zh="02 — 罗兹山疗养院">02 — Rhodes Hill</a>
+  <a href="#raccoon-city" class="area-tab" data-en="03 — Raccoon City" data-zh="03 — 浣熊市废墟">03 — Raccoon City</a>
+  <a href="#ark" class="area-tab" data-en="04 — The ARK" data-zh="04 — 方舟基地">04 — The ARK</a>
+</div>
+
+<div class="walkthrough-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label" data-en="Area 01" data-zh="区域 01">Area 01</div>
+      <ul class="sidebar-links">
+        <li><a href="#w-lobby" class="current" data-en="Hotel Lobby" data-zh="酒店大堂">Hotel Lobby</a></li>
+        <li><a href="#w-dining" data-en="Dining Room &amp; Parlor" data-zh="餐厅与休息室">Dining Room &amp; Parlor</a></li>
+        <li><a href="#w-upper" data-en="Upper Floors (2F–4F)" data-zh="上层客房（2-4楼）">Upper Floors (2F–4F)</a></li>
+        <li><a href="#w-basement" data-en="Hotel Basement" data-zh="酒店地下室">Hotel Basement</a></li>
+        <li><a href="#w-chunk" data-en="Boss: Chunk" data-zh="BOSS：Chunk">Boss: Chunk</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label" data-en="Area 02" data-zh="区域 02">Area 02</div>
+      <ul class="sidebar-links">
+        <li><a href="#rh-reception" data-en="Reception &amp; Blood Crafting" data-zh="接待大厅 &amp; 血液合成">Reception &amp; Blood Crafting</a></li>
+        <li><a href="#rh-east-wing" data-en="East Wing (2F)" data-zh="东翼（二楼）">East Wing (2F)</a></li>
+        <li><a href="#rh-director" data-en="Director's Office &amp; Quartz Door" data-zh="院长室与石英门">Director's Office &amp; Quartz Door</a></li>
+        <li><a href="#rh-basement" data-en="Sterilization Chamber" data-zh="消毒室 &amp; 地下室">Sterilization Chamber</a></li>
+        <li><a href="#rh-keeper" data-en="Boss: The Keeper" data-zh="BOSS：守卫者">Boss: The Keeper</a></li>
+        <li><a href="#rh-sub" data-en="Sub-Basement &amp; Exit" data-zh="地下室尾段">Sub-Basement &amp; Exit</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label" data-en="Area 03" data-zh="区域 03">Area 03</div>
+      <ul class="sidebar-links">
+        <li><a href="#rc-streets" data-en="Raccoon City Streets" data-zh="浣熊市街道">Raccoon City Streets</a></li>
+        <li><a href="#rc-rpd" data-en="Raccoon Police Dept." data-zh="RPD警察局">Raccoon Police Dept.</a></li>
+        <li><a href="#rc-mrx" data-en="Boss: Mr. X Chase" data-zh="BOSS：Mr.X追逐战">Boss: Mr. X Chase</a></li>
+        <li><a href="#rc-sewers" data-en="Underground Sewers" data-zh="地下下水道">Underground Sewers</a></li>
+        <li><a href="#rc-tyrant" data-en="Boss: Super Tyrant" data-zh="BOSS：超级暴君">Boss: Super Tyrant</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label" data-en="Area 04" data-zh="区域 04">Area 04</div>
+      <ul class="sidebar-links">
+        <li><a href="#ark-hangar" data-en="ARK Hangar" data-zh="方舟机库">ARK Hangar</a></li>
+        <li><a href="#ark-labs" data-en="Research Labs A &amp; B" data-zh="研究室A &amp; B">Research Labs A &amp; B</a></li>
+        <li><a href="#ark-tower" data-en="Control Tower" data-zh="控制塔">Control Tower</a></li>
+        <li><a href="#ark-emily" data-en="Boss: Mutated Emily" data-zh="BOSS：突变艾米莉">Boss: Mutated Emily</a></li>
+        <li><a href="#ark-final" data-en="Final Puzzle &amp; Ending" data-zh="最终谜题与结局">Final Puzzle &amp; Ending</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label" data-en="Guides" data-zh="关联攻略">Guides</div>
+      <ul class="sidebar-links">
+        <li><a href="puzzles.html" data-en="🔐 All Safe Codes" data-zh="🔐 保险箱密码">🔐 All Safe Codes</a></li>
+        <li><a href="bosses.html" data-en="💀 Boss Strategies" data-zh="💀 BOSS详细攻略">💀 Boss Strategies</a></li>
+        <li><a href="collectibles.html" data-en="🦝 All Collectibles" data-zh="🦝 收集品位置">🦝 All Collectibles</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- ═══════════════════════════ AREA 01 ═══════════════════════════ -->
+    <div class="area-block" id="wrenwood">
+      <div class="area-block-header">
+        <span class="area-number" data-en="AREA 01" data-zh="区域 01">AREA 01</span>
+        <div>
+          <div class="area-block-title" data-en="Wrenwood Hotel" data-zh="伦伍德酒店">Wrenwood Hotel</div>
+          <div class="area-subtitle" data-en="Opening area — core mechanics, crafting basics, and your first boss." data-zh="游戏开篇区域，介绍核心战斗机制、合成系统和格挡反击，以Chunk BOSS战收尾。">Opening area — core mechanics, crafting basics, and your first boss.</div>
+          <div class="area-chars">
+            <span class="char-badge char-badge-leon" data-en="Leon (lead)" data-zh="里昂（主导）">Leon (lead)</span>
+            <span class="char-badge char-badge-grace" data-en="Grace (intro)" data-zh="格蕾丝（序章）">Grace (intro)</span>
+          </div>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div><span class="overview-stat-num">5</span><div class="overview-stat-label" data-en="Chapters" data-zh="章节数">Chapters</div></div>
+        <div><span class="overview-stat-num">6</span><div class="overview-stat-label" data-en="Antique Coins" data-zh="古董金币">Antique Coins</div></div>
+        <div><span class="overview-stat-num">5</span><div class="overview-stat-label" data-en="Mr. Raccoons" data-zh="浣熊先生">Mr. Raccoons</div></div>
+        <div class="overview-desc" data-en="Wrenwood Hotel sets the tone of the game. Leon is the primary character — aggressive, weapon-heavy, with a parry system. The hotel teaches resource management and introduces the Roulette Wheel puzzle. Ends with the Chunk boss fight." data-zh="伦伍德酒店是游戏定调之处。里昂是本区域主角，战斗风格激进、武器丰富，可用格挡系统进行反制。酒店教玩家掌握资源管理技巧，并引入了轮盘谜题。区域尾声的Chunk BOSS是游戏第一个主要关卡Boss。">Wrenwood Hotel sets the tone of the game. Leon is the primary character — aggressive, weapon-heavy, with a parry system. The hotel teaches resource management and introduces the Roulette Wheel puzzle. Ends with the Chunk boss fight.</div>
+      </div>
+      <div class="quick-links">
+        <a href="puzzles.html#wrenwood" class="quick-link"><div class="quick-link-icon">🔐</div><div class="quick-link-text"><strong data-en="Hotel Safe Codes" data-zh="酒店保险箱密码">Hotel Safe Codes</strong><span data-en="Safe #1 — all difficulties" data-zh="1号箱全难度">Safe #1 — all difficulties</span></div></a>
+        <a href="collectibles.html#mr-raccoon" class="quick-link"><div class="quick-link-icon">🦝</div><div class="quick-link-text"><strong data-en="Mr. Raccoon #01–05" data-zh="浣熊先生 #01~05">Mr. Raccoon #01–05</strong><span data-en="All Wrenwood locations" data-zh="全部位置">All Wrenwood locations</span></div></a>
+        <a href="bosses.html#chunk" class="quick-link"><div class="quick-link-icon">💀</div><div class="quick-link-text"><strong data-en="Chunk Boss Guide" data-zh="Chunk BOSS攻略">Chunk Boss Guide</strong><span data-en="Weak points &amp; strategy" data-zh="弱点与打法">Weak points &amp; strategy</span></div></a>
+      </div>
+
+      <div class="chapter-list">
+        <div class="chapter-card open" id="w-lobby">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">01</span>
+            <span class="chapter-title" data-en="Hotel Lobby &amp; Arrival" data-zh="酒店大堂与抵达">Hotel Lobby &amp; Arrival</span>
+            <span class="chapter-meta" data-en="Leon — Combat intro" data-zh="里昂 — 战斗入门">Leon — Combat intro</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="After the opening cutscene, take control of Leon at the hotel entrance. Head through the main doors — the front desk area is your first exploration zone." data-zh="开场动画结束后，控制里昂从酒店正门进入。前台区域是第一个自由探索区域，先不要急着往里走。">After the opening cutscene, take control of Leon at the hotel entrance. Head through the main doors — the front desk area is your first exploration zone.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #01&lt;/strong&gt; is on the front desk shelf behind the check-in monitor. Shoot it from the entrance — face-height, easy to see." data-zh="前台柜台后方架子上有&lt;strong&gt;浣熊先生 #01&lt;/strong&gt;，就在签到显示器后面，从大门口方向即可射击。"><strong>Mr. Raccoon #01</strong> is on the front desk shelf behind the check-in monitor. Shoot it from the entrance — face-height, easy to see.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Open &lt;strong&gt;Safe #1&lt;/strong&gt; behind the reception counter. Code: &lt;strong&gt;R36 · L08 · R52&lt;/strong&gt; (Normal). Contains Shotgun Shells ×8 + Handgun Ammo ×12." data-zh="打开前台后方的&lt;strong&gt;1号保险箱&lt;/strong&gt;，密码：&lt;strong&gt;右36 · 左08 · 右52&lt;/strong&gt;（普通）。内含霰弹枪子弹×8 + 手枪弹药×12。">Open <strong>Safe #1</strong> behind the reception counter. Code: <strong>R36 · L08 · R52</strong> (Normal). Contains Shotgun Shells ×8 + Handgun Ammo ×12.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Examine the guest register on the desk — &lt;strong&gt;File #1&lt;/strong&gt;. Background lore for the hotel outbreak." data-zh="检视台面上的客人签到册，获得&lt;strong&gt;第1号文件&lt;/strong&gt;。读一读可以了解酒店背景剧情。">Examine the guest register on the desk — <strong>File #1</strong>. Background lore for the hotel outbreak.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="First infected enemy appears in the lobby hallway. Practice the &lt;strong&gt;parry timing&lt;/strong&gt; here — 0.3 seconds before impact. You'll need it for boss fights." data-zh="大堂走廊出现第一个感染者，这是&lt;strong&gt;格挡教学战&lt;/strong&gt;。在他攻击前0.3秒按下格挡——在这里多练几次，后面BOSS战用得上。">First infected enemy appears in the lobby hallway. Practice the <strong>parry timing</strong> here — 0.3 seconds before impact. You'll need it for boss fights.</div></li>
+              <li class="step-item"><span class="step-num">06</span><div class="step-text" data-en="Proceed through the east door toward the Dining Room. Pick up the &lt;strong&gt;Typewriter Ribbon&lt;/strong&gt; from the table near the hall entrance — save resource on Insanity/Classic." data-zh="穿过大堂东侧的门，前往餐厅。走廊入口桌上拿走&lt;strong&gt;墨水带&lt;/strong&gt;——这是疯狂/经典难度的存档消耗品。">Proceed through the east door toward the Dining Room. Pick up the <strong>Typewriter Ribbon</strong> from the table near the hall entrance — save resource on Insanity/Classic.</div></li>
+            </ul>
+            <div class="loot-box">
+              <div class="loot-label" data-en="Key Items" data-zh="关键道具">Key Items</div>
+              <div class="loot-items">
+                <span class="loot-item" data-en="File #1 — Guest Register" data-zh="文件#1 客人签到册">File #1 — Guest Register</span>
+                <span class="loot-item" data-en="Handgun Ammo ×8" data-zh="手枪弹药×8">Handgun Ammo ×8</span>
+                <span class="loot-item" data-en="Shotgun Shells ×8 (safe)" data-zh="霰弹枪子弹×8（保险箱）">Shotgun Shells ×8 (safe)</span>
+                <span class="loot-item" data-en="Typewriter Ribbon" data-zh="墨水带">Typewriter Ribbon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="w-dining">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">02</span>
+            <span class="chapter-title" data-en="Dining Room, Parlor &amp; Roulette Puzzle" data-zh="餐厅、休息室与轮盘谜题">Dining Room, Parlor &amp; Roulette Puzzle</span>
+            <span class="chapter-meta" data-en="Leon — First puzzle" data-zh="里昂 — 首个谜题">Leon — First puzzle</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Enter the Dining Room. &lt;strong&gt;Mr. Raccoon #02&lt;/strong&gt; is on the top shelf of the wine rack, far left corner. Look up." data-zh="进入餐厅，&lt;strong&gt;浣熊先生 #02&lt;/strong&gt;在酒架顶层左侧角落，需仰头才能看到。">Enter the Dining Room. <strong>Mr. Raccoon #02</strong> is on the top shelf of the wine rack, far left corner. Look up.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="Clear 3 infected. Use hatchet finishers on staggered enemies to conserve ammo — headshot to stagger, then press melee for the hatchet kill." data-zh="清理3只感染者。对打硬直的敌人使用斧头终结技——先射头部让其硬直，再按近战键触发斧头动作，节省弹药。">Clear 3 infected. Use hatchet finishers on staggered enemies to conserve ammo — headshot to stagger, then press melee for the hatchet kill.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Small potted plant at the reception left side — examine to get &lt;strong&gt;Antique Coin #01&lt;/strong&gt;." data-zh="接待台左侧的小盆栽内检视获得&lt;strong&gt;古董金币 #01&lt;/strong&gt;。">Small potted plant at the reception left side — examine to get <strong>Antique Coin #01</strong>.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Enter the Parlor. Examine the &lt;strong&gt;painting above the fireplace&lt;/strong&gt; first to read the color sequence, then interact with the wheel." data-zh="从餐厅西侧走廊进入休息室。先&lt;strong&gt;检视壁炉上方的油画&lt;/strong&gt;，记下5个圆圈的颜色序列，再去操作轮盘。">Enter the Parlor. Examine the <strong>painting above the fireplace</strong> first to read the color sequence, then interact with the wheel.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="&lt;strong&gt;Roulette solution: RED — BLACK — RED — RED — BLACK.&lt;/strong&gt; Reward: Parlor Key + Antique Coin #04." data-zh="&lt;strong&gt;轮盘解法：红——黑——红——红——黑。&lt;/strong&gt;奖励：休息室钥匙 + 古董金币 #04。"><strong>Roulette solution: RED — BLACK — RED — RED — BLACK.</strong> Reward: Parlor Key + Antique Coin #04.</div></li>
+              <li class="step-item"><span class="step-num">06</span><div class="step-text" data-en="In the Parlor: &lt;strong&gt;Antique Coin #05&lt;/strong&gt; (bar counter) and &lt;strong&gt;Antique Coin #06&lt;/strong&gt; (destroy the porcelain container behind the bar)." data-zh="休息室内还有&lt;strong&gt;古董金币 #05&lt;/strong&gt;（吧台台面）和&lt;strong&gt;古董金币 #06&lt;/strong&gt;（砸碎吧台后方瓷器容器）。">In the Parlor: <strong>Antique Coin #05</strong> (bar counter) and <strong>Antique Coin #06</strong> (destroy the porcelain container behind the bar).</div></li>
+              <li class="step-item"><span class="step-num">07</span><div class="step-text" data-en="Use the Parlor Key to open the back room — take the &lt;strong&gt;W-870 Shotgun&lt;/strong&gt;. Most important early-game weapon." data-zh="用休息室钥匙开后室的门，取走&lt;strong&gt;W-870霰弹枪&lt;/strong&gt;——游戏前期最重要的武器，立刻装备。">Use the Parlor Key to open the back room — take the <strong>W-870 Shotgun</strong>. Most important early-game weapon.</div></li>
+            </ul>
+            <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Tip:&lt;/strong&gt; Spend Antique Coins at the Parlor lockers now. Buy the Hip Pouch first (3 coins) — extra inventory slots make the entire hotel section easier." data-zh="&lt;strong&gt;提示：&lt;/strong&gt;现在就可以在休息室衣柜用古董金币兑换道具。优先买&lt;strong&gt;腰包&lt;/strong&gt;（3枚金币），扩展2个道具格，整个酒店阶段都会更轻松。"><strong>Tip:</strong> Spend Antique Coins at the Parlor lockers now. Buy the Hip Pouch first (3 coins) — extra inventory slots make the entire hotel section easier.</div></div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="w-upper">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">03</span>
+            <span class="chapter-title" data-en="Upper Floors (2F – 4F)" data-zh="上层客房（二楼至四楼）">Upper Floors (2F – 4F)</span>
+            <span class="chapter-meta" data-en="Leon — Exploration" data-zh="里昂 — 探索阶段">Leon — Exploration</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Take the main staircase to 2F. Two infected in the hallway — shotgun the closer one, hatchet-finish the second." data-zh="走主楼梯上二楼。走廊有2只感染者——用霰弹枪打近的那只，对第二只用斧头终结节省弹药。">Take the main staircase to 2F. Two infected in the hallway — shotgun the closer one, hatchet-finish the second.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="Room 204 (unlocked): &lt;strong&gt;First Aid Spray&lt;/strong&gt; inside. Room 207 is locked — needs the &lt;strong&gt;Basement Master Key&lt;/strong&gt;. Note the location." data-zh="204号房间（未上锁）：内有&lt;strong&gt;急救喷雾&lt;/strong&gt;。207号房间上锁——需要地下室的&lt;strong&gt;主万能钥匙&lt;/strong&gt;，先记住位置，待会儿回来。">Room 204 (unlocked): <strong>First Aid Spray</strong> inside. Room 207 is locked — needs the <strong>Basement Master Key</strong>. Note the location.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="3F Manager's Office has a typewriter save point — &lt;strong&gt;save here&lt;/strong&gt; before proceeding, especially on Insanity/Classic." data-zh="三楼经理办公室有打字机存档点——&lt;strong&gt;强烈建议在此存档&lt;/strong&gt;，尤其是疯狂/经典难度玩家。">3F Manager's Office has a typewriter save point — <strong>save here</strong> before proceeding, especially on Insanity/Classic.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="4F east end emergency exit leads to the roof." data-zh="四楼走廊东端穿过紧急出口到达屋顶。">4F east end emergency exit leads to the roof.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #05&lt;/strong&gt; is on the roof northeast corner near the water tower base. Shoot before heading down." data-zh="&lt;strong&gt;浣熊先生 #05&lt;/strong&gt;在屋顶东北角水塔底座旁，进入屋顶立刻留意这个位置。"><strong>Mr. Raccoon #05</strong> is on the roof northeast corner near the water tower base. Shoot before heading down.</div></li>
+            </ul>
+            <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;Don't miss:&lt;/strong&gt; Room 207 requires the Basement Master Key. Come back after getting it — contains the &lt;strong&gt;Shotgun Stock upgrade&lt;/strong&gt; which significantly improves handling." data-zh="&lt;strong&gt;别忘了：&lt;/strong&gt;207号房间用地下室主万能钥匙才能开。里面有&lt;strong&gt;霰弹枪枪托升级件&lt;/strong&gt;，能明显改善操控手感。"><strong>Don't miss:</strong> Room 207 requires the Basement Master Key. Come back after getting it — contains the <strong>Shotgun Stock upgrade</strong>.</div></div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="w-basement">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">04</span>
+            <span class="chapter-title" data-en="Hotel Basement &amp; Generator Room" data-zh="酒店地下室与发电机室">Hotel Basement &amp; Generator Room</span>
+            <span class="chapter-meta" data-en="Leon — Pre-boss prep" data-zh="里昂 — BOSS前准备">Leon — Pre-boss prep</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Take the stairwell to B1. Infected here react to sound — hold crouch-walk to sneak past the first two and avoid unnecessary combat." data-zh="走楼梯下到B1。地下走廊很黑，感染者会对声音做出反应——按住潜行键慢走，可以绕过前两只，不必硬打。">Take the stairwell to B1. Infected here react to sound — hold crouch-walk to sneak past the first two and avoid unnecessary combat.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #03&lt;/strong&gt; is in the Generator Room on the pipe junction near the east wall — it's behind the large pipe. Easy to miss." data-zh="&lt;strong&gt;浣熊先生 #03&lt;/strong&gt;在发电机室东墙管道接头处，藏在大管道后面，容易忽略，进入后先绕管道检查一下。"><strong>Mr. Raccoon #03</strong> is in the Generator Room on the pipe junction near the east wall — it's behind the large pipe. Easy to miss.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Take the &lt;strong&gt;Basement Master Key&lt;/strong&gt; from the hook on the generator room wall. Use it to unlock Room 207 upstairs — contains the Shotgun Stock." data-zh="发电机室墙上的挂钩取下&lt;strong&gt;地下室主万能钥匙&lt;/strong&gt;，用它去开207号房间拿霰弹枪枪托。">Take the <strong>Basement Master Key</strong> from the hook on the generator room wall. Use it to unlock Room 207 upstairs.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="South storage room: destroy the cardboard box near south shelving — &lt;strong&gt;Antique Coin #03&lt;/strong&gt; inside." data-zh="仓库区南侧货架旁的纸箱砸开，内有&lt;strong&gt;古董金币 #03&lt;/strong&gt;。">South storage room: destroy the cardboard box near south shelving — <strong>Antique Coin #03</strong> inside.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="&lt;strong&gt;Optional:&lt;/strong&gt; The Amalgam boss is in the south locked room (Basement Key from Room 207). Drops Crimson Skull Gem worth 12,000 CP — fight it if you have spare shells." data-zh="&lt;strong&gt;可选支线：&lt;/strong&gt;融合体BOSS位于地下室南端。击败可获得猩红骷髅宝石（价值12,000 CP）。手上霰弹枪子弹充足可以挑战。"><strong>Optional:</strong> The Amalgam boss is in the south locked room. Drops Crimson Skull Gem worth 12,000 CP — fight it if you have spare shells.</div></li>
+              <li class="step-item"><span class="step-num">06</span><div class="step-text" data-en="Typewriter just before the Chunk arena — &lt;strong&gt;save here&lt;/strong&gt;. You want at least 12 Shotgun Shells and 2 Flash Grenades going into the boss fight." data-zh="锅炉走廊尽头靠近BOSS房间处有打字机，&lt;strong&gt;此处必须存档&lt;/strong&gt;。进Chunk房间前至少需要&lt;strong&gt;霰弹枪子弹12发&lt;/strong&gt;和&lt;strong&gt;闪光弹2枚&lt;/strong&gt;。">Typewriter just before the Chunk arena — <strong>save here</strong>. You want at least 12 Shotgun Shells and 2 Flash Grenades going into the boss fight.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="w-chunk">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">05</span>
+            <span class="chapter-title" data-en="Boss Fight: Chunk" data-zh="BOSS战：Chunk（残骸者）">Boss Fight: Chunk</span>
+            <span class="chapter-meta" data-en="Leon &amp; Grace — Area boss" data-zh="里昂 &amp; 格蕾丝 — 区域Boss">Leon &amp; Grace — Area boss</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="&lt;strong&gt;Phase 1:&lt;/strong&gt; Stay mobile. Chunk telegraphs his charge 1.5 seconds before executing — the pull-back animation is your cue. Fire 2 shotgun blasts into his exposed chest." data-zh="&lt;strong&gt;第1阶段：&lt;/strong&gt;保持移动，围绕场地绕圈。他冲刺前有1.5秒的后摆蓄力动作——这个窗口期对胸口射击2发霰弹枪可触发阶段推进。"><strong>Phase 1:</strong> Stay mobile. Chunk telegraphs his charge 1.5s before executing — fire 2 shotgun blasts into his exposed chest during the pull-back animation.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="After ~4 shotgun blasts, he enters &lt;strong&gt;Phase 2&lt;/strong&gt; — a glowing mutation appears on his back. Stop shooting the front, it's now ineffective." data-zh="约4发霰弹枪后进入&lt;strong&gt;第2阶段&lt;/strong&gt;——背部出现发光突变体。此时正面完全无效，不要继续打正面。">After ~4 shotgun blasts, he enters <strong>Phase 2</strong> — a glowing mutation appears on his back. Do NOT keep shooting the front.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Phase 2:&lt;/strong&gt; Throw Flash Grenade to stagger him, sprint around to the back, dump 3–4 shotgun rounds into the glowing mass. Repeat once more to finish." data-zh="&lt;strong&gt;第2阶段：&lt;/strong&gt;扔一枚闪光弹让他定格，立刻绕后对发光突变体集火3~4发霰弹枪。重复一次即可击败。"><strong>Phase 2:</strong> Throw Flash Grenade to stagger him, sprint around to the back, dump 3–4 shotgun rounds into the glowing mass. Repeat to finish.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="&lt;strong&gt;Grace players:&lt;/strong&gt; Craft 3 Hemolytic Injectors from the 3 zombies outside the boss room. When the back mutation is exposed, inject all 3 — instantly ends Phase 2 without spending any gun ammo." data-zh="&lt;strong&gt;格蕾丝玩家专属：&lt;/strong&gt;战前击杀BOSS房间外走廊的3只僵尸获取感染血液，合成3瓶血液注射液。进入第2阶段时背部突变体暴露，全部注射，直接秒杀第2阶段——全程弹药一发不花。"><strong>Grace players:</strong> Craft 3 Hemolytic Injectors from zombies outside the boss room. Inject all 3 when back mutation is exposed — instantly ends Phase 2.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="After Chunk dies: loot &lt;strong&gt;Chunk's Keycard&lt;/strong&gt; from his body. Leon also receives &lt;strong&gt;Hatchet: Mortal Edge&lt;/strong&gt; — unequip old hatchet to equip it. Use the keycard on the locked door to proceed." data-zh="Chunk死后检视尸体获得&lt;strong&gt;Chunk通行证&lt;/strong&gt;（离开地下室必须）。里昂同时获得&lt;strong&gt;斧头：死亡之刃&lt;/strong&gt;——卸掉当前斧头装备新的。用通行证开门进入过场动画，切换到罗兹山疗养院。">After Chunk dies: loot <strong>Chunk's Keycard</strong> from his body. Leon also receives <strong>Hatchet: Mortal Edge</strong>. Use the keycard on the locked door to proceed.</div></li>
+            </ul>
+            <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Full boss guide:&lt;/strong&gt; See the &lt;a href='bosses.html#chunk' style='color:var(--amber)'&gt;Chunk Boss Strategy page&lt;/a&gt; for Insanity difficulty tips." data-zh="&lt;strong&gt;详细打法：&lt;/strong&gt;请参考 &lt;a href='bosses.html#chunk' style='color:var(--amber)'&gt;Chunk BOSS详细攻略页面&lt;/a&gt;，含疯狂难度专项技巧。"><strong>Full boss guide:</strong> See the <a href="bosses.html#chunk" style="color:var(--amber)">Chunk Boss Strategy page</a> for Insanity difficulty tips.</div></div>
+            <div class="loot-box">
+              <div class="loot-label" data-en="Boss Drops" data-zh="Boss掉落">Boss Drops</div>
+              <div class="loot-items">
+                <span class="loot-item" data-en="Chunk's Keycard" data-zh="Chunk通行证">Chunk's Keycard</span>
+                <span class="loot-item" data-en="Hatchet: Mortal Edge (Leon)" data-zh="斧头：死亡之刃（里昂）">Hatchet: Mortal Edge (Leon)</span>
+                <span class="loot-item" data-en="Shotgun Shells ×3 (arena)" data-zh="霰弹枪子弹×3（场地）">Shotgun Shells ×3 (arena)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end wrenwood -->
+
+    <div class="area-divider"></div>
+
+    <!-- ═══════════════════════════ AREA 02 ═══════════════════════════ -->
+    <div class="area-block" id="rhodes-hill">
+      <div class="area-block-header">
+        <span class="area-number" data-en="AREA 02" data-zh="区域 02">AREA 02</span>
+        <div>
+          <div class="area-block-title" data-en="Rhodes Hill Care Center" data-zh="罗兹山慢性病疗养院">Rhodes Hill Care Center</div>
+          <div class="area-subtitle" data-en="Grace's primary area. Survival horror tone, scarce resources, blood crafting mechanic introduced." data-zh="格蕾丝的主场。生存恐怖风格，资源匮乏，引入血液合成机制，以守卫者BOSS战收尾。">Grace's primary area. Survival horror tone, scarce resources, blood crafting mechanic introduced.</div>
+          <div class="area-chars">
+            <span class="char-badge char-badge-grace" data-en="Grace (lead)" data-zh="格蕾丝（主导）">Grace (lead)</span>
+            <span class="char-badge char-badge-leon" data-en="Leon (brief)" data-zh="里昂（部分章节）">Leon (brief)</span>
+          </div>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div><span class="overview-stat-num">6</span><div class="overview-stat-label" data-en="Chapters" data-zh="章节数">Chapters</div></div>
+        <div><span class="overview-stat-num">5</span><div class="overview-stat-label" data-en="Antique Coins" data-zh="古董金币">Antique Coins</div></div>
+        <div><span class="overview-stat-num">6</span><div class="overview-stat-label" data-en="Mr. Raccoons" data-zh="浣熊先生">Mr. Raccoons</div></div>
+        <div class="overview-desc" data-en="Rhodes Hill is a sprawling multi-floor care center. Grace's gameplay leans into stealth and resource scarcity — her blood-crafting system rewards careful play. The Quartz Door puzzle and Keeper boss fight are the highlights of this area." data-zh="罗兹山疗养院是多层建筑，格蕾丝的游戏风格更偏向潜行和节约资源——她的火力不及里昂，但血液合成系统让她能灵活应对各种情况。石英门谜题和守卫者BOSS战是本区域的核心挑战。">Rhodes Hill is a sprawling multi-floor care center. Grace's gameplay leans into stealth and resource scarcity. The Quartz Door puzzle and Keeper boss fight are the highlights of this area.</div>
+      </div>
+      <div class="quick-links">
+        <a href="puzzles.html#rhodes-hill" class="quick-link"><div class="quick-link-icon">🔐</div><div class="quick-link-text"><strong data-en="Rhodes Hill Codes" data-zh="罗兹山密码">Rhodes Hill Codes</strong><span data-en="Safes #2, #3, #4 + Quartz Door" data-zh="2、3、4号箱 + 石英门">Safes #2, #3, #4 + Quartz Door</span></div></a>
+        <a href="collectibles.html#mr-raccoon" class="quick-link"><div class="quick-link-icon">🦝</div><div class="quick-link-text"><strong data-en="Mr. Raccoon #06–11" data-zh="浣熊先生 #06~11">Mr. Raccoon #06–11</strong><span data-en="All Rhodes Hill locations" data-zh="全部位置">All Rhodes Hill locations</span></div></a>
+        <a href="bosses.html#keeper" class="quick-link"><div class="quick-link-icon">💀</div><div class="quick-link-text"><strong data-en="The Keeper Boss Guide" data-zh="守卫者BOSS攻略">The Keeper Boss Guide</strong><span data-en="Parry strategy &amp; drops" data-zh="格挡打法详解">Parry strategy &amp; drops</span></div></a>
+      </div>
+
+      <div class="chapter-list">
+        <div class="chapter-card" id="rh-reception">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">01</span>
+            <span class="chapter-title" data-en="Reception &amp; Blood Crafting Tutorial" data-zh="接待大厅与血液合成教学">Reception &amp; Blood Crafting Tutorial</span>
+            <span class="chapter-meta" data-en="Grace — Mechanic intro" data-zh="格蕾丝 — 机制引入">Grace — Mechanic intro</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Grace arrives at the care center entrance. Unlike Leon, her pistol ammo is limited — prioritize stealth over direct combat wherever possible." data-zh="格蕾丝抵达疗养院入口。与里昂不同，她的默认手枪弹量有限——优先考虑潜行，不要见什么打什么。">Grace arrives at the care center entrance. Unlike Leon, her pistol ammo is limited — prioritize stealth over direct combat wherever possible.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #06&lt;/strong&gt; is on the left window of the reception area, facing outside. Shoot it immediately from the entrance hallway." data-zh="&lt;strong&gt;浣熊先生 #06&lt;/strong&gt;在接待处左侧窗台上，面朝外侧，进门就能看见，立刻射击。"><strong>Mr. Raccoon #06</strong> is on the left window of the reception area, facing outside. Shoot it immediately from the entrance hallway.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Blood Crafting tutorial&lt;/strong&gt; triggers here — kill the infected behind reception to collect Infected Blood ×3. Craft a Blood Coagulant (healing item) to complete the tutorial." data-zh="&lt;strong&gt;血液合成教学&lt;/strong&gt;在此触发——击杀前台后方的感染者，获得感染血液×3。打开合成菜单制作一瓶血液凝固剂（恢复道具），完成教学。"><strong>Blood Crafting tutorial</strong> triggers here — kill the infected behind reception to collect Infected Blood ×3. Craft a Blood Coagulant to complete the tutorial.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Waiting room right-side chair — crouch and examine floor for &lt;strong&gt;Antique Coin #07&lt;/strong&gt;." data-zh="等候区右侧椅子下方有&lt;strong&gt;古董金币 #07&lt;/strong&gt;，蹲下检视地面才能发现。">Waiting room right-side chair — crouch and examine floor for <strong>Antique Coin #07</strong>.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="Typewriter save point is in the side room off the reception lobby. &lt;strong&gt;Save here&lt;/strong&gt; — the care center is large." data-zh="接待大厅侧室有打字机存档点，&lt;strong&gt;务必存档&lt;/strong&gt;——疗养院很大，不想重来就先存一下。">Typewriter save point is in the side room off the reception lobby. <strong>Save here</strong> — the care center is large.</div></li>
+            </ul>
+            <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;Grace players:&lt;/strong&gt; Don't skip blood collection. Infected Blood is your primary crafting resource for healing items and combat injectors. Kill enemies in every room before moving on." data-zh="&lt;strong&gt;格蕾丝玩家注意：&lt;/strong&gt;不要跳过血液采集。感染血液是合成治疗道具和战斗注射液的核心材料。每个房间都尽量击杀敌人，后面会用得上。"><strong>Grace players:</strong> Don't skip blood collection. Infected Blood is your primary crafting resource. Kill enemies in every room before moving on.</div></div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rh-east-wing">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">02</span>
+            <span class="chapter-title" data-en="East Wing (2F) &amp; Nurse's Station" data-zh="东翼二楼与护士站">East Wing (2F) &amp; Nurse's Station</span>
+            <span class="chapter-meta" data-en="Grace — Exploration &amp; safe" data-zh="格蕾丝 — 探索与保险箱">Grace — Exploration &amp; safe</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Take the Ward A stairwell to 2F. Use the nursing cart as cover to sneak past the first two infected in the hallway." data-zh="上A病区楼梯到二楼。利用护理推车掩体，潜行绕过前两只感染者。">Take the Ward A stairwell to 2F. Use the nursing cart as cover to sneak past the first two infected in the hallway.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="Open &lt;strong&gt;Safe #2&lt;/strong&gt; behind the nurses' desk: &lt;strong&gt;L22 · R50 · L14&lt;/strong&gt; (Normal). Contains Ink Ribbon ×2 + First Aid Spray." data-zh="开护士台后方的&lt;strong&gt;2号保险箱&lt;/strong&gt;：&lt;strong&gt;左22 · 右50 · 左14&lt;/strong&gt;（普通）。内含墨水带×2 + 急救喷雾。">Open <strong>Safe #2</strong> behind the nurses' desk: <strong>L22 · R50 · L14</strong> (Normal). Contains Ink Ribbon ×2 + First Aid Spray.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Antique Coin #08&lt;/strong&gt; is on the nurses' station counter, right side." data-zh="护士台台面右侧拿走&lt;strong&gt;古董金币 #08&lt;/strong&gt;。"><strong>Antique Coin #08</strong> is on the nurses' station counter, right side.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #07&lt;/strong&gt; is inside a medical supply cart in the hallway — requires the East Wing Keycard from the Quartz Door puzzle. Come back for it later." data-zh="&lt;strong&gt;浣熊先生 #07&lt;/strong&gt;在走廊医疗推车内，需要&lt;strong&gt;东翼通行证&lt;/strong&gt;才能打开。通行证从石英门谜题获得，先记住位置稍后来拿。"><strong>Mr. Raccoon #07</strong> is inside a medical supply cart — requires the East Wing Keycard from the Quartz Door puzzle. Come back for it later.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="Exit through the connecting corridor north to reach the Central Hall, where the Quartz Door is located." data-zh="从东翼北侧连接走廊到达中央大厅，石英门就在那里。">Exit through the connecting corridor north to reach the Central Hall, where the Quartz Door is located.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rh-director">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">03</span>
+            <span class="chapter-title" data-en="Director's Office &amp; Quartz Door Puzzle" data-zh="院长室与石英门谜题">Director's Office &amp; Quartz Door Puzzle</span>
+            <span class="chapter-meta" data-en="Grace — Key puzzle sequence" data-zh="格蕾丝 — 核心谜题链">Grace — Key puzzle sequence</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Director's Office is on 3F West Wing. Take Central Hall staircase up — there's a Banshee-type enemy near the 3F landing. Back away to trigger its patrol, then slip past when it turns." data-zh="院长室在三楼西翼。走中央大厅楼梯上去——三楼楼梯口有一只游荡的女鬼型敌人，后撤等它巡逻转身再溜过去。">Director's Office is on 3F West Wing. A Banshee-type enemy patrols the 3F landing — back away to trigger its patrol, then slip past when it turns.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="Open &lt;strong&gt;Safe #3&lt;/strong&gt; in the Director's Office: &lt;strong&gt;R04 · L72 · R38&lt;/strong&gt; (Normal). Contains &lt;strong&gt;Hip Pouch&lt;/strong&gt; — expands inventory by 2 slots." data-zh="开院长室的&lt;strong&gt;3号保险箱&lt;/strong&gt;：&lt;strong&gt;右04 · 左72 · 右38&lt;/strong&gt;（普通）。内含&lt;strong&gt;腰包升级&lt;/strong&gt;——扩展2个道具格。">Open <strong>Safe #3</strong> in the Director's Office: <strong>R04 · L72 · R38</strong> (Normal). Contains <strong>Hip Pouch</strong> — expands inventory by 2 slots.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #08&lt;/strong&gt; on the Director's bookshelf — 3rd shelf from top, right side. Scan carefully." data-zh="&lt;strong&gt;浣熊先生 #08&lt;/strong&gt;在院长书架上，从上往下第3层右侧，雕像很小，仔细扫视每一层。"><strong>Mr. Raccoon #08</strong> on the Director's bookshelf — 3rd shelf from top, right side. Scan carefully.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Solve the puzzle safe in the adjacent Chairman's Office to collect &lt;strong&gt;Moon Quartz&lt;/strong&gt; and &lt;strong&gt;Antique Coin #09&lt;/strong&gt; (bookcase near window)." data-zh="院长室旁边的主席室有一个谜题保险箱，解开后获得&lt;strong&gt;月亮石英&lt;/strong&gt;和&lt;strong&gt;古董金币 #09&lt;/strong&gt;（窗边书柜内）。">Solve the puzzle safe in the adjacent Chairman's Office to collect <strong>Moon Quartz</strong> and <strong>Antique Coin #09</strong>.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="Return to the &lt;strong&gt;Quartz Door&lt;/strong&gt; in Central Hall. Insert Moon Quartz and input: &lt;strong&gt;Moon → Sun → Star → Moon&lt;/strong&gt;. Reward: East Wing Keycard + Upgrade." data-zh="返回中央大厅的&lt;strong&gt;石英门&lt;/strong&gt;，插入月亮石英，输入序列：&lt;strong&gt;月亮 → 太阳 → 星星 → 月亮&lt;/strong&gt;。奖励：东翼通行证 + 升级道具×1。">Return to the <strong>Quartz Door</strong> in Central Hall. Insert Moon Quartz and input: <strong>Moon → Sun → Star → Moon</strong>. Reward: East Wing Keycard + Upgrade.</div></li>
+              <li class="step-item"><span class="step-num">06</span><div class="step-text" data-en="Backtrack to 2F East Wing to collect &lt;strong&gt;Mr. Raccoon #07&lt;/strong&gt; from the supply cart using the East Wing Keycard." data-zh="现在回到二楼东翼，用东翼通行证开医疗推车，拿走&lt;strong&gt;浣熊先生 #07&lt;/strong&gt;。">Backtrack to 2F East Wing to collect <strong>Mr. Raccoon #07</strong> from the supply cart using the East Wing Keycard.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rh-basement">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">04</span>
+            <span class="chapter-title" data-en="Sterilization Chamber &amp; Basement" data-zh="消毒室与地下室">Sterilization Chamber &amp; Basement</span>
+            <span class="chapter-meta" data-en="Grace — Resource-critical section" data-zh="格蕾丝 — 资源关键节点">Grace — Resource-critical section</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Take the service elevator from 1F to B1. Sterilization Chamber is straight ahead — a large enemy patrols. Sneak along the left wall to avoid it." data-zh="从一楼坐服务电梯下到B1。消毒室正前方有一只体型较大的敌人在巡逻，沿左侧墙壁贴墙潜行绕过。">Take the service elevator from 1F to B1. Sterilization Chamber is straight ahead — a large enemy patrols. Sneak along the left wall to avoid it.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="Open &lt;strong&gt;Safe #4&lt;/strong&gt; on the window side: &lt;strong&gt;R10 · L90 · R20&lt;/strong&gt; (Normal). Sneak past the enemy to reach it. Contains: &lt;strong&gt;Stabilizer&lt;/strong&gt;." data-zh="开消毒室靠窗一侧的&lt;strong&gt;4号保险箱&lt;/strong&gt;：&lt;strong&gt;右10 · 左90 · 右20&lt;/strong&gt;（普通）。内含：&lt;strong&gt;稳定器&lt;/strong&gt;。">Open <strong>Safe #4</strong> on the window side: <strong>R10 · L90 · R20</strong> (Normal). Sneak past the enemy to reach it. Contains: <strong>Stabilizer</strong>.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #09&lt;/strong&gt; is on a trolley in the far corner of the Sterilization Chamber, near the enemy." data-zh="&lt;strong&gt;浣熊先生 #09&lt;/strong&gt;在消毒室远角的推车上，敌人旁边。"><strong>Mr. Raccoon #09</strong> is on a trolley in the far corner of the Sterilization Chamber, near the enemy.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Chemical Storage room (south corridor): pick up the &lt;strong&gt;Bottle of Acid&lt;/strong&gt; — used to dissolve the lock to the Sub-Basement, where the Keeper boss is." data-zh="南侧走廊的化学品储藏室，桌上取走&lt;strong&gt;酸液瓶&lt;/strong&gt;，用于溶解地下室的锁头，解锁通往守卫者BOSS的路。">Chemical Storage room (south corridor): pick up the <strong>Bottle of Acid</strong> — used to dissolve the Sub-Basement door lock.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="B2 Morgue (via service stairs): &lt;strong&gt;Antique Coin #10&lt;/strong&gt; on the central examination table, and &lt;strong&gt;Mr. Raccoon #11&lt;/strong&gt; inside the third-row-from-bottom left drawer." data-zh="B2停尸间（从服务楼梯可达）：中央检查台医疗容器内有&lt;strong&gt;古董金币 #10&lt;/strong&gt;，&lt;strong&gt;浣熊先生 #11&lt;/strong&gt;在左侧第3排从下数第3格抽屉内。">B2 Morgue (via service stairs): <strong>Antique Coin #10</strong> on the central table, and <strong>Mr. Raccoon #11</strong> inside the third-row-from-bottom left drawer.</div></li>
+              <li class="step-item"><span class="step-num">06</span><div class="step-text" data-en="Use the Acid Bottle to dissolve the Sub-Basement door lock. This leads to the Keeper boss fight area." data-zh="用酸液瓶溶解锁头，进入通往守卫者的地下室门。">Use the Acid Bottle to dissolve the Sub-Basement door lock. This leads to the Keeper boss fight area.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rh-keeper">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">05</span>
+            <span class="chapter-title" data-en="Boss Fight: The Keeper" data-zh="BOSS战：守卫者">Boss Fight: The Keeper</span>
+            <span class="chapter-meta" data-en="Grace only — Parry duel" data-zh="仅格蕾丝 — 格挡对决">Grace only — Parry duel</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="The Keeper is a close-quarters duel, not a traditional arena fight. Your hatchet and parry system are your primary tools — guns are inefficient here." data-zh="守卫者是近身格斗，不是传统的躲闪输出。斧头和格挡系统才是主角——枪械在这里效率很低。">The Keeper is a close-quarters duel. Your hatchet and parry system are your primary tools — guns are inefficient here.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Phase 1:&lt;/strong&gt; Parry window is 0.3s before impact. Successful parry → immediately strike with hatchet (1-second window). Sharpen hatchet during every pause." data-zh="&lt;strong&gt;第1阶段：&lt;/strong&gt;格挡窗口仅0.3秒。成功格挡后立刻用斧头反击（1秒窗口）。他每次重新定位时磨快斧头——斧头伤害远高于枪械。"><strong>Phase 1:</strong> Parry window is 0.3s before impact. Successful parry → immediately strike with hatchet (1-second window). Sharpen during every pause.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Phase 2:&lt;/strong&gt; He adds unparryable grabs, telegraphed by a left shoulder dip. On shoulder dip — dodge right, then punish his exposed left side during the 3-hit combo finisher." data-zh="&lt;strong&gt;第2阶段：&lt;/strong&gt;他开始混入无法格挡的抓取攻击，起跳前会有左肩下压的预兆动作。看到肩膀下压立刻向右闪避，趁三连击收招时攻击他暴露的左侧。"><strong>Phase 2:</strong> He adds unparryable grabs telegraphed by a left shoulder dip. Dodge right on shoulder dip, then punish his left side during the 3-hit combo finisher.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="After defeating him, collect &lt;strong&gt;Keeper's Key&lt;/strong&gt; from his body — unlocks the Sub-Basement storage room with Mr. Raccoon #10 and Antique Coin #11." data-zh="击败守卫者后从尸体取走&lt;strong&gt;守卫者钥匙&lt;/strong&gt;，解锁地下室储藏室，内有&lt;strong&gt;浣熊先生 #10&lt;/strong&gt;和&lt;strong&gt;古董金币 #11&lt;/strong&gt;。">After defeating him, collect <strong>Keeper's Key</strong> — unlocks the Sub-Basement storage room with Mr. Raccoon #10 and Antique Coin #11.</div></li>
+            </ul>
+            <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Full boss guide:&lt;/strong&gt; See &lt;a href='bosses.html#keeper' style='color:var(--amber)'&gt;The Keeper Boss Strategy&lt;/a&gt; for complete phase analysis." data-zh="&lt;strong&gt;完整打法：&lt;/strong&gt;见 &lt;a href='bosses.html#keeper' style='color:var(--amber)'&gt;守卫者BOSS详细攻略&lt;/a&gt;，包含疯狂难度应对技巧。"><strong>Full boss guide:</strong> See <a href="bosses.html#keeper" style="color:var(--amber)">The Keeper Boss Strategy</a> for complete phase analysis.</div></div>
+            <div class="loot-box">
+              <div class="loot-label" data-en="Boss Drops" data-zh="Boss掉落">Boss Drops</div>
+              <div class="loot-items">
+                <span class="loot-item" data-en="Keeper's Key" data-zh="守卫者钥匙">Keeper's Key</span>
+                <span class="loot-item" data-en="Blood Vial ×6" data-zh="血液瓶×6">Blood Vial ×6</span>
+                <span class="loot-item" data-en="File: The Keeper's Journal" data-zh="文件：守卫者日记">File: The Keeper's Journal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rh-sub">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">06</span>
+            <span class="chapter-title" data-en="Sub-Basement &amp; Exit" data-zh="地下室尾段与离开">Sub-Basement &amp; Exit</span>
+            <span class="chapter-meta" data-en="Grace — Area wrap-up" data-zh="格蕾丝 — 区域收尾">Grace — Area wrap-up</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Use the Keeper's Key to access the flooded storage room. &lt;strong&gt;Mr. Raccoon #10&lt;/strong&gt; is on the walkway north wall, just above the waterline." data-zh="用守卫者钥匙进入洪水储藏室。&lt;strong&gt;浣熊先生 #10&lt;/strong&gt;在走道北墙，略高于水面位置。">Use the Keeper's Key to access the flooded storage room. <strong>Mr. Raccoon #10</strong> is on the walkway north wall, just above the waterline.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="Flooded storage shelf: &lt;strong&gt;Antique Coin #11&lt;/strong&gt;." data-zh="洪水储藏室货架上取走&lt;strong&gt;古董金币 #11&lt;/strong&gt;。">Flooded storage shelf: <strong>Antique Coin #11</strong>.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Take the ARK access elevator at the end of the Sub-Basement. Interact with the terminal — cutscene plays, transitioning to Raccoon City." data-zh="地下室尽头的方舟接入电梯，与终端互动——过场动画播放，切换到浣熊市废墟。">Take the ARK access elevator at the end of the Sub-Basement. Interact with the terminal — cutscene plays, transitioning to Raccoon City.</div></li>
+            </ul>
+            <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;Before leaving Rhodes Hill:&lt;/strong&gt; Mr. Raccoons #06–11 ✓ | Antique Coins #07–11 ✓ | All Files read ✓. This area is not revisitable after the transition." data-zh="&lt;strong&gt;离开前最后检查：&lt;/strong&gt;浣熊先生 #06~11 ✓ | 古董金币 #07~11 ✓ | 所有文件已读取 ✓。罗兹山离开后无法返回。"><strong>Before leaving Rhodes Hill:</strong> Mr. Raccoons #06–11 ✓ | Antique Coins #07–11 ✓ | All Files read ✓. This area is not revisitable after the transition.</div></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end rhodes hill -->
+
+    <div class="area-divider"></div>
+
+    <!-- ═══════════════════════════ AREA 03 ═══════════════════════════ -->
+    <div class="area-block" id="raccoon-city">
+      <div class="area-block-header">
+        <span class="area-number" data-en="AREA 03" data-zh="区域 03">AREA 03</span>
+        <div>
+          <div class="area-block-title" data-en="Raccoon City Ruins" data-zh="浣熊市废墟">Raccoon City Ruins</div>
+          <div class="area-subtitle" data-en="Leon returns to the iconic city. Larger environments, more aggressive enemies, two major bosses." data-zh="里昂重返标志性城市。更开阔的地图环境，更猛烈的敌人攻势，Mr.X追逐战和超级暴君两场高潮BOSS战。">Leon returns to the iconic city. Larger environments, more aggressive enemies, two major bosses.</div>
+          <div class="area-chars">
+            <span class="char-badge char-badge-leon" data-en="Leon (lead)" data-zh="里昂（主导）">Leon (lead)</span>
+            <span class="char-badge char-badge-grace" data-en="Grace (select sections)" data-zh="格蕾丝（部分章节）">Grace (select sections)</span>
+          </div>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div><span class="overview-stat-num">5</span><div class="overview-stat-label" data-en="Chapters" data-zh="章节数">Chapters</div></div>
+        <div><span class="overview-stat-num">4</span><div class="overview-stat-label" data-en="Antique Coins" data-zh="古董金币">Antique Coins</div></div>
+        <div><span class="overview-stat-num">6</span><div class="overview-stat-label" data-en="Mr. Raccoons" data-zh="浣熊先生">Mr. Raccoons</div></div>
+        <div class="overview-desc" data-en="Raccoon City is the largest area in the game. Mr. X pursues Leon through the RPD in a relentless chase sequence, culminating in two boss encounters. Save your Magnum ammo from Safe #5 for the Super Tyrant fight." data-zh="浣熊市是游戏最大的区域。Mr.X在RPD大楼内无情追杀里昂，最终在建筑外进入决战形态。5号保险箱里的马格南子弹务必留到超级暴君战——不要提前用掉。">Raccoon City is the largest area in the game. Mr. X pursues Leon through the RPD, culminating in two boss encounters. Save your Magnum ammo from Safe #5 for the Super Tyrant fight.</div>
+      </div>
+      <div class="quick-links">
+        <a href="puzzles.html#raccoon-city" class="quick-link"><div class="quick-link-icon">🔐</div><div class="quick-link-text"><strong data-en="Raccoon City Codes" data-zh="浣熊市密码">Raccoon City Codes</strong><span data-en="Safes #5 &amp; #6 + Power Grid" data-zh="5、6号箱 + 配电盘">Safes #5 &amp; #6 + Power Grid</span></div></a>
+        <a href="collectibles.html#mr-raccoon" class="quick-link"><div class="quick-link-icon">🦝</div><div class="quick-link-text"><strong data-en="Mr. Raccoon #12–17" data-zh="浣熊先生 #12~17">Mr. Raccoon #12–17</strong><span data-en="All Raccoon City locations" data-zh="全部位置">All Raccoon City locations</span></div></a>
+        <a href="bosses.html#mr-x" class="quick-link"><div class="quick-link-icon">💀</div><div class="quick-link-text"><strong data-en="Mr. X + Super Tyrant" data-zh="Mr.X + 超级暴君">Mr. X + Super Tyrant</strong><span data-en="Both boss strategies" data-zh="两场BOSS完整攻略">Both boss strategies</span></div></a>
+      </div>
+
+      <div class="chapter-list">
+        <div class="chapter-card" id="rc-streets">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">01</span>
+            <span class="chapter-title" data-en="Raccoon City Streets" data-zh="浣熊市街道">Raccoon City Streets</span>
+            <span class="chapter-meta" data-en="Leon — Open exploration" data-zh="里昂 — 开放探索">Leon — Open exploration</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Leon lands in the ruins of Raccoon City. Explore the side streets north and south before heading to the RPD to collect supplies." data-zh="里昂降落在废墟浣熊市。街道区域是半开放地图——去RPD前先把南北两条支路探索完，补充物资。">Leon lands in the ruins of Raccoon City. Explore side streets north and south before heading to the RPD to collect supplies.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #12&lt;/strong&gt; is on a fire escape platform 2F level in the NW building cluster. Shoot it from across the street." data-zh="&lt;strong&gt;浣熊先生 #12&lt;/strong&gt;在西北建筑群二层消防楼梯平台上，从对面街道射击即可。"><strong>Mr. Raccoon #12</strong> is on a fire escape platform 2F level in the NW building cluster. Shoot it from across the street.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Newspaper box near the first barricade — shoot to open — &lt;strong&gt;Antique Coin #12&lt;/strong&gt; inside." data-zh="第一道路障旁边有个报纸箱，射击打开，内有&lt;strong&gt;古董金币 #12&lt;/strong&gt;。">Newspaper box near the first barricade — shoot to open — <strong>Antique Coin #12</strong> inside.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="&lt;strong&gt;Merchant's Stall&lt;/strong&gt; in the east alley. Upgrade shotgun Reload Speed — best value before entering the RPD." data-zh="主街道东侧小巷有&lt;strong&gt;商人摊位&lt;/strong&gt;。用CP给霰弹枪升级装填速度——这是进入RPD前最值得的投资。"><strong>Merchant's Stall</strong> in the east alley. Upgrade shotgun Reload Speed — best value before entering the RPD.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rc-rpd">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">02</span>
+            <span class="chapter-title" data-en="Raccoon Police Department" data-zh="RPD浣熊市警察局">Raccoon Police Department</span>
+            <span class="chapter-meta" data-en="Leon — Mr. X begins pursuit" data-zh="里昂 — Mr.X追逐开始">Leon — Mr. X begins pursuit</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Enter the RPD main lobby. &lt;strong&gt;Mr. Raccoon #13&lt;/strong&gt; is on top of the RPD crest mosaic on the center floor — look down from the entrance. Shoot it before proceeding." data-zh="进入RPD大堂入口。&lt;strong&gt;浣熊先生 #13&lt;/strong&gt;在地面浣熊市徽章马赛克图案正中，从正门向下看能看到，立刻射击。">Enter the RPD main lobby. <strong>Mr. Raccoon #13</strong> is on top of the RPD crest mosaic — look down from the entrance. Shoot it before proceeding.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="First aid kit on the lobby wall — &lt;strong&gt;Antique Coin #13&lt;/strong&gt; inside." data-zh="大堂墙上的急救箱内拿走&lt;strong&gt;古董金币 #13&lt;/strong&gt;。">First aid kit on the lobby wall — <strong>Antique Coin #13</strong> inside.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Head down to &lt;strong&gt;Generator Room (B1)&lt;/strong&gt; and solve the &lt;strong&gt;Power Grid Puzzle&lt;/strong&gt;: flip switches in order &lt;strong&gt;C → A → D → B&lt;/strong&gt;. Wrong order triggers alarm + 2 enemies." data-zh="下到B1发电机室，解&lt;strong&gt;配电盘谜题&lt;/strong&gt;：按顺序拨动&lt;strong&gt;C → A → D → B&lt;/strong&gt;。顺序错误触发警报 + 刷新2名敌人。">Head down to <strong>Generator Room (B1)</strong> and solve the <strong>Power Grid Puzzle</strong>: flip switches in order <strong>C → A → D → B</strong>. Wrong order triggers alarm + 2 enemies.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="With power restored, open &lt;strong&gt;Safe #5&lt;/strong&gt; in the Evidence Room: &lt;strong&gt;R28 · L66 · R42&lt;/strong&gt; (Normal). Contains &lt;strong&gt;Magnum Rounds ×5&lt;/strong&gt; — SAVE THESE FOR SUPER TYRANT." data-zh="供电恢复后进入B1证物室，开&lt;strong&gt;5号保险箱&lt;/strong&gt;：&lt;strong&gt;右28 · 左66 · 右42&lt;/strong&gt;（普通）。内含&lt;strong&gt;马格南子弹×5&lt;/strong&gt;——&lt;strong&gt;留到超级暴君战，绝对不能提前消耗！&lt;/strong&gt;">With power restored, open <strong>Safe #5</strong> in the Evidence Room: <strong>R28 · L66 · R42</strong> (Normal). Contains <strong>Magnum Rounds ×5</strong> — SAVE THESE FOR SUPER TYRANT.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #14&lt;/strong&gt; is inside Evidence Box #7 on the shelf — interact with the box itself, not the shelf surface." data-zh="&lt;strong&gt;浣熊先生 #14&lt;/strong&gt;在证物室7号证物箱内——与箱子本体互动，不是摆放的架子。"><strong>Mr. Raccoon #14</strong> is inside Evidence Box #7 — interact with the box itself, not the shelf surface.</div></li>
+              <li class="step-item"><span class="step-num">06</span><div class="step-text" data-en="Officer corpse in the 1F east hallway holds the &lt;strong&gt;RPD Armory Key&lt;/strong&gt; — opens the Armory for &lt;strong&gt;Antique Coin #14&lt;/strong&gt;." data-zh="一楼东侧走廊的警官尸体身上找到&lt;strong&gt;军械库钥匙&lt;/strong&gt;，用它开RPD军械库取&lt;strong&gt;古董金币 #14&lt;/strong&gt;。">Officer corpse in the 1F east hallway holds the <strong>RPD Armory Key</strong> — opens the Armory for <strong>Antique Coin #14</strong>.</div></li>
+              <li class="step-item"><span class="step-num">07</span><div class="step-text" data-en="&lt;strong&gt;Entering the 2F Security Room triggers the Mr. X chase sequence.&lt;/strong&gt; Confirm all items collected before entering." data-zh="&lt;strong&gt;进入二楼安保室会触发Mr.X追逐战。&lt;/strong&gt;在那之前务必确认已收齐所有物资和收集品。"><strong>Entering the 2F Security Room triggers the Mr. X chase sequence.</strong> Confirm all items collected before entering.</div></li>
+            </ul>
+            <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;Save the Magnum Rounds!&lt;/strong&gt; The Magnum is the most efficient weapon against Super Tyrant's exposed heart. Using those 5 rounds on regular enemies will make the boss significantly harder." data-zh="&lt;strong&gt;马格南子弹严禁提前用！&lt;/strong&gt;它对超级暴君胸口心脏的伤害是霰弹枪的数倍。省着这5发能大幅降低超级暴君难度。"><strong>Save the Magnum Rounds!</strong> They're for the Super Tyrant — the Magnum is the most efficient weapon against his exposed heart.</div></div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rc-mrx">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">03</span>
+            <span class="chapter-title" data-en="Boss: Mr. X Chase &amp; Arena Fight" data-zh="BOSS战：Mr.X追逐 + 竞技场决战">Boss: Mr. X Chase &amp; Arena Fight</span>
+            <span class="chapter-meta" data-en="Leon only — Two phases" data-zh="仅里昂 — 两阶段">Leon only — Two phases</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="&lt;strong&gt;Chase Phase: DO NOT waste ammo.&lt;/strong&gt; Mr. X cannot be stopped — only slowed. Run toward the upper-level arena, collecting ammo from side rooms as you go. Use ladders to create distance." data-zh="&lt;strong&gt;追逐阶段：绝对不要浪费弹药。&lt;/strong&gt;Mr.X无法被击倒，只能暂时减速。往上层竞技场跑，边跑边从侧室收集弹药，楼梯和梯子可以拉开距离。"><strong>Chase Phase: DO NOT waste ammo.</strong> Mr. X cannot be stopped. Run toward the upper-level arena, collecting ammo from side rooms as you go. Use ladders to create distance.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #16&lt;/strong&gt; is on the NF Building Rooftop during the chase — NW corner near the A/C unit. This is &lt;strong&gt;timed&lt;/strong&gt; — shoot it while running or miss it permanently." data-zh="&lt;strong&gt;浣熊先生 #16&lt;/strong&gt;在追逐战途中NF大楼屋顶西北角空调机组旁——这是&lt;strong&gt;限时目标&lt;/strong&gt;，必须在跑路途中射击，不然会永久错过。"><strong>Mr. Raccoon #16</strong> is on the NF Building Rooftop during the chase — NW corner near the A/C unit. This is <strong>timed</strong> — shoot it while running or miss it permanently.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Arena Phase:&lt;/strong&gt; Once the upper arena opens, the real fight begins. Use ladders to control movement angles. Shoot his mouth during punish windows (after big swing attacks)." data-zh="&lt;strong&gt;竞技场阶段：&lt;/strong&gt;进入上层竞技场后正式开战。利用梯子控制他的移动路线，在他大招收招时射击张开的口腔。"><strong>Arena Phase:</strong> Use ladders to control movement angles. Shoot his mouth during punish windows (after big swing attacks).</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="When Mr. X goes to one knee (downed), sprint to his back and dump ammo into the &lt;strong&gt;back cyst&lt;/strong&gt; — ~3 second window before he stands." data-zh="Mr.X跪下时立刻绕到背后大量输出&lt;strong&gt;背部囊肿&lt;/strong&gt;——这是本战最高伤害窗口，约3秒后他会站起来。">When Mr. X goes to one knee, sprint to his back and dump ammo into the <strong>back cyst</strong> — ~3 second window before he stands.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="At half health, kite him near the &lt;strong&gt;explosive canisters&lt;/strong&gt; in the arena corners — they deal ~3× normal gun damage when he's adjacent." data-zh="半血时将他引到场地角落的&lt;strong&gt;爆炸罐&lt;/strong&gt;旁边，一发爆炸 + 霰弹枪连打可快速削减大量血量。">At half health, kite him near the <strong>explosive canisters</strong> in the arena corners — they deal ~3× normal gun damage when he's adjacent.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rc-sewers">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">04</span>
+            <span class="chapter-title" data-en="Underground Sewers" data-zh="地下下水道">Underground Sewers</span>
+            <span class="chapter-meta" data-en="Leon — Pre-final boss prep" data-zh="里昂 — 终BOSS前准备">Leon — Pre-final boss prep</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="After defeating Mr. X, take the &lt;strong&gt;Parking Garage Key&lt;/strong&gt; from his body. Exit through the RPD parking garage to reach the sewer access." data-zh="击败Mr.X后从尸体取走停车场钥匙，穿过RPD停车库进入下水道入口。">After defeating Mr. X, take the <strong>Parking Garage Key</strong> from his body. Exit through the RPD parking garage to reach the sewer access.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #15&lt;/strong&gt; is in the sewers on a ledge above the first water valve puzzle — jump up using the crates to the east." data-zh="&lt;strong&gt;浣熊先生 #15&lt;/strong&gt;在第一个水阀谜题上方的壁架，用东侧木箱叠起来跳上去。"><strong>Mr. Raccoon #15</strong> is in the sewers on a ledge above the first water valve puzzle — jump up using the crates to the east.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Open &lt;strong&gt;Safe #6&lt;/strong&gt; in the Sewers Control Room: &lt;strong&gt;L12 · R84 · L56&lt;/strong&gt; (Normal). Contains &lt;strong&gt;Scope&lt;/strong&gt; attachment for the Sniper Rifle." data-zh="开控制室的&lt;strong&gt;6号保险箱&lt;/strong&gt;：&lt;strong&gt;左12 · 右84 · 左56&lt;/strong&gt;（普通）。内含&lt;strong&gt;瞄准镜&lt;/strong&gt;（可装到狙击枪上）。">Open <strong>Safe #6</strong> in the Sewers Control Room: <strong>L12 · R84 · L56</strong> (Normal). Contains <strong>Scope</strong> attachment for the Sniper Rifle.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Control panel desk: &lt;strong&gt;Antique Coin #15&lt;/strong&gt;." data-zh="控制台旁桌上拿走&lt;strong&gt;古董金币 #15&lt;/strong&gt;。">Control panel desk: <strong>Antique Coin #15</strong>.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="The sewer exit brings you to the Central Square — Super Tyrant arena. &lt;strong&gt;Save at the typewriter.&lt;/strong&gt; Stock to 12+ Shotgun Shells and confirm Magnum Rounds are in inventory." data-zh="下水道出口通向中央广场——超级暴君竞技场。&lt;strong&gt;出口前必须存档&lt;/strong&gt;，确保带上至少12发霰弹枪子弹和5发马格南子弹。">The sewer exit brings you to the Central Square — Super Tyrant arena. <strong>Save at the typewriter.</strong> Stock to 12+ Shotgun Shells and confirm Magnum Rounds are in inventory.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="rc-tyrant">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">05</span>
+            <span class="chapter-title" data-en="Boss Fight: Super Tyrant &amp; Area Exit" data-zh="BOSS战：超级暴君 &amp; 离开浣熊市">Boss Fight: Super Tyrant &amp; Area Exit</span>
+            <span class="chapter-meta" data-en="Leon — Area finale" data-zh="里昂 — 区域终章">Leon — Area finale</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Before the boss triggers: &lt;strong&gt;Mr. Raccoon #17&lt;/strong&gt; is at the base of the war memorial statue in Central Square. Grab it now — it disappears after the boss fight starts." data-zh="触发BOSS前先在中央广场底座上找到&lt;strong&gt;浣熊先生 #17&lt;/strong&gt;——BOSS战开始后会消失，必须提前拿。">Before the boss triggers: <strong>Mr. Raccoon #17</strong> is at the base of the war memorial statue in Central Square. Grab it now — it disappears after the boss fight starts.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Phases 1–2:&lt;/strong&gt; Dump all 5 Magnum rounds into his exposed chest heart. Move laterally at all times — his grab attack is instant-kill on Insanity." data-zh="&lt;strong&gt;第1-2阶段：&lt;/strong&gt;把全部5发马格南子弹集中打胸口心脏。始终保持横向移动——他的抓取在疯狂难度是即死。"><strong>Phases 1–2:</strong> Dump all 5 Magnum rounds into his exposed chest heart. Move laterally at all times — his grab attack is instant-kill on Insanity.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Phase 3:&lt;/strong&gt; He shields his heart with his arm blade. Shoot the blade with any weapon (~12 handgun rounds) until it shatters — heart re-exposed, finish with Magnum." data-zh="&lt;strong&gt;第3阶段：&lt;/strong&gt;他用手臂刀刃护住心脏。用手枪射击刀刃约12发直至破碎，心脏再次暴露，继续用马格南收尾。"><strong>Phase 3:</strong> He shields his heart with his arm blade. Shoot the blade (~12 handgun rounds) until it shatters — heart re-exposed, finish with Magnum.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="&lt;strong&gt;At 25% HP:&lt;/strong&gt; Helicopter airdrop lands a &lt;strong&gt;Rocket Launcher ×1&lt;/strong&gt;. Pick it up immediately — it despawns after 30 seconds. One rocket to the chest ends the fight." data-zh="&lt;strong&gt;HP降到25%时&lt;/strong&gt;直升机空投一把&lt;strong&gt;火箭筒&lt;/strong&gt;——立刻跑过去捡，30秒后消失。一发直接打胸口结束战斗。"><strong>At 25% HP:</strong> Helicopter airdrop lands a <strong>Rocket Launcher ×1</strong>. Pick it up immediately — despawns after 30 seconds. One rocket to the chest ends the fight.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="After the fight: collect &lt;strong&gt;Raccoon City Survivor Badge&lt;/strong&gt; and &lt;strong&gt;ARK Access Code&lt;/strong&gt; from his remains. Cutscene plays — transition to The ARK." data-zh="战斗结束后检视尸体获得&lt;strong&gt;浣熊市幸存者徽章&lt;/strong&gt;和&lt;strong&gt;方舟通行码&lt;/strong&gt;。过场动画——切换到方舟基地。">After the fight: collect <strong>Raccoon City Survivor Badge</strong> and <strong>ARK Access Code</strong> from his remains. Cutscene plays — transition to The ARK.</div></li>
+            </ul>
+            <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Full boss guide:&lt;/strong&gt; See &lt;a href='bosses.html#super-tyrant' style='color:var(--amber)'&gt;Super Tyrant Boss Strategy&lt;/a&gt; for Insanity difficulty notes." data-zh="&lt;strong&gt;完整打法：&lt;/strong&gt;见 &lt;a href='bosses.html#super-tyrant' style='color:var(--amber)'&gt;超级暴君BOSS详细攻略&lt;/a&gt;，包含疯狂难度生存技巧。"><strong>Full boss guide:</strong> See <a href="bosses.html#super-tyrant" style="color:var(--amber)">Super Tyrant Boss Strategy</a> for Insanity difficulty notes.</div></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end raccoon city -->
+
+    <div class="area-divider"></div>
+
+    <!-- ═══════════════════════════ AREA 04 ═══════════════════════════ -->
+    <div class="area-block" id="ark">
+      <div class="area-block-header">
+        <span class="area-number" data-en="AREA 04" data-zh="区域 04">AREA 04</span>
+        <div>
+          <div class="area-block-title" data-en="The ARK" data-zh="方舟基地">The ARK</div>
+          <div class="area-subtitle" data-en="Final area. Both Leon and Grace converge. Contains the Point of No Return and the game's ending." data-zh="终章。里昂和格蕾丝在此汇合。包含不可返回点，最终谜题决定结局走向。">Final area. Both Leon and Grace converge. Contains the Point of No Return and the game's ending.</div>
+          <div class="area-chars">
+            <span class="char-badge char-badge-leon" data-en="Leon" data-zh="里昂">Leon</span>
+            <span class="char-badge char-badge-grace" data-en="Grace" data-zh="格蕾丝">Grace</span>
+          </div>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div><span class="overview-stat-num">5</span><div class="overview-stat-label" data-en="Chapters" data-zh="章节数">Chapters</div></div>
+        <div><span class="overview-stat-num">2</span><div class="overview-stat-label" data-en="Antique Coins" data-zh="古董金币">Antique Coins</div></div>
+        <div><span class="overview-stat-num">8</span><div class="overview-stat-label" data-en="Mr. Raccoons" data-zh="浣熊先生">Mr. Raccoons</div></div>
+        <div class="overview-desc" data-en="The ARK is the most linear area of the game. Both protagonists are playable here. Contains a Point of No Return before the final boss — make sure you've collected everything before passing through. The ending is determined by the Final Puzzle, not earlier choices." data-zh="方舟是最线性的区域，两名主角同时可操控。核心检查站前有一个不可返回点——通过前务必收集完所有道具。结局完全由最终谜题的输入决定，与之前的剧情选择无关。">The ARK is the most linear area. Both protagonists are playable. Contains a Point of No Return — collect everything before passing through. The ending is determined by the Final Puzzle.</div>
+      </div>
+
+      <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;⛔ POINT OF NO RETURN:&lt;/strong&gt; The ARK Core Checkpoint door is irreversible. Before entering, confirm: Mr. Raccoons #18–22 ✓ | All Antique Coins ✓ | All Files ✓" data-zh="&lt;strong&gt;⛔ 不可返回点警告：&lt;/strong&gt;方舟核心检查站大门是单向通道，进去就无法回头。确认浣熊先生 #18~22、所有古董金币、所有文件已全部收集再通过。"><strong>⛔ POINT OF NO RETURN:</strong> The ARK Core Checkpoint door is irreversible. Before entering, confirm: Mr. Raccoons #18–22 ✓ | All Antique Coins ✓ | All Files ✓</div></div>
+
+      <div class="quick-links">
+        <a href="puzzles.html#ark" class="quick-link"><div class="quick-link-icon">🔐</div><div class="quick-link-text"><strong data-en="ARK Safe + Final Puzzle" data-zh="方舟保险箱 + 最终谜题">ARK Safe + Final Puzzle</strong><span data-en="Safe #7 code &amp; ending solutions" data-zh="7号箱密码与结局解法">Safe #7 code &amp; ending solutions</span></div></a>
+        <a href="collectibles.html#mr-raccoon" class="quick-link"><div class="quick-link-icon">🦝</div><div class="quick-link-text"><strong data-en="Mr. Raccoon #18–25" data-zh="浣熊先生 #18~25">Mr. Raccoon #18–25</strong><span data-en="Some missable on Insanity!" data-zh="部分可错过，注意！">Some missable on Insanity!</span></div></a>
+        <a href="bosses.html#emily" class="quick-link"><div class="quick-link-icon">💀</div><div class="quick-link-text"><strong data-en="Mutated Emily" data-zh="突变艾米莉">Mutated Emily</strong><span data-en="Scripted encounter explained" data-zh="演出说明">Scripted encounter explained</span></div></a>
+      </div>
+
+      <div class="chapter-list">
+        <div class="chapter-card" id="ark-hangar">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">01</span>
+            <span class="chapter-title" data-en="ARK Hangar &amp; Entry" data-zh="方舟机库与进入">ARK Hangar &amp; Entry</span>
+            <span class="chapter-meta" data-en="Both characters — Area arrival" data-zh="双主角 — 抵达终章">Both characters — Area arrival</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Both Leon and Grace arrive at the ARK separately. The Hangar is a large open area — clear it thoroughly before moving on. Enemies here are faster and more aggressive." data-zh="里昂和格蕾丝分别抵达方舟机库。机库是大型开放区域——先彻底清场再前进，此处敌人速度和攻击力均有提升。">Both Leon and Grace arrive at the ARK separately. The Hangar is a large open area — clear it thoroughly. Enemies here are faster and more aggressive.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #18&lt;/strong&gt; is on top of a cargo container near the east entrance — climb the smaller containers to reach the top surface." data-zh="&lt;strong&gt;浣熊先生 #18&lt;/strong&gt;在机库东入口附近的货运集装箱顶部，爬上小箱子才能到达大箱子顶面。"><strong>Mr. Raccoon #18</strong> is on top of a cargo container near the east entrance — climb the smaller containers to reach the top surface.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Red equipment cart near the entrance: &lt;strong&gt;Antique Coin #16&lt;/strong&gt;." data-zh="入口附近红色设备推车上拿走&lt;strong&gt;古董金币 #16&lt;/strong&gt;。">Red equipment cart near the entrance: <strong>Antique Coin #16</strong>.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="&lt;strong&gt;Merchant's Stall&lt;/strong&gt; in the southwest corner — last upgrade opportunity in the game. Prioritize Magnum damage upgrades if available." data-zh="机库西南角有&lt;strong&gt;商人摊位&lt;/strong&gt;，这是全游戏的最后一次升级机会，优先升级马格南伤害（如果还没升）。"><strong>Merchant's Stall</strong> in the southwest corner — last upgrade opportunity in the game. Prioritize Magnum damage upgrades if available.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="ark-labs">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">02</span>
+            <span class="chapter-title" data-en="Research Labs A &amp; B" data-zh="研究室A和B">Research Labs A &amp; B</span>
+            <span class="chapter-meta" data-en="Both characters — Key safe + collectibles" data-zh="双主角 — 关键保险箱与收集品">Both characters — Key safe + collectibles</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #19&lt;/strong&gt; in Lab A inside the specimen containment unit. The Lab Keycard is found in the same room — check the desk near the entrance." data-zh="A研究室：&lt;strong&gt;浣熊先生 #19&lt;/strong&gt;在样本保存箱内，用同室桌边的实验室通行证才能打开箱子。"><strong>Mr. Raccoon #19</strong> in Lab A inside the specimen containment unit. The Lab Keycard is found in the same room — check the desk near the entrance.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #20&lt;/strong&gt; in Lab B on the typewriter desk — right at the save point. Save first, then collect it." data-zh="B研究室：&lt;strong&gt;浣熊先生 #20&lt;/strong&gt;就在打字机旁边的桌上，和存档点紧靠着，先存档再拿。"><strong>Mr. Raccoon #20</strong> in Lab B on the typewriter desk — right at the save point. Save first, then collect it.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="Lab A sample freezer, second compartment: &lt;strong&gt;Antique Coin #17&lt;/strong&gt;." data-zh="A研究室冷冻箱第二格取走&lt;strong&gt;古董金币 #17&lt;/strong&gt;。">Lab A sample freezer, second compartment: <strong>Antique Coin #17</strong>.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Open &lt;strong&gt;Safe #7&lt;/strong&gt; in Lab B: &lt;strong&gt;R92 · L24 · R46&lt;/strong&gt; (Normal). Contains &lt;strong&gt;Override Manual + Steroids&lt;/strong&gt; — most valuable safe in the game." data-zh="开B研究室的&lt;strong&gt;7号保险箱&lt;/strong&gt;（打字机旁）：&lt;strong&gt;右92 · 左24 · 右46&lt;/strong&gt;（普通）。内含&lt;strong&gt;覆盖手册 + 类固醇&lt;/strong&gt;——全游戏最有价值的保险箱。">Open <strong>Safe #7</strong> in Lab B: <strong>R92 · L24 · R46</strong> (Normal). Contains <strong>Override Manual + Steroids</strong> — most valuable safe in the game.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="Collect &lt;strong&gt;Files #68 and #69&lt;/strong&gt; (Product Catalogs) from Lab B — these are the clues for the Final Puzzle. Read them carefully." data-zh="B研究室取走&lt;strong&gt;68号和69号文件&lt;/strong&gt;（产品目录1和2）——这两份文件是最终谜题的答案线索，认真读。">Collect <strong>Files #68 and #69</strong> (Product Catalogs) from Lab B — these are the clues for the Final Puzzle. Read them carefully.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="ark-tower">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">03</span>
+            <span class="chapter-title" data-en="Control Tower &amp; Point of No Return" data-zh="控制塔与不可返回点">Control Tower &amp; Point of No Return</span>
+            <span class="chapter-meta" data-en="Both characters — Last collectible chance" data-zh="双主角 — 最后收集机会">Both characters — Last collectible chance</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #21&lt;/strong&gt; on Control Tower Level 3, behind the main console panel — crouch to see it behind the desk." data-zh="&lt;strong&gt;浣熊先生 #21&lt;/strong&gt;在控制塔3层主控台后方，蹲下才能看到桌子背面。"><strong>Mr. Raccoon #21</strong> on Control Tower Level 3, behind the main console panel — crouch to see it behind the desk.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="The ARK Core Corridor leads to the Point of No Return door. &lt;strong&gt;Mr. Raccoon #22&lt;/strong&gt; is on a pipe junction 20m before the door — your last chance on Insanity." data-zh="方舟核心走廊通往不可返回点。在门前20米的管道接头处有&lt;strong&gt;浣熊先生 #22&lt;/strong&gt;——这是进终章门前的&lt;strong&gt;最后机会&lt;/strong&gt;。">The ARK Core Corridor leads to the Point of No Return door. <strong>Mr. Raccoon #22</strong> is on a pipe junction 20m before the door — last chance on Insanity.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Final checklist before the Point of No Return door:&lt;/strong&gt; Mr. Raccoons #18–22 ✓ | All Antique Coins ✓ | Files #68 &amp; #69 in inventory ✓ | Ammo stocked ✓" data-zh="&lt;strong&gt;通过终章门前的最终清单：&lt;/strong&gt;浣熊先生 #18~22 ✓ | 全部古董金币 ✓ | 68、69号文件在包里 ✓ | 弹药充足 ✓"><strong>Final checklist before the Point of No Return door:</strong> Mr. Raccoons #18–22 ✓ | All Antique Coins ✓ | Files #68 &amp; #69 in inventory ✓ | Ammo stocked ✓</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Enter the ARK Core Checkpoint door when ready. This transition is permanent and cannot be reversed." data-zh="准备好后进入方舟核心检查站大门，不可回头。">Enter the ARK Core Checkpoint door when ready. This transition is permanent and cannot be reversed.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="ark-emily">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">04</span>
+            <span class="chapter-title" data-en="Boss: Mutated Emily &amp; Core Chamber" data-zh="BOSS：突变艾米莉 &amp; 核心舱">Boss: Mutated Emily &amp; Core Chamber</span>
+            <span class="chapter-meta" data-en="Leon — Scripted encounter" data-zh="里昂 — 剧情演出">Leon — Scripted encounter</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Just past the Point of No Return door: collect &lt;strong&gt;Mr. Raccoon #23&lt;/strong&gt; on the left wall, and &lt;strong&gt;Mr. Raccoon #24&lt;/strong&gt; on the second console tier facing Grace's terminal." data-zh="进入不可返回门后立刻：&lt;strong&gt;浣熊先生 #23&lt;/strong&gt;在左侧墙上，&lt;strong&gt;浣熊先生 #24&lt;/strong&gt;在第二层控制台朝向格蕾丝终端的位置。">Just past the Point of No Return door: collect <strong>Mr. Raccoon #23</strong> on the left wall, and <strong>Mr. Raccoon #24</strong> on the second console tier facing Grace's terminal.</div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Mr. Raccoon #25&lt;/strong&gt; is hidden inside the broken monitor on the west wall — shoot the screen to reveal it, then shoot the statue." data-zh="&lt;strong&gt;浣熊先生 #25&lt;/strong&gt;藏在西墙破损显示器内——射击屏幕让雕像露出来，再射击雕像。"><strong>Mr. Raccoon #25</strong> is hidden inside the broken monitor on the west wall — shoot the screen to reveal it, then shoot the statue.</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="The Mutated Emily encounter is &lt;strong&gt;fully scripted&lt;/strong&gt; — no gameplay punishment. When prompted, shoot her. Do NOT hesitate or reload a save. This does NOT cause the bad ending." data-zh="突变艾米莉的遭遇是&lt;strong&gt;全程剧情演出&lt;/strong&gt;，无实际战斗惩罚。出现提示时射击艾米莉即可，不要犹豫，不要重新读档。射击她&lt;strong&gt;不会&lt;/strong&gt;导致坏结局。">The Mutated Emily encounter is <strong>fully scripted</strong> — no gameplay punishment. When prompted, shoot her. Do NOT hesitate or reload a save. This does NOT cause the bad ending.</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="After the encounter, both Leon and Grace reconvene at the Final Puzzle terminals." data-zh="遭遇结束后，里昂和格蕾丝在最终谜题终端前汇合。">After the encounter, both Leon and Grace reconvene at the Final Puzzle terminals.</div></li>
+            </ul>
+            <div class="warning-box"><div class="warning-text" data-en="&lt;strong&gt;Common mistake:&lt;/strong&gt; Players reload thinking shooting Emily causes the bad ending. It does NOT. The ending is 100% determined by the Final Puzzle inputs — not this encounter." data-zh="&lt;strong&gt;常见误解：&lt;/strong&gt;很多玩家以为射击艾米莉会触发坏结局而重读档。这是错误的。结局完全由最终谜题的输入决定，与艾米莉遭遇无关。"><strong>Common mistake:</strong> Players reload thinking shooting Emily causes the bad ending. It does NOT. The ending is 100% determined by the Final Puzzle inputs — not this encounter.</div></div>
+          </div>
+        </div>
+
+        <div class="chapter-card" id="ark-final">
+          <div class="chapter-header" onclick="toggleChapter(this)">
+            <span class="chapter-num">05</span>
+            <span class="chapter-title" data-en="Final Puzzle &amp; Game Ending" data-zh="最终谜题与游戏结局">Final Puzzle &amp; Game Ending</span>
+            <span class="chapter-meta" data-en="Both characters — Ending branch" data-zh="双主角 — 结局分支">Both characters — Ending branch</span>
+            <span class="chapter-toggle">▼</span>
+          </div>
+          <div class="chapter-body">
+            <ul class="step-list">
+              <li class="step-item"><span class="step-num">01</span><div class="step-text" data-en="Two terminals appear: one for Grace, one for Leon. Both must be solved for the true ending. In solo mode, Leon's terminal auto-locks after Grace completes hers — &lt;strong&gt;solve Grace's terminal first.&lt;/strong&gt;" data-zh="场景出现两台终端，一台给格蕾丝，一台给里昂。双终端均正确输入才能获得真结局。单人模式下，里昂的终端在格蕾丝完成后自动锁定——&lt;strong&gt;先输入格蕾丝的。&lt;/strong&gt;">Two terminals appear: one for Grace, one for Leon. Both must be solved for the true ending. In solo mode, Leon's auto-locks after Grace completes hers — <strong>solve Grace's terminal first.</strong></div></li>
+              <li class="step-item"><span class="step-num">02</span><div class="step-text" data-en="&lt;strong&gt;Grace's Terminal (True Ending):&lt;/strong&gt; BLOOD → MEMORY → REQUIEM → REBIRTH" data-zh="&lt;strong&gt;格蕾丝终端（真结局）：&lt;/strong&gt;血液 → 记忆 → 安魂 → 重生&lt;br&gt;（英文：BLOOD · MEMORY · REQUIEM · REBIRTH）"><strong>Grace's Terminal (True Ending):</strong> BLOOD → MEMORY → REQUIEM → REBIRTH</div></li>
+              <li class="step-item"><span class="step-num">03</span><div class="step-text" data-en="&lt;strong&gt;Leon's Terminal (True Ending):&lt;/strong&gt; TRUTH → SACRIFICE → ORDER → RELEASE" data-zh="&lt;strong&gt;里昂终端（真结局）：&lt;/strong&gt;真相 → 牺牲 → 秩序 → 解脱&lt;br&gt;（英文：TRUTH · SACRIFICE · ORDER · RELEASE）"><strong>Leon's Terminal (True Ending):</strong> TRUTH → SACRIFICE → ORDER → RELEASE</div></li>
+              <li class="step-item"><span class="step-num">04</span><div class="step-text" data-en="Both correct inputs trigger the &lt;strong&gt;Release Elpis true ending cutscene&lt;/strong&gt; — approximately 12 minutes long, showing Emily's survival and the aftermath." data-zh="双终端均正确后触发&lt;strong&gt;「释放厄尔庇斯」真结局&lt;/strong&gt;过场，约12分钟长，展示艾米莉的存活与后续。">Both correct inputs trigger the <strong>Release Elpis true ending cutscene</strong> — approximately 12 minutes long, showing Emily's survival and the aftermath.</div></li>
+              <li class="step-item"><span class="step-num">05</span><div class="step-text" data-en="After the credits: &lt;strong&gt;New Game+&lt;/strong&gt; unlocks (weapons carried over), &lt;strong&gt;Insanity difficulty&lt;/strong&gt; unlocks (if not already), and post-game CP farming and infinite ammo systems become accessible." data-zh="字幕结束后解锁：&lt;strong&gt;New Game+&lt;/strong&gt;（保留武器和升级）、&lt;strong&gt;疯狂难度&lt;/strong&gt;（如尚未解锁）、通关后CP刷取和无限弹药系统。">After the credits: <strong>New Game+</strong> unlocks (weapons carried over), <strong>Insanity difficulty</strong> unlocks, and post-game CP farming and infinite ammo systems become accessible.</div></li>
+            </ul>
+            <div class="tip-box"><div class="tip-text" data-en="&lt;strong&gt;Full final puzzle guide:&lt;/strong&gt; See &lt;a href='puzzles.html#special' style='color:var(--amber)'&gt;Final Puzzle Solution&lt;/a&gt; for both ending branches and spoiler context." data-zh="&lt;strong&gt;完整谜题说明：&lt;/strong&gt;见 &lt;a href='puzzles.html#special' style='color:var(--amber)'&gt;最终谜题详细解析&lt;/a&gt;，包含另一结局分支的输入方式。"><strong>Full final puzzle guide:</strong> See <a href="puzzles.html#special" style="color:var(--amber)">Final Puzzle Solution</a> for both ending branches and spoiler context.</div></div>
+            <div class="loot-box">
+              <div class="loot-label" data-en="Post-Game Unlocks" data-zh="通关后解锁内容">Post-Game Unlocks</div>
+              <div class="loot-items">
+                <span class="loot-item" data-en="New Game+ (weapons carry over)" data-zh="New Game+（武器保留）">New Game+ (weapons carry over)</span>
+                <span class="loot-item" data-en="Insanity Difficulty" data-zh="疯狂难度">Insanity Difficulty</span>
+                <span class="loot-item" data-en="Infinite Ammo (unlock via CP)" data-zh="无限弹药（CP兑换）">Infinite Ammo (unlock via CP)</span>
+                <span class="loot-item" data-en="Classic Costume DLC access" data-zh="经典服装DLC权限">Classic Costume DLC access</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end ark -->
+
+  </main>
+</div><!-- end layout -->
+
+<footer>
+  <a href="index.html" class="footer-logo">RE<span>9</span>GUIDE</a>
+  <div class="footer-note" data-en="Fan-made guide · Not affiliated with Capcom · Resident Evil Requiem © 2026 Capcom Co., Ltd." data-zh="非官方玩家攻略站 · 与 Capcom 无关联 · 生化危机安魂曲 © 2026 Capcom Co., Ltd.">Fan-made guide · Not affiliated with Capcom · Resident Evil Requiem © 2026 Capcom Co., Ltd.</div>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  function toggleChapter(header) {
+    header.parentElement.classList.toggle('open');
+  }
+  // Sidebar active link on scroll
+  const sections = document.querySelectorAll('[id]');
+  const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    sidebarLinks.forEach(a => { a.classList.toggle('current', a.getAttribute('href') === '#' + current); });
+  });
+  // Area tab highlight on scroll
+  const areaTabs = document.querySelectorAll('.area-tab');
+  const areaBlocks = document.querySelectorAll('.area-block');
+  window.addEventListener('scroll', () => {
+    areaBlocks.forEach((block, i) => {
+      const rect = block.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom >= 120) {
+        areaTabs.forEach(t => t.classList.remove('active'));
+        if (areaTabs[i]) areaTabs[i].classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
