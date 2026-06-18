@@ -2,47 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Homepage -->
   <url>
-    <loc>https://re9guide.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://re9guide.com/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://re9guide.com/"/>
+    <loc>https://re9-guide-bilingual.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://re9-guide-bilingual.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://re9-guide-bilingual.vercel.app/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Walkthrough -->
   <url>
-    <loc>https://re9guide.com/walkthrough</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://re9guide.com/walkthrough"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://re9guide.com/walkthrough"/>
+    <loc>https://re9-guide-bilingual.vercel.app/walkthrough.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://re9-guide-bilingual.vercel.app/walkthrough.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://re9-guide-bilingual.vercel.app/walkthrough.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Puzzles & Safe Codes -->
   <url>
-    <loc>https://re9guide.com/puzzles</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://re9guide.com/puzzles"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://re9guide.com/puzzles"/>
+    <loc>https://re9-guide-bilingual.vercel.app/puzzles.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://re9-guide-bilingual.vercel.app/puzzles.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://re9-guide-bilingual.vercel.app/walkthrough.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Boss Guide -->
   <url>
-    <loc>https://re9guide.com/bosses</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://re9guide.com/bosses"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://re9guide.com/bosses"/>
+    <loc>https://re9-guide-bilingual.vercel.app/bosses.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://re9-guide-bilingual.vercel.app/bosses.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://re9-guide-bilingual.vercel.app/bosses.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Collectibles -->
   <url>
-    <loc>https://re9guide.com/collectibles</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://re9guide.com/collectibles"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://re9guide.com/collectibles"/>
+    <loc>https://re9-guide-bilingual.vercel.app/collectibles.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://re9-guide-bilingual.vercel.app/collectibles.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://re9-guide-bilingual.vercel.app/collectibles.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
